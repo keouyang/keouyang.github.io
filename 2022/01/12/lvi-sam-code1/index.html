@@ -15,15 +15,14 @@
 <meta property="og:site_name" content="KOY-blog">
 <meta property="og:description" content="LVI-SAM代码注释">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/01/12/lvi-sam-code1/imuPreintegration.jpg">
-<meta property="og:image" content="http://example.com/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png">
-<meta property="og:image" content="http://example.com/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png">
-<meta property="article:published_time" content="2022-01-12T02:02:42.821Z">
-<meta property="article:modified_time" content="2022-01-12T02:02:42.821Z">
+<meta property="og:image" content="http://example.com/2022/01/12/lvi-sam-code1/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png">
+<meta property="og:image" content="http://example.com/2022/01/12/lvi-sam-code1/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png">
+<meta property="article:published_time" content="2022-01-12T15:09:16.206Z">
+<meta property="article:modified_time" content="2022-01-12T15:09:16.206Z">
 <meta property="article:author" content="OUYANG">
 <meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/01/12/lvi-sam-code1/imuPreintegration.jpg">
+<meta name="twitter:image" content="http://example.com/2022/01/12/lvi-sam-code1/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png">
   
     <link rel="alternative" href="/atom.xml" title="KOY-blog" type="application/atom+xml">
   
@@ -196,14 +195,15 @@ var _hmt = _hmt || [];
 <span id="more"></span>
 <h2 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h2><p><em><strong>从节点关系图入手<br>在配置好环境之后运行roslaunch lvi_sam run.launch<br>之后使用rqt_graph查看节点和话题之间的连通关系<br>主要节点分别是/lvi_sam_imuPreintegration(IMU预积分点)/lvi_sam_mapOptmization(因子图优化节点) ,/lvi_sam_featureExtraction(激光雷达特征点提取节点) , /lvi_sam_imageProjection(生成深度图),/lvi_sam_visual_feature(生成视觉特征点),/lvi_sam_visual_loop(回环检测), /lvi_sam_visual_odometry(视觉里程计)</strong></em></p>
 <ol>
-<li><p>Node:lvi_sam_imuPreintegration<br><img src="imuPreintegration.jpg" alt="lvi_sam_imuPreintegration"></p>
+<li><p>Node:lvi_sam_imuPreintegration</p>
+
 <ol>
 <li>输入<br>原始imu数据<br>雷达里程计的信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ros::Subscriber subImu;//在类里面定义</span><br><span class="line"></span><br><span class="line">ros::Subscriber subOdometry;	//在IMUPreintegration()中</span><br><span class="line"></span><br><span class="line">subImu = nh.subscribe&lt;sensor_msgs::Imu&gt; (imuTopic, 2000, &amp;IMUPreintegration::imuHandler, this, ros::TransportHints().tcpNoDelay());</span><br><span class="line"></span><br><span class="line">subOdometry = nh.subscribe&lt;nav_msgs::Odometry&gt;(PROJECT_NAME + &quot;/lidar/mapping/odometry&quot;, 5, &amp;IMUPreintegration::odometryHandler, this, ros::TransportHints().tcpNoDelay());</span><br></pre></td></tr></table></figure></li>
 <li>输出<br>imu里程计信息<br>imu的path<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ros::Publisher pubImuOdometry;</span><br><span class="line"></span><br><span class="line">ros::Publisher pubImuPath;</span><br><span class="line"></span><br><span class="line">pubImuOdometry = nh.advertise&lt;nav_msgs::Odometry&gt; (&quot;odometry/imu&quot;, 2000);</span><br><span class="line">pubImuPath = nh.advertise&lt;nav_msgs::Path&gt; (PROJECT_NAME + &quot;/lidar/imu/path&quot;, 1);</span><br></pre></td></tr></table></figure></li>
 </ol>
 <ul>
-<li>imu/path单纯用于rviz的显示 *<br><img src="/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png" alt="imu/path"></li>
-<li>/odometry/imu 作为视觉里程计的输入，辅助视觉里程计初始化 *<br><img src="/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png" alt="/odometry/imu"></li>
+<li>imu/path单纯用于rviz的显示 *<br><img src="imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png" alt="imu/path"></li>
+<li>/odometry/imu 作为视觉里程计的输入，辅助视觉里程计初始化 *<br><img src="imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png" alt="/odometry/imu"></li>
 </ul>
 </li>
 <li><p>Node: lvi_sam_imuPreintegration</p>
@@ -318,15 +318,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2022/01/12/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2022/01/12/hexo_optimization/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
