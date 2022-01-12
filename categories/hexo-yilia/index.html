@@ -6,21 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Category: hexo,yilia | KOY-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#基于yilia主题优化bolg的页面和功能  ##注意#如果是注释的开头不能顶格写##1.配置所有文章选项点击全部文章会出现问题，找不到文章终端先到blog目录下*执行 npm i hexo-generator-json-content –save *在_config.yml文件下增加下列内容，注意每一行对应的间隔数,和冒号之后的空格 123456789101112131415161718jso">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2022/01/11/hexo_optimization/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#基于yilia主题优化bolg的页面和功能  ##注意#如果是注释的开头不能顶格写##1.配置所有文章选项点击全部文章会出现问题，找不到文章终端先到blog目录下*执行 npm i hexo-generator-json-content –save *在_config.yml文件下增加下列内容，注意每一行对应的间隔数,和冒号之后的空格 123456789101112131415161718jso">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-01-11T15:47:18.708Z">
-<meta property="article:modified_time" content="2022-01-11T15:47:18.708Z">
-<meta property="article:author" content="John Doe">
+  <meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KOY-blog">
+<meta property="og:url" content="http://example.com/categories/hexo-yilia/index.html">
+<meta property="og:site_name" content="KOY-blog">
+<meta property="og:description" content="个人技术博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="OUYANG">
+<meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="KOY-blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/img/father_come.jpg">
@@ -36,6 +35,8 @@
 
   
 
+  
+  <meta name="keywords" content="Hexo,c++,slam">
   
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -155,170 +156,120 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo_optimization" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
+    
       
-        <p>#基于yilia主题优化bolg的页面和功能</p>
-<hr>
-<p>##注意#如果是注释的开头不能顶格写<br>##1.配置所有文章选项<br><strong>点击全部文章会出现问题，找不到文章</strong><br><em>终端先到blog目录下</em><br>*执行 npm i hexo-generator-json-content –save *<br><em>在_config.yml文件下增加下列内容，注意每一行对应的间隔数,和冒号之后的空格</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">    meta: false</span><br><span class="line">    pages: false</span><br><span class="line">    posts:</span><br><span class="line">      title: true</span><br><span class="line">      date: true</span><br><span class="line">      path: true</span><br><span class="line">      text: false</span><br><span class="line">      raw: false</span><br><span class="line">      content: false</span><br><span class="line">      slug: false</span><br><span class="line">      updated: false</span><br><span class="line">      comments: false</span><br><span class="line">      link: false</span><br><span class="line">      permalink: false</span><br><span class="line">      excerpt: false</span><br><span class="line">      categories: false</span><br><span class="line">      tags: true</span><br></pre></td></tr></table></figure>
-<hr>
-<p>##hexo配置sitemap和keywords<br><strong>主要是对搭建的blog进行简单的seo，比如给每篇文章加上keywords,以及生成sitemap.xml文件，方便搜索引擎的搜索</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//终端转到blog目录下</span><br><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-<p><strong>在blog的根目录下找到_config.yml文件，增加如下代码</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">    path: sitemap.xml</span><br></pre></td></tr></table></figure>
-<p><strong>设置hexo博客的关键字</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//在blog的_config.yml下修改，采用英文逗号隔开，注意kewords和关键字之间的空格</span><br><span class="line"> # Site</span><br><span class="line">title: 站点标题</span><br><span class="line">subtitle: 站点副标题</span><br><span class="line">description: 站点描述</span><br><span class="line">author: 站点作者timeiidzone:</span><br><span class="line">keywords: 前端博客,JavaScript,html5,css3,Jquery,NodeJs,Ubuntu（#博客关键字） </span><br></pre></td></tr></table></figure>
-<p><strong>设置文章的关键字</strong><br><strong>需要在blog/themes/yilia/layout/_partial下找到head.ejs文件，添加如下代码</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (page.keywords)&#123; %&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&lt;%= page.keywords %&gt;,&lt;%= config.keywords %&gt;&quot;&gt;</span><br><span class="line">&lt;% &#125; else if (config.keywords)&#123; %&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&lt;%= config.keywords %&gt;&quot;&gt;</span><br><span class="line">&lt;%&#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>上述代码的意思可以解释为：如果页面有关键字，使用页面关键字，否则使用配置文件的关键字</strong><br><strong>在文章开头加入keywords</strong><br><strong>不要在代码框内加—会出现问题！！！</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: ###</span><br><span class="line">date: ###</span><br><span class="line">categories: ###</span><br><span class="line">tags: ###</span><br><span class="line">keywords: ###</span><br></pre></td></tr></table></figure>
-<hr>
-<p>##hexo设置主题头像等图片<br><strong>存放位置</strong></p>
-<hr>
-<p>存放在/themes/yilia/source/的任意位置，可以自己新建一个文件夹，如assets，然后在assets下建立img文件夹</p>
-<hr>
-<p><strong>文件的配置</strong></p>
-<hr>
-<p>配置文件为/themes/yilia/_config.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root: /themes/yilia/source/ ##设置根目录</span><br><span class="line"> # 微信二维码图片</span><br><span class="line">weixin:  /assets/img/wechat.png</span><br><span class="line"> # 头像图片</span><br><span class="line">avatar:  /assets/img/head.jpg</span><br><span class="line"> # 网页图标</span><br><span class="line">favicon:  /assets/img/head.jpg</span><br></pre></td></tr></table></figure>
-
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>thanks<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/doit.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/01/12/hexo_picture_pro/" class="archive-article-date">
+  	<time datetime="2022-01-12T01:17:29.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/01/12/hexo_picture_pro/">解决hexo插入图片无法正常显示</a>
+    </h1>
+  
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/11/hexo_optimization/" alt="微信分享二维码">
-    </div>
-</div>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hexo-yilia//" class="article-tag-list-link color1">hexo,yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-  
-    <a href="/2022/01/11/lvi-sam-code1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LVI-SAM代码注释</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/01/12/hexo_optimization/" class="archive-article-date">
+  	<time datetime="2022-01-12T01:16:27.427Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/01/12/hexo_optimization/">基于yilia主题优化bolg的页面和功能</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hexo-yilia//" class="article-tag-list-link color1">hexo,yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -328,7 +279,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 John Doe
+    		&copy; 2022 OUYANG
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -341,10 +292,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
@@ -412,6 +363,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
             
             <div class="clearfix"></div>

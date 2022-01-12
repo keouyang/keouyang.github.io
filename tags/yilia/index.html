@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>LVI-SAM代码注释 | Hexo</title>
+  <title>Tag: yilia | KOY-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LVI-SAM代码注释总体概述从节点关系图入手在配置好环境之后运行roslaunch lvi_sam run.launch之后使用rqt_graph查看节点和话题之间的连通关系主要节点分别是&#x2F;lvi_sam_imuPreintegration(IMU预积分点)&#x2F;lvi_sam_mapOptmization(因子图优化节点) ,&#x2F;lvi_sam_featureExtraction(激光雷达特征点提取">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LVI-SAM代码注释">
-<meta property="og:url" content="http://example.com/2022/01/11/lvi-sam-code1/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="LVI-SAM代码注释总体概述从节点关系图入手在配置好环境之后运行roslaunch lvi_sam run.launch之后使用rqt_graph查看节点和话题之间的连通关系主要节点分别是&#x2F;lvi_sam_imuPreintegration(IMU预积分点)&#x2F;lvi_sam_mapOptmization(因子图优化节点) ,&#x2F;lvi_sam_featureExtraction(激光雷达特征点提取">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/01/11/lvi-sam-code1/imuPreintegration.jpg">
-<meta property="og:image" content="http://example.com/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png">
-<meta property="og:image" content="http://example.com/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png">
-<meta property="article:published_time" content="2022-01-11T15:36:56.543Z">
-<meta property="article:modified_time" content="2022-01-11T15:36:56.551Z">
-<meta property="article:author" content="John Doe">
+  <meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KOY-blog">
+<meta property="og:url" content="http://example.com/tags/yilia/index.html">
+<meta property="og:site_name" content="KOY-blog">
+<meta property="og:description" content="个人技术博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="OUYANG">
+<meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/01/11/lvi-sam-code1/imuPreintegration.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="KOY-blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/img/father_come.jpg">
@@ -41,7 +36,7 @@
   
 
   
-  <meta name="keywords" content="LVI-SAM,">
+  <meta name="keywords" content="Hexo,c++,slam">
   
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -161,195 +156,120 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-lvi-sam-code1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      LVI-SAM代码注释
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/01/12/hexo_picture_pro/" class="archive-article-date">
+  	<time datetime="2022-01-12T01:17:29.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/01/12/hexo_picture_pro/">解决hexo插入图片无法正常显示</a>
     </h1>
   
 
-        
-        <a href="/2022/01/11/lvi-sam-code1/" class="archive-article-date">
-  	<time datetime="2022-01-11T15:36:56.543Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="LVI-SAM代码注释"><a href="#LVI-SAM代码注释" class="headerlink" title="LVI-SAM代码注释"></a>LVI-SAM代码注释</h1><h2 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h2><p><em><strong>从节点关系图入手<br>在配置好环境之后运行roslaunch lvi_sam run.launch<br>之后使用rqt_graph查看节点和话题之间的连通关系<br>主要节点分别是/lvi_sam_imuPreintegration(IMU预积分点)/lvi_sam_mapOptmization(因子图优化节点) ,/lvi_sam_featureExtraction(激光雷达特征点提取节点) , /lvi_sam_imageProjection(生成深度图),/lvi_sam_visual_feature(生成视觉特征点),/lvi_sam_visual_loop(回环检测), /lvi_sam_visual_odometry(视觉里程计)</strong></em></p>
-<ol>
-<li><p>Node:lvi_sam_imuPreintegration<br><img src="imuPreintegration.jpg" alt="lvi_sam_imuPreintegration"></p>
-<ol>
-<li>输入<br>原始imu数据<br>雷达里程计的信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ros::Subscriber subImu;//在类里面定义</span><br><span class="line"></span><br><span class="line">ros::Subscriber subOdometry;	//在IMUPreintegration()中</span><br><span class="line"></span><br><span class="line">subImu = nh.subscribe&lt;sensor_msgs::Imu&gt; (imuTopic, 2000, &amp;IMUPreintegration::imuHandler, this, ros::TransportHints().tcpNoDelay());</span><br><span class="line"></span><br><span class="line">subOdometry = nh.subscribe&lt;nav_msgs::Odometry&gt;(PROJECT_NAME + &quot;/lidar/mapping/odometry&quot;, 5, &amp;IMUPreintegration::odometryHandler, this, ros::TransportHints().tcpNoDelay());</span><br></pre></td></tr></table></figure></li>
-<li>输出<br>imu里程计信息<br>imu的path<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ros::Publisher pubImuOdometry;</span><br><span class="line"></span><br><span class="line">ros::Publisher pubImuPath;</span><br><span class="line"></span><br><span class="line">pubImuOdometry = nh.advertise&lt;nav_msgs::Odometry&gt; (&quot;odometry/imu&quot;, 2000);</span><br><span class="line">pubImuPath = nh.advertise&lt;nav_msgs::Path&gt; (PROJECT_NAME + &quot;/lidar/imu/path&quot;, 1);</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>imu/path单纯用于rviz的显示 *<br><img src="/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png" alt="imu/path"></li>
-<li>/odometry/imu 作为视觉里程计的输入，辅助视觉里程计初始化 *<br><img src="/home/koy/%E6%A1%8C%E9%9D%A2/slam-english/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png" alt="/odometry/imu"></li>
-</ul>
-</li>
-<li><p>Node: lvi_sam_imuPreintegration</p>
-</li>
-</ol>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>thanks<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/doit.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/slam//" class="article-tag-list-link color5">slam</a>
+        			<a href="/categories/hexo-yilia//" class="article-tag-list-link color1">hexo,yilia</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/11/lvi-sam-code1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2022/01/11/hexo_optimization/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/01/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hello world</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/01/12/hexo_optimization/" class="archive-article-date">
+  	<time datetime="2022-01-12T01:16:27.427Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/01/12/hexo_optimization/">基于yilia主题优化bolg的页面和功能</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hexo-yilia//" class="article-tag-list-link color1">hexo,yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -359,7 +279,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 John Doe
+    		&copy; 2022 OUYANG
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -372,9 +292,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -443,6 +363,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
             
             <div class="clearfix"></div>
