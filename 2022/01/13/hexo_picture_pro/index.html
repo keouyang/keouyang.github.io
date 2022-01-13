@@ -15,13 +15,11 @@
 <meta property="og:site_name" content="KOY-blog">
 <meta property="og:description" content="解决hexo插入图片无法正常显示">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/xxx.jpg">
-<meta property="article:published_time" content="2022-01-13T06:53:51.885Z">
-<meta property="article:modified_time" content="2022-01-13T06:53:51.889Z">
+<meta property="article:published_time" content="2022-01-13T08:31:50.371Z">
+<meta property="article:modified_time" content="2022-01-13T08:31:50.375Z">
 <meta property="article:author" content="OUYANG">
 <meta property="article:tag" content="yilia">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/xxx.jpg">
   
     <link rel="alternative" href="/atom.xml" title="KOY-blog" type="application/atom+xml">
   
@@ -198,7 +196,9 @@ var _hmt = _hmt || [];
 <h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p><strong>首先需要修改_config.yml文件中的配置post_asset_folder设为true后，执行命令hexo new 文章名，在source/_posts中会生成与文章名相同的文件夹和一个文章名.md文件，将对应的图片放入对应的source/_posts文件夹下。即可使用相对路径引用图片资源。</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><em><strong>尝试过网上的教程，10个教程9个一模一样</strong></em><br><strong>在多次google之后总算找到了解决方法</strong><br><strong>1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</strong><br><strong>2.直接在md文件中调用图片即可，使用<img src="/images/xxx.jpg" alt="图片描述"></strong></p>
+<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><strong>尝试过网上的教程，10个教程9个一模一样</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在多次google之后总算找到了解决方法</span><br><span class="line">1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</span><br><span class="line">2.直接在md文件中调用图片即可，使用![图片描述](/images/xxx.jpg)</span><br></pre></td></tr></table></figure>
+
 
       
 
