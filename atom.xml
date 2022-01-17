@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>KOY-blog</title>
+  <icon>http://example.com/icon.png</icon>
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-01-17T07:26:24.616Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>OUYANG</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数参数</title>
+    <link href="http://example.com/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/"/>
+    <id>http://example.com/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</id>
+    <published>2022-01-17T03:22:43.000Z</published>
+    <updated>2022-01-17T07:26:24.616Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;函数详解——参数&quot;&gt;&lt;a href=&quot;#函数详解——参数&quot; class=&quot;headerlink&quot; title=&quot;函数详解——参数&quot;&gt;&lt;/a&gt;函数详解——参数&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;函数可以在函数头的小括号中包含0到多个形参&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="c++ 函数" scheme="http://example.com/tags/c-%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/01/13/lvi-sam-code1/"/>
+    <id>http://example.com/2022/01/13/lvi-sam-code1/</id>
+    <published>2022-01-13T08:31:56.391Z</published>
+    <updated>2022-01-13T08:31:56.391Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;LVI-SAM代码注释&quot;&gt;&lt;a href=&quot;#LVI-SAM代码注释&quot; class=&quot;headerlink&quot; title=&quot;LVI-SAM代码注释&quot;&gt;&lt;/a&gt;LVI-SAM代码注释&lt;/h1&gt;&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="slam" scheme="http://example.com/categories/slam/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/01/13/hexo_picture_pro/"/>
+    <id>http://example.com/2022/01/13/hexo_picture_pro/</id>
+    <published>2022-01-13T08:31:50.371Z</published>
+    <updated>2022-01-13T08:31:50.375Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;解决hexo插入图片无法正常显示&quot;&gt;&lt;a href=&quot;#解决hexo插入图片无法正常显示&quot; class=&quot;headerlink&quot; title=&quot;解决hexo插入图片无法正常显示&quot;&gt;&lt;/a&gt;解决hexo插入图片无法正常显示&lt;/h1&gt;&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="hexo,yilia" scheme="http://example.com/categories/hexo-yilia/"/>
+    
+    
+    <category term="yilia" scheme="http://example.com/tags/yilia/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/01/12/hexo_optimization/"/>
+    <id>http://example.com/2022/01/12/hexo_optimization/</id>
+    <published>2022-01-12T14:34:25.120Z</published>
+    <updated>2022-01-12T14:34:25.120Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;基于yilia主题优化bolg的页面和功能&quot;&gt;&lt;a href=&quot;#基于yilia主题优化bolg的页面和功能&quot; class=&quot;headerlink&quot; title=&quot;基于yilia主题优化bolg的页面和功能&quot;&gt;&lt;/a&gt;基于yilia主题优化bolg的页面和功能&lt;/h1&gt;&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="hexo,yilia" scheme="http://example.com/categories/hexo-yilia/"/>
+    
+    
+    <category term="yilia" scheme="http://example.com/tags/yilia/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/01/12/hexo-blog/"/>
+    <id>http://example.com/2022/01/12/hexo-blog/</id>
+    <published>2022-01-12T02:05:01.431Z</published>
+    <updated>2022-01-12T02:05:01.431Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;hexo-blog框架的搭建&quot;&gt;&lt;a href=&quot;#hexo-blog框架的搭建&quot; class=&quot;headerlink&quot; title=&quot;hexo-blog框架的搭建&quot;&gt;&lt;/a&gt;hexo-blog框架的搭建&lt;/h1&gt;&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="hexo" scheme="http://example.com/categories/hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/01/12/hello-world/"/>
+    <id>http://example.com/2022/01/12/hello-world/</id>
+    <published>2022-01-12T02:03:59.338Z</published>
+    <updated>2022-01-12T02:03:59.338Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;hello-world&quot;&gt;&lt;a href=&quot;#hello-world&quot; class=&quot;headerlink&quot; title=&quot;hello world&quot;&gt;&lt;/a&gt;hello world&lt;/h1&gt;&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="slam" scheme="http://example.com/categories/slam/"/>
+    
+    
+  </entry>
+  
+</feed>

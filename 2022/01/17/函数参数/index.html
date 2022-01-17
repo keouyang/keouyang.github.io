@@ -20,31 +20,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KOY-blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="函数详解——参数 函数可以在函数头的小括号中包含0到多个形参- 包含零个形参时，可以使用void显式标记- 对于非模板函数来说，其每个形参都有确定的类型，但形参可以没有名称- 形参名称的变化并不会引入函数的不同版本，在函数重载时需要注意- 实参到形参的拷贝求值顺序不定，编译器的类型和语言的版本都会影响，c++17强制省略复制临时对象如 int{} 在传递参数时，不会调用拷贝构造函数  函数传值、传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数参数">
+<meta property="og:url" content="http://example.com/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/index.html">
 <meta property="og:site_name" content="KOY-blog">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="函数详解——参数 函数可以在函数头的小括号中包含0到多个形参- 包含零个形参时，可以使用void显式标记- 对于非模板函数来说，其每个形参都有确定的类型，但形参可以没有名称- 形参名称的变化并不会引入函数的不同版本，在函数重载时需要注意- 实参到形参的拷贝求值顺序不定，编译器的类型和语言的版本都会影响，c++17强制省略复制临时对象如 int{} 在传递参数时，不会调用拷贝构造函数  函数传值、传">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-17T03:22:43.000Z">
+<meta property="article:modified_time" content="2022-01-17T07:26:24.616Z">
 <meta property="article:author" content="OUYANG">
-<meta property="article:tag" content="Hexo,c++,slam">
+<meta property="article:tag" content="c++ 函数">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>KOY-blog</title>
+  <title>函数参数 | KOY-blog</title>
   
 
 
@@ -201,9 +203,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -219,10 +222,9 @@
       <meta itemprop="name" content="KOY-blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" class="post-title-link" itemprop="url">函数参数</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          函数参数
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -235,7 +237,14 @@
               <time title="创建时间：2022-01-17 11:22:43 / 修改时间：15:26:24" itemprop="dateCreated datePublished" datetime="2022-01-17T11:22:43+08:00">2022-01-17</time>
             </span>
 
-          <br>
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -260,7 +269,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="函数详解——参数"><a href="#函数详解——参数" class="headerlink" title="函数详解——参数"></a>函数详解——参数</h1><hr>
+        <h1 id="函数详解——参数"><a href="#函数详解——参数" class="headerlink" title="函数详解——参数"></a>函数详解——参数</h1><hr>
 <h2 id="函数可以在函数头的小括号中包含0到多个形参"><a href="#函数可以在函数头的小括号中包含0到多个形参" class="headerlink" title="函数可以在函数头的小括号中包含0到多个形参"></a>函数可以在函数头的小括号中包含0到多个形参</h2><p><strong>- 包含零个形参时，可以使用void显式标记</strong><br><strong>- 对于非模板函数来说，其每个形参都有确定的类型，但形参可以没有名称</strong><br><strong>- 形参名称的变化并不会引入函数的不同版本，在函数重载时需要注意</strong><br><strong>- 实参到形参的拷贝求值顺序不定，编译器的类型和语言的版本都会影响，c++17强制省略复制临时对象如 int{} 在传递参数时，不会调用拷贝构造函数</strong></p>
 <hr>
 <h2 id="函数传值、传址、传引用"><a href="#函数传值、传址、传引用" class="headerlink" title="函数传值、传址、传引用"></a>函数传值、传址、传引用</h2><p><strong>传值，传递参数的value不会对外面的参数产生影响，一边调用拷贝构造，构建一个临时对象，对内存会产生额外的消耗</strong><br><strong>传址，即传递参数的地址，传递的一般是指针，会对传递的参数造成影响</strong><br><strong>传引用，本质上也是传递参数的地址，是传递参数的别名，会对传递的参数造成影响</strong></p>
@@ -274,461 +283,33 @@
 <h2 id="main函数的两个版本"><a href="#main函数的两个版本" class="headerlink" title="main函数的两个版本"></a>main函数的两个版本</h2><p><strong>- 带参数：iny agrc,char * argv[],argc代表传递给main的参数个数，agrc指向传递的字符串数组的首地址，argc最后面增加了一个空字符串，argv[0]不止代表了生成的可执行文件的名称</strong></p>
 <hr>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/c-%E5%87%BD%E6%95%B0/" rel="tag"># c++ 函数</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/13/lvi-sam-code1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/13/lvi-sam-code1/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-13 16:31:56" itemprop="dateCreated datePublished" datetime="2022-01-13T16:31:56+08:00">2022-01-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/slam/" itemprop="url" rel="index"><span itemprop="name">slam</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="LVI-SAM代码注释"><a href="#LVI-SAM代码注释" class="headerlink" title="LVI-SAM代码注释"></a>LVI-SAM代码注释</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/13/lvi-sam-code1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/13/hexo_picture_pro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/13/hexo_picture_pro/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-13 16:31:50" itemprop="dateCreated datePublished" datetime="2022-01-13T16:31:50+08:00">2022-01-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-yilia/" itemprop="url" rel="index"><span itemprop="name">hexo,yilia</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/13/hexo_picture_pro/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/13/lvi-sam-code1/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/hexo_optimization/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/12/hexo_optimization/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-12 22:34:25" itemprop="dateCreated datePublished" datetime="2022-01-12T22:34:25+08:00">2022-01-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-yilia/" itemprop="url" rel="index"><span itemprop="name">hexo,yilia</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基于yilia主题优化bolg的页面和功能"><a href="#基于yilia主题优化bolg的页面和功能" class="headerlink" title="基于yilia主题优化bolg的页面和功能"></a>基于yilia主题优化bolg的页面和功能</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/12/hexo_optimization/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/hexo-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/12/hexo-blog/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-12 10:05:01" itemprop="dateCreated datePublished" datetime="2022-01-12T10:05:01+08:00">2022-01-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="hexo-blog框架的搭建"><a href="#hexo-blog框架的搭建" class="headerlink" title="hexo-blog框架的搭建"></a>hexo-blog框架的搭建</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/12/hexo-blog/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/12/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/12/hello-world/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-12 10:03:59" itemprop="dateCreated datePublished" datetime="2022-01-12T10:03:59+08:00">2022-01-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/slam/" itemprop="url" rel="index"><span itemprop="name">slam</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/12/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -781,6 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94%E5%8F%82%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">函数详解——参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E5%87%BD%E6%95%B0%E5%A4%B4%E7%9A%84%E5%B0%8F%E6%8B%AC%E5%8F%B7%E4%B8%AD%E5%8C%85%E5%90%AB0%E5%88%B0%E5%A4%9A%E4%B8%AA%E5%BD%A2%E5%8F%82"><span class="nav-number">1.1.</span> <span class="nav-text">函数可以在函数头的小括号中包含0到多个形参</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BC%A0%E5%80%BC%E3%80%81%E4%BC%A0%E5%9D%80%E3%80%81%E4%BC%A0%E5%BC%95%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">函数传值、传址、传引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E9%80%80%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">函数传参过程中的类型退化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%95%BF%E5%8F%82%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">变长参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%AE%9A%E4%B9%89%E7%BC%BA%E7%9C%81%E5%AE%9E%E5%8F%82"><span class="nav-number">1.5.</span> <span class="nav-text">函数可以定义缺省实参</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC"><span class="nav-number">1.6.</span> <span class="nav-text">main函数的两个版本</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title></title>
+    <url>/2022/01/12/hexo-blog/</url>
+    <content><![CDATA[<h1 id="hexo-blog框架的搭建"><a href="#hexo-blog框架的搭建" class="headerlink" title="hexo-blog框架的搭建"></a>hexo-blog框架的搭建</h1><hr>
+<span id="more"></span>
+<h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><ol>
+<li>安装node.js<br>node -v #查看node的版本</li>
+<li>安装npm包管理器<br>npm -v #查看npm的版本</li>
+<li>利用npm安装cnmp淘宝的源<br>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本</li>
+</ol>
+<hr>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><ol>
+<li>cnpm install -g hexo-cli    #安装hexo框架</li>
+<li>hexo -v #查看hexo的版本</li>
+</ol>
+<hr>
+<h2 id="创建blog"><a href="#创建blog" class="headerlink" title="创建blog"></a>创建blog</h2><ol>
+<li>pwd 查看当前路径</li>
+<li>mkdir blog    #创建blog目录<br>如果搭建blog过程中出现问题，可以把刚刚创建的blog文件夹删除，重新开始</li>
+<li>cd blog<br>hexo init #初始化一个blog 我这边没有加sudo，感觉也还行<br>结束后可以在blog文件夹下查看生成的文件</li>
+<li>启动blog hexo start 简写：hexo s</li>
+<li>hexo n “blog名” 新建一篇文章<br>将在source/_posts/下生成</li>
+<li>cd 到blog下<br>hexo clean #清理一下<br>hexo generate 简写hexo g 生成</li>
+<li>hexo s -p 端口号 暂时修改启动端口<br>hexo s 默认启动端口为4000，可能被占用</li>
+</ol>
+<hr>
+<h2 id="将blog部署到github"><a href="#将blog部署到github" class="headerlink" title="将blog部署到github"></a>将blog部署到github</h2><ol>
+<li>登陆github,new repository</li>
+<li>命名仓库<br>必须是自己的昵称.github.io</li>
+<li>create</li>
+<li>在blog目录下安装一个部署到git的插件<br>cnpm install –save hexo-deployer-git #在blog目录下安装git部署插件</li>
+<li>设置_config.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/keouyang/keouyang.github.io.git #仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li>
+<li>部署到远端<br>hexo d<br>现在不能用账号密码登陆，需要去github上申请令牌<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</li>
+<li>更换blog主题<br>cd blog<br>git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到blog下的themes<br>修改_config.yml文件<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: yilia #使用的主题</span><br></pre></td></tr></table></figure>
+hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到git</li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/01/12/hello-world/</url>
+    <content><![CDATA[<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1><hr>
+<span id="more"></span>
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>slam</category>
+      </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/01/12/hexo_optimization/</url>
+    <content><![CDATA[<h1 id="基于yilia主题优化bolg的页面和功能"><a href="#基于yilia主题优化bolg的页面和功能" class="headerlink" title="基于yilia主题优化bolg的页面和功能"></a>基于yilia主题优化bolg的页面和功能</h1><hr>
+<span id="more"></span>
+<h2 id="注意-如果是注释的开头不能顶格写"><a href="#注意-如果是注释的开头不能顶格写" class="headerlink" title="注意#如果是注释的开头不能顶格写"></a>注意#如果是注释的开头不能顶格写</h2><h2 id="1-配置所有文章选项"><a href="#1-配置所有文章选项" class="headerlink" title="1.配置所有文章选项"></a>1.配置所有文章选项</h2><p>** 点击全部文章会出现问题，找不到文章 **</p>
+<ul>
+<li>终端先到blog目录下 *</li>
+<li>执行 npm i hexo-generator-json-content –save *</li>
+<li>在_config.yml文件下增加下列内容，注意每一行对应的间隔数,和冒号之后的空格 *<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">    meta: false</span><br><span class="line">    pages: false</span><br><span class="line">    posts:</span><br><span class="line">      title: true</span><br><span class="line">      date: true</span><br><span class="line">      path: true</span><br><span class="line">      text: false</span><br><span class="line">      raw: false</span><br><span class="line">      content: false</span><br><span class="line">      slug: false</span><br><span class="line">      updated: false</span><br><span class="line">      comments: false</span><br><span class="line">      link: false</span><br><span class="line">      permalink: false</span><br><span class="line">      excerpt: false</span><br><span class="line">      categories: false</span><br><span class="line">      tags: true</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="hexo配置sitemap和keywords"><a href="#hexo配置sitemap和keywords" class="headerlink" title="hexo配置sitemap和keywords"></a>hexo配置sitemap和keywords</h2><p><strong>主要是对搭建的blog进行简单的seo，比如给每篇文章加上keywords,以及生成sitemap.xml文件，方便搜索引擎的搜索</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//终端转到blog目录下</span><br><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<p><strong>在blog的根目录下找到_config.yml文件，增加如下代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">    path: sitemap.xml</span><br></pre></td></tr></table></figure>
+<p><strong>设置hexo博客的关键字</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在blog的_config.yml下修改，采用英文逗号隔开，注意kewords和关键字之间的空格</span><br><span class="line"> # Site</span><br><span class="line">title: 站点标题</span><br><span class="line">subtitle: 站点副标题</span><br><span class="line">description: 站点描述</span><br><span class="line">author: 站点作者timeiidzone:</span><br><span class="line">keywords: 前端博客,JavaScript,html5,css3,Jquery,NodeJs,Ubuntu（#博客关键字） </span><br></pre></td></tr></table></figure>
+<p><strong>设置文章的关键字</strong><br><strong>需要在blog/themes/yilia/layout/_partial下找到head.ejs文件，添加如下代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% if (page.keywords)&#123; %&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&lt;%= page.keywords %&gt;,&lt;%= config.keywords %&gt;&quot;&gt;</span><br><span class="line">&lt;% &#125; else if (config.keywords)&#123; %&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&lt;%= config.keywords %&gt;&quot;&gt;</span><br><span class="line">&lt;%&#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>** 上述代码的意思可以解释为：如果页面有关键字，使用页面关键字，否则使用配置文件的关键字 **<br>** 在文章开头加入keywords **<br>** 不要在代码框内加 - - - 会出现问题！！！**</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: ###</span><br><span class="line">date: ###</span><br><span class="line">categories: ###</span><br><span class="line">tags: ###</span><br><span class="line">keywords: ###</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="hexo设置主题头像等图片"><a href="#hexo设置主题头像等图片" class="headerlink" title="hexo设置主题头像等图片"></a>hexo设置主题头像等图片</h2><p><strong>存放位置</strong></p>
+<hr>
+<p>存放在/themes/yilia/source/的任意位置，可以自己新建一个文件夹，如assets，然后在assets下建立img文件夹</p>
+<hr>
+<p><strong>文件的配置</strong></p>
+<hr>
+<p>配置文件为/themes/yilia/_config.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root: /themes/yilia/source/ ##设置根目录</span><br><span class="line"> # 微信二维码图片</span><br><span class="line">weixin:  /assets/img/wechat.png</span><br><span class="line"> # 头像图片</span><br><span class="line">avatar:  /assets/img/head.jpg</span><br><span class="line"> # 网页图标</span><br><span class="line">favicon:  /assets/img/head.jpg</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="hexo设置主页标签和个性签名"><a href="#hexo设置主页标签和个性签名" class="headerlink" title="hexo设置主页标签和个性签名"></a>hexo设置主页标签和个性签名</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在全局配置文件_config.yml中进行如下的修改</span><br><span class="line">title: KOY  //站点标题</span><br><span class="line">subtitle: KOY  //站点副标题</span><br><span class="line">description: 个人技术博客  //站点描述</span><br><span class="line">keywords: 前端博客，后端博客 //博客关键字</span><br><span class="line">author: OUYANG  //作者</span><br><span class="line">language: zh-CN  </span><br><span class="line">timezone:</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">以上的修改只能改变改变屏幕左下角的名字和网页的名字，如果想要修改头像下面的昵称需要修改yilia目录下的_config.yml文件，加上以下内容</span><br><span class="line">- - - -</span><br></pre></td></tr></table></figure>
+<h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><p>title: KOY<br>subtitle:<br>description: 个人技术博客<br>keywords: Hexo,c++,slam<br>author: OUYANG<br>language: zh-CN<br>timezone:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- - - -</span><br><span class="line">个性签名也在此文件aboutme处修改</span><br><span class="line">- - - -</span><br><span class="line">## 设置文章只显示摘要</span><br><span class="line">- - - -</span><br><span class="line">在_posts的md文件中正文里面添加 &lt;!--more--&gt; </span><br><span class="line">将显示more上面的内容作为文章的摘要，下面内容将隐藏，点击more将显示全文</span><br><span class="line">- - - -</span><br></pre></td></tr></table></figure>
+<p> #通过修改下面文字，可以改变链接的文字<br>excerpt_link: more //例如我将其改称展开说说</p>
+<pre><code>- - - -
+## 参考文献
+- - - -
+*** https://tding.top/archives/9a232bbe.html ***
+*** https://www.cnblogs.com/codecheng99/p/12380700.html ***
+*** https://lrqq.github.io/2020/08/02/hexo-yilia/ ***
+*** https://fuhailin.github.io/Hexo-images/ ***
+*** https://www.gaotianyang.top/archives/20200717e10c0cde/ ***
+</code></pre>
+]]></content>
+      <categories>
+        <category>hexo,yilia</category>
+      </categories>
+      <tags>
+        <tag>yilia</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/01/13/hexo_picture_pro/</url>
+    <content><![CDATA[<h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
+<span id="more"></span>
+<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p><strong>图片只能放在source文件夹下可以建立一个名为image的文件夹，自己尝试放在其他地方发现不可行</strong><br><em>调用图片的方法</em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片的描述](/image/xxx.png)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p><strong>首先需要修改_config.yml文件中的配置post_asset_folder设为true后，执行命令hexo new 文章名，在source/_posts中会生成与文章名相同的文件夹和一个文章名.md文件，将对应的图片放入对应的source/_posts文件夹下。即可使用相对路径引用图片资源。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><strong>尝试过网上的教程，10个教程9个一模一样</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在多次google之后总算找到了解决方法</span><br><span class="line">1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</span><br><span class="line">2.直接在md文件中调用图片即可，使用![图片描述](/images/xxx.jpg)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>hexo,yilia</category>
+      </categories>
+      <tags>
+        <tag>yilia</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/01/13/lvi-sam-code1/</url>
+    <content><![CDATA[<h1 id="LVI-SAM代码注释"><a href="#LVI-SAM代码注释" class="headerlink" title="LVI-SAM代码注释"></a>LVI-SAM代码注释</h1><hr>
+<span id="more"></span>
+<h2 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h2><p><em><strong>从节点关系图入手<br>在配置好环境之后运行roslaunch lvi_sam run.launch<br>之后使用rqt_graph查看节点和话题之间的连通关系<br>主要节点分别是/lvi_sam_imuPreintegration(IMU预积分点)/lvi_sam_mapOptmization(因子图优化节点) ,/lvi_sam_featureExtraction(激光雷达特征点提取节点) , /lvi_sam_imageProjection(生成深度图),/lvi_sam_visual_feature(生成视觉特征点),/lvi_sam_visual_loop(回环检测), /lvi_sam_visual_odometry(视觉里程计)</strong></em></p>
+<p>1.Node:lvi_sam_imuPreintegration<br><img src="/images/imuPreintegration.jpg" alt="imu/path"><br>    1. 输入<br>    原始imu数据<br>    雷达里程计的信息<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ros::Subscriber subImu;//在类里面定义</span><br><span class="line"></span><br><span class="line">ros::Subscriber subOdometry;	//在IMUPreintegration()中</span><br><span class="line"></span><br><span class="line">subImu = nh.subscribe&lt;sensor_msgs::Imu&gt; (imuTopic, 2000, &amp;IMUPreintegration::imuHandler, this, ros::TransportHints().tcpNoDelay());</span><br><span class="line"></span><br><span class="line">subOdometry = nh.subscribe&lt;nav_msgs::Odometry&gt;(PROJECT_NAME + &quot;/lidar/mapping/odometry&quot;, 5, &amp;IMUPreintegration::odometryHandler, this, ros::TransportHints().tcpNoDelay());</span><br></pre></td></tr></table></figure><br>    2. 输出<br>    imu里程计信息<br>    imu的path<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ros::Publisher pubImuOdometry;</span><br><span class="line"></span><br><span class="line">ros::Publisher pubImuPath;</span><br><span class="line"></span><br><span class="line">pubImuOdometry = nh.advertise&lt;nav_msgs::Odometry&gt; (&quot;odometry/imu&quot;, 2000);</span><br><span class="line">pubImuPath = nh.advertise&lt;nav_msgs::Path&gt; (PROJECT_NAME + &quot;/lidar/imu/path&quot;, 1);</span><br></pre></td></tr></table></figure><br>    * imu/path单纯用于rviz的显示 *<br>    <img src="/images/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png" alt="imu/path"><br>    * /odometry/imu 作为视觉里程计的输入，辅助视觉里程计初始化 *<br>    <img src="/images/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png" alt="/odometry/imu"></p>
+<ol start="2">
+<li>Node: lvi_sam_imuPreintegration</li>
+</ol>
+]]></content>
+      <categories>
+        <category>slam</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>函数参数</title>
+    <url>/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="函数详解——参数"><a href="#函数详解——参数" class="headerlink" title="函数详解——参数"></a>函数详解——参数</h1><hr>
+<h2 id="函数可以在函数头的小括号中包含0到多个形参"><a href="#函数可以在函数头的小括号中包含0到多个形参" class="headerlink" title="函数可以在函数头的小括号中包含0到多个形参"></a>函数可以在函数头的小括号中包含0到多个形参</h2><p><strong>- 包含零个形参时，可以使用void显式标记</strong><br><strong>- 对于非模板函数来说，其每个形参都有确定的类型，但形参可以没有名称</strong><br><strong>- 形参名称的变化并不会引入函数的不同版本，在函数重载时需要注意</strong><br><strong>- 实参到形参的拷贝求值顺序不定，编译器的类型和语言的版本都会影响，c++17强制省略复制临时对象如 int{} 在传递参数时，不会调用拷贝构造函数</strong></p>
+<hr>
+<h2 id="函数传值、传址、传引用"><a href="#函数传值、传址、传引用" class="headerlink" title="函数传值、传址、传引用"></a>函数传值、传址、传引用</h2><p><strong>传值，传递参数的value不会对外面的参数产生影响，一边调用拷贝构造，构建一个临时对象，对内存会产生额外的消耗</strong><br><strong>传址，即传递参数的地址，传递的一般是指针，会对传递的参数造成影响</strong><br><strong>传引用，本质上也是传递参数的地址，是传递参数的别名，会对传递的参数造成影响</strong></p>
+<hr>
+<h2 id="函数传参过程中的类型退化"><a href="#函数传参过程中的类型退化" class="headerlink" title="函数传参过程中的类型退化"></a>函数传参过程中的类型退化</h2><p><strong>一维数组退化成指针，二维数组退化成( * pair)[] 的指针，以此类推</strong></p>
+<hr>
+<h2 id="变长参数"><a href="#变长参数" class="headerlink" title="变长参数"></a>变长参数</h2><p><strong>- initializer _ list 但传递的参数类型都是一样的，实际上传递的是两个指针，一个指向列表的头，一个指向列表的尾部</strong><br><strong>- 可变长度模板参数，传入参数的类型可以不同</strong><br><strong>- 使用省略号表示形参，例如c语言print</strong></p>
+<hr>
+<h2 id="函数可以定义缺省实参"><a href="#函数可以定义缺省实参" class="headerlink" title="函数可以定义缺省实参"></a>函数可以定义缺省实参</h2><p><strong>- 缺省实参需要从右到左设定，如果某个形参具有缺省实参，那么它右侧的形参都必须有缺省实参</strong><br><strong>- 具有缺省实参的函数调用时，传入的实参会按照从左到右的顺序匹配形参</strong><br><strong>- 在一个翻译单元中，每个形参的缺省实参只能定义一次，在编译期进行匹配，可以多个文件配合使用</strong><br><strong>- 缺省实参为对象时，实参的缺省值会随对象值的变化而变化，例如int fun (int y=x),y的值随其前面x的变化而变化</strong></p>
+<hr>
+<h2 id="main函数的两个版本"><a href="#main函数的两个版本" class="headerlink" title="main函数的两个版本"></a>main函数的两个版本</h2><p><strong>- 带参数：iny agrc,char * argv[],argc代表传递给main的参数个数，agrc指向传递的字符串数组的首地址，argc最后面增加了一个空字符串，argv[0]不止代表了生成的可执行文件的名称</strong></p>
+<hr>
+]]></content>
+      <tags>
+        <tag>c++ 函数</tag>
+      </tags>
+  </entry>
+</search>
