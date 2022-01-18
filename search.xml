@@ -138,6 +138,7 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
     <title>函数-函数体</title>
     <url>/2022/01/18/%E5%87%BD%E6%95%B0-%E5%87%BD%E6%95%B0%E4%BD%93/</url>
     <content><![CDATA[<h1 id="函数体"><a href="#函数体" class="headerlink" title="函数体"></a>函数体</h1><hr>
+<span id="more"></span>
 <h2 id="函数体形成域"><a href="#函数体形成域" class="headerlink" title="函数体形成域"></a>函数体形成域</h2><p><strong>- 其中包含了自动对象（内部声明的对象以及形参对象）</strong><br><strong>- 也可包含局部静态对象，static</strong></p>
 <hr>
 <h2 id="函数体执行完成时的返回"><a href="#函数体执行完成时的返回" class="headerlink" title="函数体执行完成时的返回"></a>函数体执行完成时的返回</h2><p><strong>- 隐式返回，void</strong><br><strong>- 显示返回：return<br>        · return; 后面接其他语句<br>        · return 表达式；（返回类型要对应）<br>        · return 初始化列表；</strong><br><strong>-要注意当返回的对象为引用或指针时，不能返回临时对象的引用和指针</strong><br><strong>- 返回值优化（RVO）——C++17对临时对象的强制优化。返回时不调用拷贝构造函数，直接在返回值给到的对象地址进行操作，如x=fun();直接在x的地址上进行操作，在运行fun函数的时不再开辟其他空间。对于C++17对于临时对象强制进行上述操作。</strong></p>
@@ -152,6 +153,7 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
     <title>函数参数</title>
     <url>/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<h1 id="函数详解——参数"><a href="#函数详解——参数" class="headerlink" title="函数详解——参数"></a>函数详解——参数</h1><hr>
+<span id="more"></span>
 <h2 id="函数可以在函数头的小括号中包含0到多个形参"><a href="#函数可以在函数头的小括号中包含0到多个形参" class="headerlink" title="函数可以在函数头的小括号中包含0到多个形参"></a>函数可以在函数头的小括号中包含0到多个形参</h2><p><strong>- 包含零个形参时，可以使用void显式标记</strong><br><strong>- 对于非模板函数来说，其每个形参都有确定的类型，但形参可以没有名称</strong><br><strong>- 形参名称的变化并不会引入函数的不同版本，在函数重载时需要注意</strong><br><strong>- 实参到形参的拷贝求值顺序不定，编译器的类型和语言的版本都会影响，c++17强制省略复制临时对象如 int{} 在传递参数时，不会调用拷贝构造函数</strong></p>
 <hr>
 <h2 id="函数传值、传址、传引用"><a href="#函数传值、传址、传引用" class="headerlink" title="函数传值、传址、传引用"></a>函数传值、传址、传引用</h2><p><strong>传值，传递参数的value不会对外面的参数产生影响，一边调用拷贝构造，构建一个临时对象，对内存会产生额外的消耗</strong><br><strong>传址，即传递参数的地址，传递的一般是指针，会对传递的参数造成影响</strong><br><strong>传引用，本质上也是传递参数的地址，是传递参数的别名，会对传递的参数造成影响</strong></p>
@@ -174,6 +176,7 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
     <url>/2022/01/18/%E5%89%91%E6%8C%87Offer30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</url>
     <content><![CDATA[<p>#剑指 30 包含min函数的栈</p>
 <hr>
+<span id="more"></span>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</strong></p>
 <hr>
 <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>关键在与实时找到栈中的最小元素，使用两个栈，栈1正常的先进先出，存储所有的数据，栈2保存最小数据，只有当加入栈一的数据小于栈二的顶部数据时才会入栈二，当栈一弹出的数据为最小数据时，栈二才会弹出数据，此时栈二弹出的也是最小数据。</strong></p>

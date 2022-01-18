@@ -584,7 +584,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-18 11:32:44 / 修改时间：11:38:27" itemprop="dateCreated datePublished" datetime="2022-01-18T11:32:44+08:00">2022-01-18</time>
+              <time title="创建时间：2022-01-18 11:32:44 / 修改时间：11:49:37" itemprop="dateCreated datePublished" datetime="2022-01-18T11:32:44+08:00">2022-01-18</time>
             </span>
 
           <br>
@@ -614,12 +614,14 @@
       
           <p>#剑指 30 包含min函数的栈</p>
 <hr>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</strong></p>
-<hr>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>关键在与实时找到栈中的最小元素，使用两个栈，栈1正常的先进先出，存储所有的数据，栈2保存最小数据，只有当加入栈一的数据小于栈二的顶部数据时才会入栈二，当栈一弹出的数据为最小数据时，栈二才会弹出数据，此时栈二弹出的也是最小数据。</strong></p>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">class MinStack &#123;</span><br><span class="line">public:</span><br><span class="line">    /** initialize your data structure here. */</span><br><span class="line">    //使用两个栈，栈1正常的先进先出，存储所有的数据，栈2保存最小数据，只有当加入栈一的数据小于栈二的顶部数据时才会入栈二，当栈一弹出的数据为最小数据时，栈二才会弹出数据，此时栈二弹出的也是最小数据。</span><br><span class="line">    stack&lt;int&gt; stack_normal;//存储全部数据，正常先进后出</span><br><span class="line">    stack&lt;int&gt; stack_min;//只存储最小数据</span><br><span class="line">    MinStack() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void push(int x) &#123;</span><br><span class="line">        stack_normal.push(x);</span><br><span class="line">        if(stack_min.empty())&#123;//如果当前栈为空，直接压入最小栈</span><br><span class="line">            stack_min.push(x);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            if(stack_min.top() &gt;= x)//栈不为空则需要判断，最小栈的顶部数据是否大于等于当前压入normal栈的数据</span><br><span class="line">                stack_min.push(x);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void pop() &#123;</span><br><span class="line">        //首先需要判断栈是否为空</span><br><span class="line">        if(!stack_normal.empty())&#123;</span><br><span class="line">            //判断当前弹出的数据是否为最小值，即将stack_normal的top与stack_min的top进行比较</span><br><span class="line">            if(stack_normal.top() == stack_min.top())&#123;</span><br><span class="line">                stack_min.pop();</span><br><span class="line">                stack_normal.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            else stack_normal.pop();//否则只弹出stack_normal的顶部</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int top() &#123;</span><br><span class="line">        //首先判断是否为空</span><br><span class="line">        if(!stack_normal.empty())&#123;</span><br><span class="line">            return stack_normal.top();</span><br><span class="line">        &#125;</span><br><span class="line">        else return -1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int min() &#123;</span><br><span class="line">        //首先判断是否为空</span><br><span class="line">        if(!stack_normal.empty())&#123;</span><br><span class="line">            return stack_min.top();//最小值即为stack_min的顶部</span><br><span class="line">        &#125;</span><br><span class="line">        else return -1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Your MinStack object will be instantiated and called as such:</span><br><span class="line"> * MinStack* obj = new MinStack();</span><br><span class="line"> * obj-&gt;push(x);</span><br><span class="line"> * obj-&gt;pop();</span><br><span class="line"> * int param_3 = obj-&gt;top();</span><br><span class="line"> * int param_4 = obj-&gt;min();</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/18/%E5%89%91%E6%8C%87Offer30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -663,7 +665,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-18 09:13:13 / 修改时间：11:39:25" itemprop="dateCreated datePublished" datetime="2022-01-18T09:13:13+08:00">2022-01-18</time>
+              <time title="创建时间：2022-01-18 09:13:13 / 修改时间：11:49:32" itemprop="dateCreated datePublished" datetime="2022-01-18T09:13:13+08:00">2022-01-18</time>
             </span>
 
           <br>
@@ -692,12 +694,14 @@
 
       
           <h1 id="函数体"><a href="#函数体" class="headerlink" title="函数体"></a>函数体</h1><hr>
-<h2 id="函数体形成域"><a href="#函数体形成域" class="headerlink" title="函数体形成域"></a>函数体形成域</h2><p><strong>- 其中包含了自动对象（内部声明的对象以及形参对象）</strong><br><strong>- 也可包含局部静态对象，static</strong></p>
-<hr>
-<h2 id="函数体执行完成时的返回"><a href="#函数体执行完成时的返回" class="headerlink" title="函数体执行完成时的返回"></a>函数体执行完成时的返回</h2><p><strong>- 隐式返回，void</strong><br><strong>- 显示返回：return<br>        · return; 后面接其他语句<br>        · return 表达式；（返回类型要对应）<br>        · return 初始化列表；</strong><br><strong>-要注意当返回的对象为引用或指针时，不能返回临时对象的引用和指针</strong><br><strong>- 返回值优化（RVO）——C++17对临时对象的强制优化。返回时不调用拷贝构造函数，直接在返回值给到的对象地址进行操作，如x=fun();直接在x的地址上进行操作，在运行fun函数的时不再开辟其他空间。对于C++17对于临时对象强制进行上述操作。</strong></p>
-<hr>
-<h2 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h2><p><strong>- 经典方法：位于函数头的前部</strong><br><strong>- c++11引入的方式：位于函数头的后部</strong><br><strong>- c++14引入的方式：返回类型的自动推导auto<br>    ·使用constexpr if构造“具有不同返回类型”的函数，在编译器选择返回类型，在运行期返回类型唯一。</strong><br><strong>-返回类型与结构化绑定（C++17）,即返回的是一个结构体，可以直接使用auto[v1,v2]=fun(); fun{return str};</strong><br><strong>[[nodiscard]]属性加在函数体的类型前面，表明返回值很重要，提醒函数的使用者需要使用函数的返回值</strong></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/18/%E5%87%BD%E6%95%B0-%E5%87%BD%E6%95%B0%E4%BD%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -739,10 +743,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-17 11:22:43 / 修改时间：15:26:24" itemprop="dateCreated datePublished" datetime="2022-01-17T11:22:43+08:00">2022-01-17</time>
+              <time title="创建时间：2022-01-17 11:22:43" itemprop="dateCreated datePublished" datetime="2022-01-17T11:22:43+08:00">2022-01-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-18 11:49:26" itemprop="dateModified" datetime="2022-01-18T11:49:26+08:00">2022-01-18</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -770,19 +780,14 @@
 
       
           <h1 id="函数详解——参数"><a href="#函数详解——参数" class="headerlink" title="函数详解——参数"></a>函数详解——参数</h1><hr>
-<h2 id="函数可以在函数头的小括号中包含0到多个形参"><a href="#函数可以在函数头的小括号中包含0到多个形参" class="headerlink" title="函数可以在函数头的小括号中包含0到多个形参"></a>函数可以在函数头的小括号中包含0到多个形参</h2><p><strong>- 包含零个形参时，可以使用void显式标记</strong><br><strong>- 对于非模板函数来说，其每个形参都有确定的类型，但形参可以没有名称</strong><br><strong>- 形参名称的变化并不会引入函数的不同版本，在函数重载时需要注意</strong><br><strong>- 实参到形参的拷贝求值顺序不定，编译器的类型和语言的版本都会影响，c++17强制省略复制临时对象如 int{} 在传递参数时，不会调用拷贝构造函数</strong></p>
-<hr>
-<h2 id="函数传值、传址、传引用"><a href="#函数传值、传址、传引用" class="headerlink" title="函数传值、传址、传引用"></a>函数传值、传址、传引用</h2><p><strong>传值，传递参数的value不会对外面的参数产生影响，一边调用拷贝构造，构建一个临时对象，对内存会产生额外的消耗</strong><br><strong>传址，即传递参数的地址，传递的一般是指针，会对传递的参数造成影响</strong><br><strong>传引用，本质上也是传递参数的地址，是传递参数的别名，会对传递的参数造成影响</strong></p>
-<hr>
-<h2 id="函数传参过程中的类型退化"><a href="#函数传参过程中的类型退化" class="headerlink" title="函数传参过程中的类型退化"></a>函数传参过程中的类型退化</h2><p><strong>一维数组退化成指针，二维数组退化成( * pair)[] 的指针，以此类推</strong></p>
-<hr>
-<h2 id="变长参数"><a href="#变长参数" class="headerlink" title="变长参数"></a>变长参数</h2><p><strong>- initializer _ list 但传递的参数类型都是一样的，实际上传递的是两个指针，一个指向列表的头，一个指向列表的尾部</strong><br><strong>- 可变长度模板参数，传入参数的类型可以不同</strong><br><strong>- 使用省略号表示形参，例如c语言print</strong></p>
-<hr>
-<h2 id="函数可以定义缺省实参"><a href="#函数可以定义缺省实参" class="headerlink" title="函数可以定义缺省实参"></a>函数可以定义缺省实参</h2><p><strong>- 缺省实参需要从右到左设定，如果某个形参具有缺省实参，那么它右侧的形参都必须有缺省实参</strong><br><strong>- 具有缺省实参的函数调用时，传入的实参会按照从左到右的顺序匹配形参</strong><br><strong>- 在一个翻译单元中，每个形参的缺省实参只能定义一次，在编译期进行匹配，可以多个文件配合使用</strong><br><strong>- 缺省实参为对象时，实参的缺省值会随对象值的变化而变化，例如int fun (int y=x),y的值随其前面x的变化而变化</strong></p>
-<hr>
-<h2 id="main函数的两个版本"><a href="#main函数的两个版本" class="headerlink" title="main函数的两个版本"></a>main函数的两个版本</h2><p><strong>- 带参数：iny agrc,char * argv[],argc代表传递给main的参数个数，agrc指向传递的字符串数组的首地址，argc最后面增加了一个空字符串，argv[0]不止代表了生成的可执行文件的名称</strong></p>
-<hr>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
