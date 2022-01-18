@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2022/01/12/hexo-blog/</url>
+    <title>hexo-blog框架的搭建</title>
+    <url>/2022/01/18/hexo-blog/</url>
     <content><![CDATA[<h1 id="hexo-blog框架的搭建"><a href="#hexo-blog框架的搭建" class="headerlink" title="hexo-blog框架的搭建"></a>hexo-blog框架的搭建</h1><hr>
 <span id="more"></span>
 <h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><ol>
@@ -42,31 +42,30 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/01/12/hello-world/</url>
-    <content><![CDATA[<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1><hr>
+    <title>解决hexo插入图片无法正常显示</title>
+    <url>/2022/01/18/hexo_picture_pro/</url>
+    <content><![CDATA[<h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
 <span id="more"></span>
-<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p><strong>图片只能放在source文件夹下可以建立一个名为image的文件夹，自己尝试放在其他地方发现不可行</strong><br><em>调用图片的方法</em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片的描述](/image/xxx.png)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p><strong>首先需要修改_config.yml文件中的配置post_asset_folder设为true后，执行命令hexo new 文章名，在source/_posts中会生成与文章名相同的文件夹和一个文章名.md文件，将对应的图片放入对应的source/_posts文件夹下。即可使用相对路径引用图片资源。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><strong>尝试过网上的教程，10个教程9个一模一样</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在多次google之后总算找到了解决方法</span><br><span class="line">1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</span><br><span class="line">2.直接在md文件中调用图片即可，使用![图片描述](/images/xxx.jpg)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>slam</category>
+        <category>hexo,yilia</category>
       </categories>
+      <tags>
+        <tag>yilia</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/01/12/hexo_optimization/</url>
+    <title>基于yilia主题优化bolg的页面和功能</title>
+    <url>/2022/01/18/hexo_optimization/</url>
     <content><![CDATA[<h1 id="基于yilia主题优化bolg的页面和功能"><a href="#基于yilia主题优化bolg的页面和功能" class="headerlink" title="基于yilia主题优化bolg的页面和功能"></a>基于yilia主题优化bolg的页面和功能</h1><hr>
 <span id="more"></span>
 <h2 id="注意-如果是注释的开头不能顶格写"><a href="#注意-如果是注释的开头不能顶格写" class="headerlink" title="注意#如果是注释的开头不能顶格写"></a>注意#如果是注释的开头不能顶格写</h2><h2 id="1-配置所有文章选项"><a href="#1-配置所有文章选项" class="headerlink" title="1.配置所有文章选项"></a>1.配置所有文章选项</h2><p>** 点击全部文章会出现问题，找不到文章 **</p>
@@ -118,30 +117,8 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/01/13/hexo_picture_pro/</url>
-    <content><![CDATA[<h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
-<span id="more"></span>
-<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p><strong>图片只能放在source文件夹下可以建立一个名为image的文件夹，自己尝试放在其他地方发现不可行</strong><br><em>调用图片的方法</em></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片的描述](/image/xxx.png)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p><strong>首先需要修改_config.yml文件中的配置post_asset_folder设为true后，执行命令hexo new 文章名，在source/_posts中会生成与文章名相同的文件夹和一个文章名.md文件，将对应的图片放入对应的source/_posts文件夹下。即可使用相对路径引用图片资源。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><strong>尝试过网上的教程，10个教程9个一模一样</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在多次google之后总算找到了解决方法</span><br><span class="line">1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</span><br><span class="line">2.直接在md文件中调用图片即可，使用![图片描述](/images/xxx.jpg)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>hexo,yilia</category>
-      </categories>
-      <tags>
-        <tag>yilia</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/01/13/lvi-sam-code1/</url>
+    <title>LVI-SAM代码注释</title>
+    <url>/2022/01/18/lvi-sam-code1/</url>
     <content><![CDATA[<h1 id="LVI-SAM代码注释"><a href="#LVI-SAM代码注释" class="headerlink" title="LVI-SAM代码注释"></a>LVI-SAM代码注释</h1><hr>
 <span id="more"></span>
 <h2 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h2><p><em><strong>从节点关系图入手<br>在配置好环境之后运行roslaunch lvi_sam run.launch<br>之后使用rqt_graph查看节点和话题之间的连通关系<br>主要节点分别是/lvi_sam_imuPreintegration(IMU预积分点)/lvi_sam_mapOptmization(因子图优化节点) ,/lvi_sam_featureExtraction(激光雷达特征点提取节点) , /lvi_sam_imageProjection(生成深度图),/lvi_sam_visual_feature(生成视觉特征点),/lvi_sam_visual_loop(回环检测), /lvi_sam_visual_odometry(视觉里程计)</strong></em></p>
@@ -153,6 +130,23 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       <categories>
         <category>slam</category>
       </categories>
+      <tags>
+        <tag>LVI-SAM ; slam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>函数-函数体</title>
+    <url>/2022/01/18/%E5%87%BD%E6%95%B0-%E5%87%BD%E6%95%B0%E4%BD%93/</url>
+    <content><![CDATA[<h1 id="函数体"><a href="#函数体" class="headerlink" title="函数体"></a>函数体</h1><hr>
+<h2 id="函数体形成域"><a href="#函数体形成域" class="headerlink" title="函数体形成域"></a>函数体形成域</h2><p><strong>- 其中包含了自动对象（内部声明的对象以及形参对象）</strong><br><strong>- 也可包含局部静态对象，static</strong></p>
+<hr>
+<h2 id="函数体执行完成时的返回"><a href="#函数体执行完成时的返回" class="headerlink" title="函数体执行完成时的返回"></a>函数体执行完成时的返回</h2><p><strong>- 隐式返回，void</strong><br><strong>- 显示返回：return<br>        · return; 后面接其他语句<br>        · return 表达式；（返回类型要对应）<br>        · return 初始化列表；</strong><br><strong>-要注意当返回的对象为引用或指针时，不能返回临时对象的引用和指针</strong><br><strong>- 返回值优化（RVO）——C++17对临时对象的强制优化。返回时不调用拷贝构造函数，直接在返回值给到的对象地址进行操作，如x=fun();直接在x的地址上进行操作，在运行fun函数的时不再开辟其他空间。对于C++17对于临时对象强制进行上述操作。</strong></p>
+<hr>
+<h2 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h2><p><strong>- 经典方法：位于函数头的前部</strong><br><strong>- c++11引入的方式：位于函数头的后部</strong><br><strong>- c++14引入的方式：返回类型的自动推导auto<br>    ·使用constexpr if构造“具有不同返回类型”的函数，在编译器选择返回类型，在运行期返回类型唯一。</strong><br><strong>-返回类型与结构化绑定（C++17）,即返回的是一个结构体，可以直接使用auto[v1,v2]=fun(); fun{return str};</strong><br><strong>[[nodiscard]]属性加在函数体的类型前面，表明返回值很重要，提醒函数的使用者需要使用函数的返回值</strong></p>
+]]></content>
+      <tags>
+        <tag>c++ ; 函数</tag>
+      </tags>
   </entry>
   <entry>
     <title>函数参数</title>
@@ -173,6 +167,21 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
 ]]></content>
       <tags>
         <tag>c++ 函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>剑指Offer30-包含min函数的栈</title>
+    <url>/2022/01/18/%E5%89%91%E6%8C%87Offer30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</url>
+    <content><![CDATA[<p>#剑指 30 包含min函数的栈</p>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</strong></p>
+<hr>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>关键在与实时找到栈中的最小元素，使用两个栈，栈1正常的先进先出，存储所有的数据，栈2保存最小数据，只有当加入栈一的数据小于栈二的顶部数据时才会入栈二，当栈一弹出的数据为最小数据时，栈二才会弹出数据，此时栈二弹出的也是最小数据。</strong></p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class MinStack &#123;</span><br><span class="line">public:</span><br><span class="line">    /** initialize your data structure here. */</span><br><span class="line">    //使用两个栈，栈1正常的先进先出，存储所有的数据，栈2保存最小数据，只有当加入栈一的数据小于栈二的顶部数据时才会入栈二，当栈一弹出的数据为最小数据时，栈二才会弹出数据，此时栈二弹出的也是最小数据。</span><br><span class="line">    stack&lt;int&gt; stack_normal;//存储全部数据，正常先进后出</span><br><span class="line">    stack&lt;int&gt; stack_min;//只存储最小数据</span><br><span class="line">    MinStack() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void push(int x) &#123;</span><br><span class="line">        stack_normal.push(x);</span><br><span class="line">        if(stack_min.empty())&#123;//如果当前栈为空，直接压入最小栈</span><br><span class="line">            stack_min.push(x);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            if(stack_min.top() &gt;= x)//栈不为空则需要判断，最小栈的顶部数据是否大于等于当前压入normal栈的数据</span><br><span class="line">                stack_min.push(x);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void pop() &#123;</span><br><span class="line">        //首先需要判断栈是否为空</span><br><span class="line">        if(!stack_normal.empty())&#123;</span><br><span class="line">            //判断当前弹出的数据是否为最小值，即将stack_normal的top与stack_min的top进行比较</span><br><span class="line">            if(stack_normal.top() == stack_min.top())&#123;</span><br><span class="line">                stack_min.pop();</span><br><span class="line">                stack_normal.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            else stack_normal.pop();//否则只弹出stack_normal的顶部</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int top() &#123;</span><br><span class="line">        //首先判断是否为空</span><br><span class="line">        if(!stack_normal.empty())&#123;</span><br><span class="line">            return stack_normal.top();</span><br><span class="line">        &#125;</span><br><span class="line">        else return -1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int min() &#123;</span><br><span class="line">        //首先判断是否为空</span><br><span class="line">        if(!stack_normal.empty())&#123;</span><br><span class="line">            return stack_min.top();//最小值即为stack_min的顶部</span><br><span class="line">        &#125;</span><br><span class="line">        else return -1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Your MinStack object will be instantiated and called as such:</span><br><span class="line"> * MinStack* obj = new MinStack();</span><br><span class="line"> * obj-&gt;push(x);</span><br><span class="line"> * obj-&gt;pop();</span><br><span class="line"> * int param_3 = obj-&gt;top();</span><br><span class="line"> * int param_4 = obj-&gt;min();</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>leetcode ; min栈 ; leetcode</tag>
       </tags>
   </entry>
 </search>

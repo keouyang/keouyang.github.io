@@ -20,24 +20,18 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="LVI-SAM代码注释">
-<meta property="og:type" content="article">
+  <meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
 <meta property="og:title" content="KOY-blog">
-<meta property="og:url" content="http://example.com/2022/01/13/lvi-sam-code1/index.html">
+<meta property="og:url" content="http://example.com/tags/LVI-SAM-slam/index.html">
 <meta property="og:site_name" content="KOY-blog">
-<meta property="og:description" content="LVI-SAM代码注释">
+<meta property="og:description" content="个人技术博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/imuPreintegration.jpg">
-<meta property="og:image" content="http://example.com/images/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png">
-<meta property="og:image" content="http://example.com/images/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png">
-<meta property="article:published_time" content="2022-01-13T08:31:56.391Z">
-<meta property="article:modified_time" content="2022-01-13T08:31:56.391Z">
 <meta property="article:author" content="OUYANG">
 <meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/imuPreintegration.jpg">
 
-<link rel="canonical" href="http://example.com/2022/01/13/lvi-sam-code1/">
+<link rel="canonical" href="http://example.com/tags/LVI-SAM-slam/">
 
 
 <script id="page-configurations">
@@ -45,12 +39,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title> | KOY-blog</title>
+  <title>标签: LVI-SAM ; slam | KOY-blog</title>
   
 
 
@@ -131,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -141,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -207,115 +201,51 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content tag">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/13/lvi-sam-code1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-13 16:31:56" itemprop="dateCreated datePublished" datetime="2022-01-13T16:31:56+08:00">2022-01-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/slam/" itemprop="url" rel="index"><span itemprop="name">slam</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">LVI-SAM ; slam
+          <small>标签</small>
+        </h2>
+      </div>
 
       
-        <h1 id="LVI-SAM代码注释"><a href="#LVI-SAM代码注释" class="headerlink" title="LVI-SAM代码注释"></a>LVI-SAM代码注释</h1><hr>
-<span id="more"></span>
-<h2 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h2><p><em><strong>从节点关系图入手<br>在配置好环境之后运行roslaunch lvi_sam run.launch<br>之后使用rqt_graph查看节点和话题之间的连通关系<br>主要节点分别是/lvi_sam_imuPreintegration(IMU预积分点)/lvi_sam_mapOptmization(因子图优化节点) ,/lvi_sam_featureExtraction(激光雷达特征点提取节点) , /lvi_sam_imageProjection(生成深度图),/lvi_sam_visual_feature(生成视觉特征点),/lvi_sam_visual_loop(回环检测), /lvi_sam_visual_odometry(视觉里程计)</strong></em></p>
-<p>1.Node:lvi_sam_imuPreintegration<br><img src="/images/imuPreintegration.jpg" alt="imu/path"><br>    1. 输入<br>    原始imu数据<br>    雷达里程计的信息<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ros::Subscriber subImu;//在类里面定义</span><br><span class="line"></span><br><span class="line">ros::Subscriber subOdometry;	//在IMUPreintegration()中</span><br><span class="line"></span><br><span class="line">subImu = nh.subscribe&lt;sensor_msgs::Imu&gt; (imuTopic, 2000, &amp;IMUPreintegration::imuHandler, this, ros::TransportHints().tcpNoDelay());</span><br><span class="line"></span><br><span class="line">subOdometry = nh.subscribe&lt;nav_msgs::Odometry&gt;(PROJECT_NAME + &quot;/lidar/mapping/odometry&quot;, 5, &amp;IMUPreintegration::odometryHandler, this, ros::TransportHints().tcpNoDelay());</span><br></pre></td></tr></table></figure><br>    2. 输出<br>    imu里程计信息<br>    imu的path<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ros::Publisher pubImuOdometry;</span><br><span class="line"></span><br><span class="line">ros::Publisher pubImuPath;</span><br><span class="line"></span><br><span class="line">pubImuOdometry = nh.advertise&lt;nav_msgs::Odometry&gt; (&quot;odometry/imu&quot;, 2000);</span><br><span class="line">pubImuPath = nh.advertise&lt;nav_msgs::Path&gt; (PROJECT_NAME + &quot;/lidar/imu/path&quot;, 1);</span><br></pre></td></tr></table></figure><br>    * imu/path单纯用于rviz的显示 *<br>    <img src="/images/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png" alt="imu/path"><br>    * /odometry/imu 作为视觉里程计的输入，辅助视觉里程计初始化 *<br>    <img src="/images/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png" alt="/odometry/imu"></p>
-<ol start="2">
-<li>Node: lvi_sam_imuPreintegration</li>
-</ol>
-
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2022-01-18T11:40:02+08:00"
+              content="2022-01-18">
+          01-18
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/01/18/lvi-sam-code1/" itemprop="url">
+            <span itemprop="name">LVI-SAM代码注释</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/01/13/hexo_picture_pro/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/01/17/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" rel="next" title="函数参数">
-      函数参数 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
@@ -368,7 +298,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LVI-SAM%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">LVI-SAM代码注释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">总体概述</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -384,7 +313,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -397,7 +326,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -439,13 +368,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">NaNm</span>
+    <span title="站点总字数">8k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">NaN:aN</span>
+    <span title="站点阅读时长">7 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
