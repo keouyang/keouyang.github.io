@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-18T07:33:14.364Z</updated>
+  <updated>2022-01-19T08:54:59.384Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数重载与重载解析</title>
+    <link href="http://example.com/2022/01/19/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%87%8D%E8%BD%BD%E8%A7%A3%E6%9E%90/"/>
+    <id>http://example.com/2022/01/19/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%87%8D%E8%BD%BD%E8%A7%A3%E6%9E%90/</id>
+    <published>2022-01-19T07:23:16.000Z</published>
+    <updated>2022-01-19T08:54:59.384Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;</summary>
+    
+    
+    
+    
+    <category term="C++ ; 函数 ; 函数重载" scheme="http://example.com/tags/C-%E5%87%BD%E6%95%B0-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指Offer34二叉树中和为某一值的路径</title>
