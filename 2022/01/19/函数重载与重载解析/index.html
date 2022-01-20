@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="KOY-blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-19T07:23:16.000Z">
-<meta property="article:modified_time" content="2022-01-19T08:54:59.384Z">
+<meta property="article:modified_time" content="2022-01-20T04:11:13.878Z">
 <meta property="article:author" content="OUYANG">
 <meta property="article:tag" content="C++ ; 函数 ; 函数重载">
 <meta name="twitter:card" content="summary">
@@ -230,10 +230,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-19 15:23:16 / 修改时间：16:54:59" itemprop="dateCreated datePublished" datetime="2022-01-19T15:23:16+08:00">2022-01-19</time>
+              <time title="创建时间：2022-01-19 15:23:16" itemprop="dateCreated datePublished" datetime="2022-01-19T15:23:16+08:00">2022-01-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-20 12:11:13" itemprop="dateModified" datetime="2022-01-20T12:11:13+08:00">2022-01-20</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -269,12 +275,12 @@
       
         <hr>
 <span id="more"></span>
-<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p><strong>-使用不同的函数名定义多个函数，每个函数具有不同的参数列表，注意得是参数的类型不同，与参数的名称无关。</strong><br><strong>——不能基于不同的返回类型进行重载，因为在单独调用 fun(); 时，如果根据返回类型进行重载，编译器不知道要调用哪个。</strong><br><strong>——函数重载与name mangling ,程序在编译器会生成可执行文件cpp.o，对于函数的重载编译器会生成一段对应的编码，可以用nm main.cpp.o 查看，使用nm main.cpp.o | c++filt -t 进行de-mangling</strong></p>
+<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p><strong>- 使用不同的函数名定义多个函数，每个函数具有不同的参数列表，注意得是参数的类型不同，与参数的名称无关。</strong><br><strong>- 不能基于不同的返回类型进行重载，因为在单独调用 fun(); 时，如果根据返回类型进行重载，编译器不知道要调用哪个。</strong><br><strong>- 函数重载与name mangling ,程序在编译器会生成可执行文件cpp.o，对于函数的重载编译器会生成一段对应的编码，可以用nm main.cpp.o 查看，使用nm main.cpp.o | c++filt -t 进行de-mangling</strong></p>
 <hr>
-<h2 id="重载解析-编译器如何选择正确的版本完成函数调用"><a href="#重载解析-编译器如何选择正确的版本完成函数调用" class="headerlink" title="重载解析:编译器如何选择正确的版本完成函数调用?"></a>重载解析:编译器如何选择正确的版本完成函数调用?</h2><p><strong>-Calling Functions:A Tutorial c++会议</strong></p>
-<h3 id="名称查找"><a href="#名称查找" class="headerlink" title="名称查找"></a>名称查找</h3><p><strong>-限定查找(qualified lookup)与非限定查找(unqualified lookup),限定查找指定了查找的空间，使用::作为范围限定， :: 代表全局 namespace:: 代表在该命名空间内。</strong><br><strong>-非限定查找:逐个域进行查找，先查找当前域，如果没找到再扩大范围，逐级查。查找通常只会在已声明的名称集合中进行，就是已经编译过的部分。但要注意此时函数的顺序对查找结果会产生影响。即使该作用域内存在对于调用函数的重载，但当程序运行到调用重载函数时，还未轮到对该作用域函数的声明或者定义，但是已经全局范围内的函数重载，那么会调用全局的函数重载。</strong><br><strong>名称查找只关注名称，对于相同名称的变量和类型无法区分</strong><br><strong>-实参依赖查找:当重载函数调用的实参为自定义的类型，且定义在某个命名空间下，那么即使使用的是非限定查找，也会将该命名空间纳入查找范围内</strong></p>
+<h2 id="重载解析-编译器如何选择正确的版本完成函数调用"><a href="#重载解析-编译器如何选择正确的版本完成函数调用" class="headerlink" title="重载解析:编译器如何选择正确的版本完成函数调用?"></a>重载解析:编译器如何选择正确的版本完成函数调用?</h2><p><strong>- Calling Functions:A Tutorial c++会议</strong></p>
+<h3 id="名称查找"><a href="#名称查找" class="headerlink" title="名称查找"></a>名称查找</h3><p><strong>- 限定查找(qualified lookup)与非限定查找(unqualified lookup),限定查找指定了查找的空间，使用::作为范围限定， :: 代表全局 namespace:: 代表在该命名空间内。</strong><br><strong>- 非限定查找:逐个域进行查找，先查找当前域，如果没找到再扩大范围，逐级查。查找通常只会在已声明的名称集合中进行，就是已经编译过的部分。但要注意此时函数的顺序对查找结果会产生影响。即使该作用域内存在对于调用函数的重载，但当程序运行到调用重载函数时，还未轮到对该作用域函数的声明或者定义，但是已经全局范围内的函数重载，那么会调用全局的函数重载。</strong><br><strong>- 名称查找只关注名称，对于相同名称的变量和类型无法区分</strong><br><strong>- 实参依赖查找:当重载函数调用的实参为自定义的类型，且定义在某个命名空间下，那么即使使用的是非限定查找，也会将该命名空间纳入查找范围内</strong></p>
 <hr>
-<h3 id="重载解析-在名称查找的基础上进一步选择合适的调用函数"><a href="#重载解析-在名称查找的基础上进一步选择合适的调用函数" class="headerlink" title="重载解析:在名称查找的基础上进一步选择合适的调用函数"></a>重载解析:在名称查找的基础上进一步选择合适的调用函数</h3><p><strong>—过滤不能被调用的版本(non-viable candidates)</strong><br>      ·参数个数不对<br>      ·无法将实参转换成形参<br>      ·实参不满足形参的限制条件(一般在模板函数的调用)<br><strong>—在剩余版本中查找与调用表达式最匹配的版本，匹配级别越低越好(有特殊规则)</strong><br>      ·级别1:完美匹配 或 平凡转换 (比如加一个const)<br>      ·级别2:promotion 或 promotion 加平凡转换，如short和int、long之间的转换<br>      ·级别3:标准转换 或标准转换加平凡转换 int转成double<br>      ·级别4*:自定义转化(函数的类，派生类) 或 自定义转换加平凡转换 或 自定义转换加标准转换<br>      ·级别5*:调用形参为省略号的版本(可以和任意实参匹配)<br>      ·函数包含多个形参时，所选函数的所有形参的匹配级别都要优于或等于其他函数.比如第一个的匹配级别为1，第二个参数匹配级别为3，可能就会出错</p>
+<h3 id="重载解析-在名称查找的基础上进一步选择合适的调用函数"><a href="#重载解析-在名称查找的基础上进一步选择合适的调用函数" class="headerlink" title="重载解析:在名称查找的基础上进一步选择合适的调用函数"></a>重载解析:在名称查找的基础上进一步选择合适的调用函数</h3><p><strong>- 过滤不能被调用的版本(non-viable candidates)</strong><br>      ·参数个数不对<br>      ·无法将实参转换成形参<br>      ·实参不满足形参的限制条件(一般在模板函数的调用)<br><strong>- 在剩余版本中查找与调用表达式最匹配的版本，匹配级别越低越好(有特殊规则)</strong><br>      ·级别1:完美匹配 或 平凡转换 (比如加一个const)<br>      ·级别2:promotion 或 promotion 加平凡转换，如short和int、long之间的转换<br>      ·级别3:标准转换 或标准转换加平凡转换 int转成double<br>      ·级别4*:自定义转化(函数的类，派生类) 或 自定义转换加平凡转换 或 自定义转换加标准转换<br>      ·级别5*:调用形参为省略号的版本(可以和任意实参匹配)<br>      ·函数包含多个形参时，所选函数的所有形参的匹配级别都要优于或等于其他函数.比如第一个的匹配级别为1，第二个参数匹配级别为3，可能就会出错</p>
 <hr>
 
     </div>
