@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-19T08:54:59.384Z</updated>
+  <updated>2022-01-20T04:05:44.071Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>constexpr和consteval</title>
+    <link href="http://example.com/2022/01/20/constexpr%E5%92%8Cconsteval/"/>
+    <id>http://example.com/2022/01/20/constexpr%E5%92%8Cconsteval/</id>
+    <published>2022-01-20T03:24:06.000Z</published>
+    <updated>2022-01-20T04:05:44.071Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;</summary>
+    
+    
+    
+    
+    <category term="c++ ; constexpr ; consteval" scheme="http://example.com/tags/c-constexpr-consteval/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内联函数</title>
+    <link href="http://example.com/2022/01/20/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"/>
+    <id>http://example.com/2022/01/20/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/</id>
+    <published>2022-01-20T02:19:37.000Z</published>
+    <updated>2022-01-20T03:22:51.612Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;</summary>
+    
+    
+    
+    
+    <category term="内联函数 ; c++" scheme="http://example.com/tags/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0-c/"/>
+    
+  </entry>
   
   <entry>
     <title>函数重载与重载解析</title>

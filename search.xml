@@ -219,4 +219,28 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
         <tag>C++ ; 函数 ; 函数重载</tag>
       </tags>
   </entry>
+  <entry>
+    <title>constexpr和consteval</title>
+    <url>/2022/01/20/constexpr%E5%92%8Cconsteval/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+<h2 id="constexpr-c-11起"><a href="#constexpr-c-11起" class="headerlink" title="constexpr (c++11起)"></a>constexpr (c++11起)</h2><p><strong>-constexpr int x = 3;编译期常量，首先x的值无法修改如const,其次x的值在编译器就可以得到，不同于其他在运行期才能得到的数据</strong><br><strong>-constexpr函数,在函数定义中在函数的返回类型之前加入constexpr关键字，那么该函数就可以在编译期被调用，也可以在运行期执行</strong><br><strong>-constexpr函数需要保证既能在编译期运行也能在运行期运行，所以函数内部不能存在只有在运行期才能得到的结果，函数内部的结果需要在编译期获得结果</strong></p>
+<hr>
+<h2 id="constevel-c-20"><a href="#constevel-c-20" class="headerlink" title="constevel(c++20)"></a>constevel(c++20)</h2><p><strong>-constevel函数只能在编译期运行，强制函数在编译期执行，提高程序运行的效率</strong><br><strong>-防止误调用</strong><br><strong>-确保函数的定义在cpp内，编译器在编译期可以看到，与内联函数类似，是翻译单元一次定义原则</strong><br><strong>-根据需求选择inline和constexpr关键字，一个是在编译期展开，一个是在编译期计算得到结果</strong></p>
+]]></content>
+      <tags>
+        <tag>c++ ; constexpr ; consteval</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>内联函数</title>
+    <url>/2022/01/20/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+<p>##内联函数的作用:一种优化方法<br><strong>—将程序在编译期展开，对于简单的函数，将其展开到程序执行的地方，可以加快程序运行的效率</strong><br><strong>—内联函数的展开不是简单的替换，编译器自有一套完整的展开流程，使得展开前后，程序运行的效果相同</strong><br><strong>—函数在调用时会生成栈针和销毁栈针，当一个函数被调用时，生成栈针和销毁栈针的时间比执行函数内部语句消耗的时间长时，编译器优化可能会将此函数展开成内联函数，或者使用关键字inline，这个关键字会告诉编译器试着将该函数转成inline，但是否转成内联函数需要看编译器的优化情况，不是加了inline关键字就一定能转成内联函数</strong><br><strong>—程序级别的一次定义原则和翻译单元级别的一次定义原则。当inline函数定义在头文件时，不同的cpp文件调用inline函数时，会在调用处展开，相当于定义，相当于在程序级别定义了多次。 但加上inline关键字后，链接器在链接不同cpp生成的可执行文件时只保存一个内联函数的定义，忽略其他函数，即保证了翻译单元(cpp或多个cpp)的一次定义原则。</strong><br><strong>—如果没有加关键字inline且函数定义在头文件中被不同的cpp文件调用就会出现重复定义的问题，即程序级别的一次定义原则，inline关键字将函数从程序级别的一次定义变成翻译单元的一次定义</strong></p>
+]]></content>
+      <tags>
+        <tag>内联函数 ; c++</tag>
+      </tags>
+  </entry>
 </search>
