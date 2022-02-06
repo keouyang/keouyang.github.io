@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KOY-blog">
-<meta property="og:url" content="http://example.com/tags/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+  <meta name="description" content="动态内存基础栈内存 与 堆内存  栈内存的特点：更好的局部性，对象自动销毁（出栈），从高地址开始存储，往低地址方向存储 堆内存的特点：运行期动态扩展，需要显示释放，从低地址开始存储，往高地址方向存储   · 在c++中通常使用new和delete来构造和销毁对象，但new一个对象出来的返回的都是指针 例如：int* res &#x3D; new int(2); &#x2F;&#x2F;res存储数据2的所在的地址 · 对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态内存管理">
+<meta property="og:url" content="http://example.com/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="KOY-blog">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="动态内存基础栈内存 与 堆内存  栈内存的特点：更好的局部性，对象自动销毁（出栈），从高地址开始存储，往低地址方向存储 堆内存的特点：运行期动态扩展，需要显示释放，从低地址开始存储，往高地址方向存储   · 在c++中通常使用new和delete来构造和销毁对象，但new一个对象出来的返回的都是指针 例如：int* res &#x3D; new int(2); &#x2F;&#x2F;res存储数据2的所在的地址 · 对象">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83.jpg">
+<meta property="article:published_time" content="2022-02-06T14:09:36.000Z">
+<meta property="article:modified_time" content="2022-02-06T14:24:10.427Z">
 <meta property="article:author" content="OUYANG">
-<meta property="article:tag" content="Hexo,c++,slam">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83.jpg">
 
-<link rel="canonical" href="http://example.com/tags/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91/">
+<link rel="canonical" href="http://example.com/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -39,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 剑指offer ; 二叉树 | KOY-blog</title>
+  <title>动态内存管理 | KOY-blog</title>
   
 
 
@@ -201,51 +205,125 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">剑指offer ; 二叉树
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bury.jpg">
+      <meta itemprop="name" content="OUYANG">
+      <meta itemprop="description" content="个人技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOY-blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          动态内存管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-06 22:09:36 / 修改时间：22:24:10" itemprop="dateCreated datePublished" datetime="2022-02-06T22:09:36+08:00">2022-02-06</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <span id="more"></span>
+<hr>
+<h1 id="动态内存基础"><a href="#动态内存基础" class="headerlink" title="动态内存基础"></a>动态内存基础</h1><p>栈内存 与 堆内存</p>
+<ul>
+<li>栈内存的特点：更好的局部性，对象自动销毁（出栈），从高地址开始存储，往低地址方向存储</li>
+<li>堆内存的特点：运行期动态扩展，需要显示释放，从低地址开始存储，往高地址方向存储</li>
+</ul>
+<p><img src="/images/%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83.jpg" alt="内存分布图"></p>
+<p>· 在c++中通常使用new和delete来构造和销毁对象，但new一个对象出来的返回的都是指针 例如：int* res = new int(2); //res存储数据2的所在的地址</p>
+<p>· 对象的构造分为两步：分配内存并在所分配的内存上构造对象；对象的销毁先是析构对象再将分配的内存还给系统</p>
+<p>· new的几种常见形式</p>
+<ul>
+<li>构造单一对象/对象数组 int* x = new int[5]; //缺省初始化 int[5]{12,2,3}列表初始化 c++11之后，在删除的时候需要使用delete[] x;来销毁整个数组</li>
+<li>nothrow new -&gt; int*  y = new(std::nothrow)int[5]{}; 在内存分配不成功时会将y指向nullptr，没有加nothrow时分配内存失败后会跳转到异常处理，不会执行下面的程序    - placement new 原先已经有内存空间 ，在此内存空间上构造对象，将内存分配和构造对象分离。<br>  示例： char ch[sizeof(int)];//在栈上开辟了int大小的空间，栈的空间会自动销毁<pre><code>     int* y = new (ch) int(4);//这里ch退化成char*指针，new(ch)退化成void* 指针，这里在ch对应的空间上构造对象
+     //上述ch空间可以是栈内存也可以是堆内存    - new auto int* y = new auto(3); -&gt;等价于 new auto int* y = new int(3);   但不能使用new auto;它是根据后面括号表达式的内容自动推导类型
+</code></pre>
+</li>
+</ul>
+<p>· new与对象对齐<br>    - 例如struct alignas(1024) Str{}; 开辟的空间都是1024的倍数</p>
+<p>· delete的常见用法<br>    - 销毁单一对象/对象数组 delete []<br>    - placement delete </p>
+<p>· 使用new与delete的注意事项<br>    - 根据分配的是单一对象还是数组，采用相应的方式销毁。数组对应 delete []<br>    - delete nullptr 合法 int* x = nullptr; delete x; 合法<br>    - 不能delete一个非new返回的内存，不能去delete栈内存<br>    - 同一块内存不能delete多次<br>        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int* ptr = new int(3);//ptr是一个对象，是定义在栈当中的，ptr中的数据指向堆当中分配的内存，保存地址</span><br><span class="line">std::cout&lt;&lt;ptr&lt;&lt;std::endl;</span><br><span class="line">delete ptr;//delete会清空堆当中的内存，但是ptr中的数据还是指向原来的内存地址</span><br><span class="line">std::cout&lt;&lt;ptr&lt;&lt;std::endl;//和上面打印的地址相同</span><br><span class="line">ptr = nullptr;//防止delete多次</span><br><span class="line">delete ptr;//不能delete多次</span><br></pre></td></tr></table></figure></p>
+<p>· 调整系统自身的new/delete行为<br>    - 不要轻易使用</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T15:12:02+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/%E5%89%91%E6%8C%87Offer34%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/" itemprop="url">
-            <span itemprop="name">剑指Offer34二叉树中和为某一值的路径</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/06/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" rel="prev" title="文件与内存操作">
+      <i class="fa fa-chevron-left"></i> 文件与内存操作
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/" rel="next" title="流的状态">
+      流的状态 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -298,6 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">动态内存基础</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

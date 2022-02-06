@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -203,6 +203,468 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/06/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%881/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bury.jpg">
+      <meta itemprop="name" content="OUYANG">
+      <meta itemprop="description" content="个人技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOY-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/06/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%881/" class="post-title-link" itemprop="url">智能指针1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-06 22:37:20 / 修改时间：22:48:34" itemprop="dateCreated datePublished" datetime="2022-02-06T22:37:20+08:00">2022-02-06</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>· 使用new和delete的问题：内存所有权不清晰，容易产生不销毁，多销毁的情况</p>
+<p>· c++的解决方案:智能指针</p>
+<ul>
+<li>智能指针是一个抽象类，在销毁的时候会调用析构函数处理new的内存等</li>
+<li>auto_ptr(c++17删除)第一个标准不成熟有很多问题,不建议使用</li>
+<li>shared_ptr/uniuqe_ptr/weak_ptr 需要引入头文件<memory></memory></li>
+</ul>
+<h2 id="share-ptr-—-基于引用计数的共享内存解决方案"><a href="#share-ptr-—-基于引用计数的共享内存解决方案" class="headerlink" title="share_ptr — 基于引用计数的共享内存解决方案"></a>share_ptr — 基于引用计数的共享内存解决方案</h2><ul>
+<li><p>基本用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::shared_ptr&lt;int&gt; x(new int(3));//等价于std::shared_ptr&lt;int&gt; x = new int(3);</span><br><span class="line">std::cout&lt;&lt;x.use_count()&lt;&lt;std::endl;//打印引用计数</span><br><span class="line">std::shared_ptr&lt;int&gt; y = x;//此时引用计数加1，变为2 </span><br><span class="line">std::cout&lt;&lt;y.use_count()&lt;&lt;std::endl;//打印引用计数为2，因为xy共同使用一个对象</span><br><span class="line">//在引用计数为0的时候自动调用delete</span><br></pre></td></tr></table></figure></li>
+<li><p>reset/get 方法</p>
+</li>
+</ul>
+<pre><code>- get() : 将shared_ptr指针和老旧的类型指针联系，使用get()方法将shared_ptr类型转化为对应的指针类型，返回数据的地址，不包含引用计数的地址
+    例如：
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::shared_ptr&lt;int&gt; x(new int(3));//等价于std::shared_ptr&lt;int&gt; x = new int(3);</span><br><span class="line">fun(x.get());	//则fun()函数传入的形参类型为int*</span><br></pre></td></tr></table></figure>
+
+- reset(): 当引用计数减1等于0时才有效，当引用计数不等于0的时候不操作
+       尝试将shared_ptr包含的指针资源擦除，接受新的指针保存地址关联新的数据，同时将引用计数变为1
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::shared_ptr&lt;int&gt; y(new int(3));//等价于std::shared_ptr&lt;int&gt; y = new int(3);</span><br><span class="line">y.reset(new int(100));//接受新的指针保存地址关联新的数据</span><br><span class="line">y.reset();//等价于y.reset((int*)nullptr); 不关联任何资源 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+- 指定内存回收逻辑    
+自定义回收函数 内存池：不使用new和delete来生成释放内存，从已有的内存中拿出地址使用，使用完后放回
+    示例：
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">	void dummy(int*)&#123;&#125;	//自定义的内存回收逻辑，不调用系统默认的delete</span><br><span class="line">	std::shared_ptr&lt;int&gt; fun()</span><br><span class="line">	&#123;</span><br><span class="line">		static int res = 3;//定义的静态变量在整个程序结束时释放</span><br><span class="line">		return std::shared_ptr&lt;int&gt;(&amp;res,dummy);   //dummy 为deleter 参数 ，自定义的内存回收逻辑，res为内存池的地址，使用完后放回内存池</span><br><span class="line">	&#125;</span><br><span class="line">	int main()</span><br><span class="line">	&#123;</span><br><span class="line">		auto y = fun();</span><br><span class="line">	&#125;//这里开始销毁，释放空间</span><br><span class="line"></span><br><span class="line">	```		</span><br><span class="line"></span><br><span class="line">- std::make_shared</span><br><span class="line">	shared_ptr 保存两个地址，一个是数据的地址，一个是引用计数的地址。使用传统的方法两者的内存位置可能相差甚远，在访问时效率不高</span><br><span class="line">	使用 auto ptr = std::make_ shared&lt;int&gt;(3);   传入的不再是一个地址，而是一个数据3，那么会先分配一块内存将3写入内存，会再构造一个内存存放引用计数</span><br><span class="line">	系统会引入优化将两个内存存放的尽量近</span><br><span class="line"></span><br><span class="line">- 对对象数组的支持（C++17 支持shared_ptr&lt;T[]&gt;; C++20支持make_shared分配数组）			</span><br><span class="line">- 注意：shared_ptr 管理的对象不要显示调用delete销毁，也不能两个智能指针共享一块数据内存，但不共享引用计数的内存						</span><br><span class="line">	例如：</span><br></pre></td></tr></table></figure>
+    int* ptr = new int(3);
+    std::shared_ptr&lt;int&gt; x(ptr);//x认为自己有对ptr对应地址的所有权                         
+    std::shared_ptr&lt;int&gt; y(ptr);//y也认为自己有对ptr对应地址的所有权
+    //在销毁的时候，对于ptr地址会使用两次delete
+    ```                                                 
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bury.jpg">
+      <meta itemprop="name" content="OUYANG">
+      <meta itemprop="description" content="个人技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOY-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/" class="post-title-link" itemprop="url">流的状态</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-06 22:25:09 / 修改时间：22:33:46" itemprop="dateCreated datePublished" datetime="2022-02-06T22:25:09+08:00">2022-02-06</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<hr>
+<h2 id="iostate-流的状态"><a href="#iostate-流的状态" class="headerlink" title="iostate 流的状态"></a>iostate 流的状态</h2><p>  goodbit= 0; //无错误<br>  以下均为/<em>implementation defined</em>/ 设备定义，不同设备可能不同<br>  例如<br>  badbit = 0000 0001 不可恢复的流错误<br>  Failbit = 0000 0010 输入/输出操作失败（格式化或提取错误）类型转换失败，可以恢复的错误<br>  eofbit = 0000 0100 关联的输入序列已抵达文件尾<br>  指定的流状态标志，它是位掩码类型</p>
+<p>· 检测流的状态</p>
+<ul>
+<li>good() / fail() / eof() 方法</li>
+<li>转换为bool值</li>
+</ul>
+<p>· 注意区分fail和eof</p>
+<ul>
+<li>可能会被同时设置，但两者的含义不同</li>
+<li>转换为bool值时不会考虑eof</li>
+</ul>
+<p>· 通常来说，只要处于某种错误状态时，插入/提取操作就不会生效。</p>
+<p>· 复位流状态</p>
+<ul>
+<li>clear : 设置流的状态为具体的值，缺省为goodbit</li>
+<li>setstate : 将某个状态附加到现有的流状态上</li>
+</ul>
+<p>· 捕捉流异常：exceptions方法</p>
+<hr>
+<h2 id="流的定位"><a href="#流的定位" class="headerlink" title="流的定位"></a>流的定位</h2><p>· 获取流的位置</p>
+<ul>
+<li>tellg() / tellp() 可以获取输入/输出流的位置（pos_type类型）</li>
+<li>两个方法可能都会失败，此时返回pos_type(-1)</li>
+<li>当流的状态处于错误（fail或者bad状态）会返回失败-1</li>
+</ul>
+<p>· 设置流的位置</p>
+<ul>
+<li>seekg() / seekp() 用于设置输入/输出流的位置  注意会从这个地方开始覆盖，而不是插入，插入需要编写自己的逻辑</li>
+<li>这两个方法分别有两个重载版本：<br>· 设置绝对位置：传入pos_type（流的位置）进行设置<br>  · 设置相对位置: 通过偏移量（字符串ios_base::beg）+ 流位置符号的方式设置<ul>
+<li>ios_base::beg</li>
+<li>ios_base::cur</li>
+<li>ios_base::end</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="流的同步"><a href="#流的同步" class="headerlink" title="流的同步"></a>流的同步</h2><p>将数据由缓冲区写入到相应的设备中<br>· 基于flush()/sync()/unitbuf的同步<br>    - flush() 用于输出流同步，刷新缓冲区 std::cout.flush();或者&lt;&lt;std::flush;   &lt;&lt;std::end -&gt;包含\n和刷新缓冲区<br>    - sync() 用于输入流的同步，其实现逻辑是编译器所定义的。<br>    - 输出流可以通过设置unitbuf（在这里的缓冲区大小为1）来保证每次输出后自动同步（刷新）例如std::cerr</p>
+<p>· 基于绑定（tie）的同步<br>    - 流可以绑定到一个输出流上，这样在每次输入/输出前都可以刷新输出流的缓冲区 例如:a-&gt;b,不管a是什么流，a绑定b 在操作a时会先刷新b的缓冲区<br>    - 比如 ：cin 绑定到 cout</p>
+<p>· 与c语言标准io的同步<br>    - 缺省情况下，c++的输入输出操作会与c的输入输出函数同步<br>    - 可以通过sync_with_stdio关闭该同步，关闭之后无法保证c和c++的输出顺序  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bury.jpg">
+      <meta itemprop="name" content="OUYANG">
+      <meta itemprop="description" content="个人技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOY-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">动态内存管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-06 22:09:36 / 修改时间：22:24:10" itemprop="dateCreated datePublished" datetime="2022-02-06T22:09:36+08:00">2022-02-06</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<hr>
+<h1 id="动态内存基础"><a href="#动态内存基础" class="headerlink" title="动态内存基础"></a>动态内存基础</h1><p>栈内存 与 堆内存</p>
+<ul>
+<li>栈内存的特点：更好的局部性，对象自动销毁（出栈），从高地址开始存储，往低地址方向存储</li>
+<li>堆内存的特点：运行期动态扩展，需要显示释放，从低地址开始存储，往高地址方向存储</li>
+</ul>
+<p><img src="/images/%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83.jpg" alt="内存分布图"></p>
+<p>· 在c++中通常使用new和delete来构造和销毁对象，但new一个对象出来的返回的都是指针 例如：int* res = new int(2); //res存储数据2的所在的地址</p>
+<p>· 对象的构造分为两步：分配内存并在所分配的内存上构造对象；对象的销毁先是析构对象再将分配的内存还给系统</p>
+<p>· new的几种常见形式</p>
+<ul>
+<li>构造单一对象/对象数组 int* x = new int[5]; //缺省初始化 int[5]{12,2,3}列表初始化 c++11之后，在删除的时候需要使用delete[] x;来销毁整个数组</li>
+<li>nothrow new -&gt; int*  y = new(std::nothrow)int[5]{}; 在内存分配不成功时会将y指向nullptr，没有加nothrow时分配内存失败后会跳转到异常处理，不会执行下面的程序    - placement new 原先已经有内存空间 ，在此内存空间上构造对象，将内存分配和构造对象分离。<br>  示例： char ch[sizeof(int)];//在栈上开辟了int大小的空间，栈的空间会自动销毁<pre><code>     int* y = new (ch) int(4);//这里ch退化成char*指针，new(ch)退化成void* 指针，这里在ch对应的空间上构造对象
+     //上述ch空间可以是栈内存也可以是堆内存    - new auto int* y = new auto(3); -&gt;等价于 new auto int* y = new int(3);   但不能使用new auto;它是根据后面括号表达式的内容自动推导类型
+</code></pre>
+</li>
+</ul>
+<p>· new与对象对齐<br>    - 例如struct alignas(1024) Str{}; 开辟的空间都是1024的倍数</p>
+<p>· delete的常见用法<br>    - 销毁单一对象/对象数组 delete []<br>    - placement delete </p>
+<p>· 使用new与delete的注意事项<br>    - 根据分配的是单一对象还是数组，采用相应的方式销毁。数组对应 delete []<br>    - delete nullptr 合法 int* x = nullptr; delete x; 合法<br>    - 不能delete一个非new返回的内存，不能去delete栈内存<br>    - 同一块内存不能delete多次<br>        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int* ptr = new int(3);//ptr是一个对象，是定义在栈当中的，ptr中的数据指向堆当中分配的内存，保存地址</span><br><span class="line">std::cout&lt;&lt;ptr&lt;&lt;std::endl;</span><br><span class="line">delete ptr;//delete会清空堆当中的内存，但是ptr中的数据还是指向原来的内存地址</span><br><span class="line">std::cout&lt;&lt;ptr&lt;&lt;std::endl;//和上面打印的地址相同</span><br><span class="line">ptr = nullptr;//防止delete多次</span><br><span class="line">delete ptr;//不能delete多次</span><br></pre></td></tr></table></figure></p>
+<p>· 调整系统自身的new/delete行为<br>    - 不要轻易使用</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/06/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bury.jpg">
+      <meta itemprop="name" content="OUYANG">
+      <meta itemprop="description" content="个人技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOY-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/06/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">文件与内存操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-06 21:59:31 / 修改时间：22:36:26" itemprop="dateCreated datePublished" datetime="2022-02-06T21:59:31+08:00">2022-02-06</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/06/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/28/IOStream%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bury.jpg">
+      <meta itemprop="name" content="OUYANG">
+      <meta itemprop="description" content="个人技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOY-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/28/IOStream%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">IOStream概述</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-28 11:37:18" itemprop="dateCreated datePublished" datetime="2022-01-28T11:37:18+08:00">2022-01-28</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -609,439 +1071,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/hexo-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/18/hexo-blog/" class="post-title-link" itemprop="url">hexo-blog框架的搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-18 11:40:36" itemprop="dateCreated datePublished" datetime="2022-01-18T11:40:36+08:00">2022-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="hexo-blog框架的搭建"><a href="#hexo-blog框架的搭建" class="headerlink" title="hexo-blog框架的搭建"></a>hexo-blog框架的搭建</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/18/hexo-blog/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/hexo_optimization/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/18/hexo_optimization/" class="post-title-link" itemprop="url">基于yilia主题优化bolg的页面和功能</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-18 11:40:27" itemprop="dateCreated datePublished" datetime="2022-01-18T11:40:27+08:00">2022-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-yilia/" itemprop="url" rel="index"><span itemprop="name">hexo,yilia</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基于yilia主题优化bolg的页面和功能"><a href="#基于yilia主题优化bolg的页面和功能" class="headerlink" title="基于yilia主题优化bolg的页面和功能"></a>基于yilia主题优化bolg的页面和功能</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/18/hexo_optimization/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/hexo_picture_pro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/18/hexo_picture_pro/" class="post-title-link" itemprop="url">解决hexo插入图片无法正常显示</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-18 11:40:13" itemprop="dateCreated datePublished" datetime="2022-01-18T11:40:13+08:00">2022-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-yilia/" itemprop="url" rel="index"><span itemprop="name">hexo,yilia</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>408</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/18/hexo_picture_pro/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/lvi-sam-code1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/18/lvi-sam-code1/" class="post-title-link" itemprop="url">LVI-SAM代码注释</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-18 11:40:02" itemprop="dateCreated datePublished" datetime="2022-01-18T11:40:02+08:00">2022-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/slam/" itemprop="url" rel="index"><span itemprop="name">slam</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="LVI-SAM代码注释"><a href="#LVI-SAM代码注释" class="headerlink" title="LVI-SAM代码注释"></a>LVI-SAM代码注释</h1><hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/18/lvi-sam-code1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/%E5%89%91%E6%8C%87Offer30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/18/%E5%89%91%E6%8C%87Offer30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/" class="post-title-link" itemprop="url">剑指Offer30-包含min函数的栈</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-01-18 11:32:44 / 修改时间：15:33:06" itemprop="dateCreated datePublished" datetime="2022-01-18T11:32:44+08:00">2022-01-18</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>#剑指 30 包含min函数的栈</p>
-<hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/18/%E5%89%91%E6%8C%87Offer30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1113,7 +1142,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1126,7 +1155,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1168,13 +1197,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">20k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-21T09:01:51.094Z</updated>
+  <updated>2022-02-06T14:48:34.444Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,110 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>智能指针1</title>
+    <link href="http://example.com/2022/02/06/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%881/"/>
+    <id>http://example.com/2022/02/06/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%881/</id>
+    <published>2022-02-06T14:37:20.000Z</published>
+    <updated>2022-02-06T14:48:34.444Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h1 id=&quot;智能指针&quot;&gt;&lt;a href=&quot;#智能指针&quot; class=&quot;headerlink&quot; title=&quot;智能指针&quot;&gt;&lt;/a&gt;智能指针&lt;/h1&gt;&lt;p&gt;·</summary>
+        
+      
+    
+    
+    
+    
+    <category term="c++; 指针" scheme="http://example.com/tags/c-%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流的状态</title>
+    <link href="http://example.com/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/"/>
+    <id>http://example.com/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/</id>
+    <published>2022-02-06T14:25:09.000Z</published>
+    <updated>2022-02-06T14:33:46.140Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;iostate-流的状态&quot;&gt;&lt;a href=&quot;#iostate-流的状态&quot; class=&quot;headerlink&quot; title=&quot;iostate 流的状态&quot;&gt;&lt;/a&gt;iostate 流的状态&lt;/h2&gt;&lt;p&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="c++" scheme="http://example.com/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>动态内存管理</title>
+    <link href="http://example.com/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    <id>http://example.com/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</id>
+    <published>2022-02-06T14:09:36.000Z</published>
+    <updated>2022-02-06T14:24:10.427Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;动态内存基础&quot;&gt;&lt;a href=&quot;#动态内存基础&quot; class=&quot;headerlink&quot; title=&quot;动态内存基础&quot;&gt;&lt;/a&gt;动态内存基础&lt;/h1&gt;&lt;p&gt;栈内存 与</summary>
+        
+      
+    
+    
+    
+    
+    <category term="c++" scheme="http://example.com/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件与内存操作</title>
+    <link href="http://example.com/2022/02/06/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/"/>
+    <id>http://example.com/2022/02/06/%E6%96%87%E4%BB%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/</id>
+    <published>2022-02-06T13:59:31.000Z</published>
+    <updated>2022-02-06T14:36:26.593Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;</summary>
+    
+    
+    
+    
+    <category term="C++ ，内存" scheme="http://example.com/tags/C-%EF%BC%8C%E5%86%85%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IOStream概述</title>
+    <link href="http://example.com/2022/01/28/IOStream%E6%A6%82%E8%BF%B0/"/>
+    <id>http://example.com/2022/01/28/IOStream%E6%A6%82%E8%BF%B0/</id>
+    <published>2022-01-28T03:37:18.000Z</published>
+    <updated>2022-01-28T03:37:18.984Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>函数指针</title>
