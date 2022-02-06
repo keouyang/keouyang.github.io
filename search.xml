@@ -276,8 +276,9 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
   <entry>
     <title>动态内存管理</title>
     <url>/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<span id="more"></span>
-<hr>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
 <h1 id="动态内存基础"><a href="#动态内存基础" class="headerlink" title="动态内存基础"></a>动态内存基础</h1><p>栈内存 与 堆内存</p>
 <ul>
 <li>栈内存的特点：更好的局部性，对象自动销毁（出栈），从高地址开始存储，往低地址方向存储</li>
@@ -364,7 +365,8 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
   <entry>
     <title>智能指针1</title>
     <url>/2022/02/06/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%881/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<hr>
+<span id="more"></span>
 <h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>· 使用new和delete的问题：内存所有权不清晰，容易产生不销毁，多销毁的情况</p>
 <p>· c++的解决方案:智能指针</p>
 <ul>
@@ -404,8 +406,9 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
   <entry>
     <title>流的状态</title>
     <url>/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/</url>
-    <content><![CDATA[<span id="more"></span>
-<hr>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
 <h2 id="iostate-流的状态"><a href="#iostate-流的状态" class="headerlink" title="iostate 流的状态"></a>iostate 流的状态</h2><p>  goodbit= 0; //无错误<br>  以下均为/<em>implementation defined</em>/ 设备定义，不同设备可能不同<br>  例如<br>  badbit = 0000 0001 不可恢复的流错误<br>  Failbit = 0000 0010 输入/输出操作失败（格式化或提取错误）类型转换失败，可以恢复的错误<br>  eofbit = 0000 0100 关联的输入序列已抵达文件尾<br>  指定的流状态标志，它是位掩码类型</p>
 <p>· 检测流的状态</p>
 <ul>
