@@ -60,28 +60,6 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       </categories>
   </entry>
   <entry>
-    <title>解决hexo插入图片无法正常显示</title>
-    <url>/2022/01/18/hexo_picture_pro/</url>
-    <content><![CDATA[<h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
-<span id="more"></span>
-<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p><strong>图片只能放在source文件夹下可以建立一个名为image的文件夹，自己尝试放在其他地方发现不可行</strong><br><em>调用图片的方法</em></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片的描述](/image/xxx.png)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p><strong>首先需要修改_config.yml文件中的配置post_asset_folder设为true后，执行命令hexo new 文章名，在source/_posts中会生成与文章名相同的文件夹和一个文章名.md文件，将对应的图片放入对应的source/_posts文件夹下。即可使用相对路径引用图片资源。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><strong>尝试过网上的教程，10个教程9个一模一样</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在多次google之后总算找到了解决方法</span><br><span class="line">1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</span><br><span class="line">2.直接在md文件中调用图片即可，使用![图片描述](/images/xxx.jpg)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>hexo,yilia</category>
-      </categories>
-      <tags>
-        <tag>yilia</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于yilia主题优化bolg的页面和功能</title>
     <url>/2022/01/18/hexo_optimization/</url>
     <content><![CDATA[<h1 id="基于yilia主题优化bolg的页面和功能"><a href="#基于yilia主题优化bolg的页面和功能" class="headerlink" title="基于yilia主题优化bolg的页面和功能"></a>基于yilia主题优化bolg的页面和功能</h1><hr>
@@ -135,9 +113,31 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       </tags>
   </entry>
   <entry>
+    <title>解决hexo插入图片无法正常显示</title>
+    <url>/2022/01/18/hexo_picture_pro/</url>
+    <content><![CDATA[<h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
+<span id="more"></span>
+<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p><strong>图片只能放在source文件夹下可以建立一个名为image的文件夹，自己尝试放在其他地方发现不可行</strong><br><em>调用图片的方法</em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片的描述](/image/xxx.png)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p><strong>首先需要修改_config.yml文件中的配置post_asset_folder设为true后，执行命令hexo new 文章名，在source/_posts中会生成与文章名相同的文件夹和一个文章名.md文件，将对应的图片放入对应的source/_posts文件夹下。即可使用相对路径引用图片资源。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><strong>尝试过网上的教程，10个教程9个一模一样</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在多次google之后总算找到了解决方法</span><br><span class="line">1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</span><br><span class="line">2.直接在md文件中调用图片即可，使用![图片描述](/images/xxx.jpg)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>hexo,yilia</category>
+      </categories>
+      <tags>
+        <tag>yilia</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LVI-SAM代码注释</title>
     <url>/2022/01/18/lvi-sam-code1/</url>
-    <content><![CDATA[<h1 id="LVI-SAM代码注释"><a href="#LVI-SAM代码注释" class="headerlink" title="LVI-SAM代码注释"></a>LVI-SAM代码注释</h1><hr>
+    <content><![CDATA[<hr>
 <span id="more"></span>
 <h2 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h2><p><em><strong>从节点关系图入手<br>在配置好环境之后运行roslaunch lvi_sam run.launch<br>之后使用rqt_graph查看节点和话题之间的连通关系<br>主要节点分别是/lvi_sam_imuPreintegration(IMU预积分点)/lvi_sam_mapOptmization(因子图优化节点) ,/lvi_sam_featureExtraction(激光雷达特征点提取节点) , /lvi_sam_imageProjection(生成深度图),/lvi_sam_visual_feature(生成视觉特征点),/lvi_sam_visual_loop(回环检测), /lvi_sam_visual_odometry(视觉里程计)</strong></em></p>
 <p>1.Node:lvi_sam_imuPreintegration<br><img src="/images/imuPreintegration.jpg" alt="imu/path"><br>    1. 输入<br>    原始imu数据<br>    雷达里程计的信息<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ros::Subscriber subImu;//在类里面定义</span><br><span class="line"></span><br><span class="line">ros::Subscriber subOdometry;	//在IMUPreintegration()中</span><br><span class="line"></span><br><span class="line">subImu = nh.subscribe&lt;sensor_msgs::Imu&gt; (imuTopic, 2000, &amp;IMUPreintegration::imuHandler, this, ros::TransportHints().tcpNoDelay());</span><br><span class="line"></span><br><span class="line">subOdometry = nh.subscribe&lt;nav_msgs::Odometry&gt;(PROJECT_NAME + &quot;/lidar/mapping/odometry&quot;, 5, &amp;IMUPreintegration::odometryHandler, this, ros::TransportHints().tcpNoDelay());</span><br></pre></td></tr></table></figure><br>    2. 输出<br>    imu里程计信息<br>    imu的path<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ros::Publisher pubImuOdometry;</span><br><span class="line"></span><br><span class="line">ros::Publisher pubImuPath;</span><br><span class="line"></span><br><span class="line">pubImuOdometry = nh.advertise&lt;nav_msgs::Odometry&gt; (&quot;odometry/imu&quot;, 2000);</span><br><span class="line">pubImuPath = nh.advertise&lt;nav_msgs::Path&gt; (PROJECT_NAME + &quot;/lidar/imu/path&quot;, 1);</span><br></pre></td></tr></table></figure><br>    * imu/path单纯用于rviz的显示 *<br>    <img src="/images/imu_path%E5%8D%95%E7%BA%AF%E7%94%A8%E6%9D%A5%E6%98%BE%E7%A4%BA.png" alt="imu/path"><br>    * /odometry/imu 作为视觉里程计的输入，辅助视觉里程计初始化 *<br>    <img src="/images/imu-odometry%E8%BE%93%E5%85%A5%E7%BB%99visual-odo.png" alt="/odometry/imu"></p>
@@ -153,9 +153,54 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       </tags>
   </entry>
   <entry>
-    <title>work PC test</title>
-    <url>/2022/02/22/work-PC-test/</url>
-    <content><![CDATA[]]></content>
+    <title>关联容器</title>
+    <url>/2022/02/22/%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+<h1 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h1><p>·使用键进行索引</p>
+<ul>
+<li>set/map/multiset/multimap</li>
+<li>unordered_set/unordered_map/unordered_multiset/underered_multimap</li>
+</ul>
+<p>·set/map/multiset/multimap底层实现使用红黑树</p>
+<ul>
+<li>红黑树：从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。<br>结果是这个树大致上是平衡的。因为插入、删除和查找某个值的最坏情况时间都要求与树的高度成比例，这个在高度上的理论上限允许红黑树在最坏情况下都是高效的，而不同于普通的二叉查找树。</li>
+</ul>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91-wiki.jpg" alt="红黑树wiki"></p>
+<p>当使用中序遍历时，打印出来的顺序是从小到大排列的。</p>
+<ul>
+<li>unorder_xxx底层使用hash表<br>hash表：散列表（Hash table，也叫哈希表），是根据键（Key）而直接访问在内存储存位置的数据结构。也就是说，它通过计算出一个键值的函数 f(key)，将所需查询的数据映射到表中一个位置来让人访问，这加快了查找速度。这个映射函数称做散列函数，存放记录的数组称做散列表。</li>
+</ul>
+<h2 id="set（集合）"><a href="#set（集合）" class="headerlink" title="set（集合）"></a>set（集合）</h2><ul>
+<li>键值为容器中包含的元素，键值对应的value为一个bool值，判断该元素是否在容器中。</li>
+<li>通常来说，元素需要支持使用&lt;比较大小<br>默认第二个参数compare = std::less<key> 红黑树按从小打大排列比较大小 返回true或者false确定两个比较对象的大小关系<br><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91-%E4%BE%8B%E5%AD%90.jpg" alt="红黑树-示例"></key></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::set&lt;int,std::greater&lt;int&gt;&gt; s&#123;3,199,18,66&#125;; //则中序遍历时红黑树按从大到小排列</span><br><span class="line">   for(auto ptr = s.begin();ptr != s.end(); ++ptr)</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;*ptr&lt;&lt;std::endl;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*******自定义数据结构和比较器***********/</span><br><span class="line">struct Str</span><br><span class="line">&#123;</span><br><span class="line">   int x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool Mycompare(const Str&amp; vall1, const Str&amp; vall2)</span><br><span class="line">&#123;</span><br><span class="line">   return vall1.x &lt; vall2.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::set&lt;Str,decltype(&amp;Mycompare)&gt; s(&#123;Str(3),Str(6)&#125;, Mycompare);</span><br><span class="line"></span><br><span class="line">/**************插入元素***************/</span><br><span class="line">s.insert(Str(67));   //插入操作</span><br><span class="line">s.emplace(100);	//直接构造节点，避免了拷贝和移动</span><br><span class="line"></span><br><span class="line">/**************删除元素***************/</span><br><span class="line">s.erase(100);		//在set中查找100并进行删除操作 </span><br><span class="line">s.erase(s.begin());		//传入迭代器的参数，删除第一个元素</span><br><span class="line"></span><br><span class="line">/**************访问元素***************/</span><br><span class="line">std::set&lt;int&gt; s&#123;1,3,5&#125;;</span><br><span class="line">auto ptr = s.find(5);	//find返回迭代器的地址，ptr指向5，如果没有找到返回s.end()</span><br><span class="line">if( ptr != s.end() )</span><br><span class="line">	std::cout&lt;&lt;*ptr&lt;&lt;std::endl;</span><br><span class="line">std::cout&lt;&lt;s.contains(66)&lt;&lt;std::endl;   //contains输出0或1，是否包含</span><br><span class="line"></span><br><span class="line">/**************修改元素*************/</span><br><span class="line">//注意：set迭代器所指向的对象是const，不能通过其修改元素 只能进行读取</span><br><span class="line">//所以这里将要修改的节点从红黑树中提取，修改value后重新插入</span><br><span class="line">std::set&lt;int&gt; cont&#123;1 ,2 ,3 &#125;;</span><br><span class="line">auto nh = cont.extract(1);		//将1对应的整个节点从红黑树中提取出来</span><br><span class="line">nh.value() = 4;		//修改value的信息</span><br><span class="line">cont.insert(move(nh));		//将nh变为右值插入到cont中</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><ul>
+<li>树中的每个节点包含一个std::pair</li>
+<li>键（pair.first）需要支持使用&lt;比较大小,按照键值的大小进行排列<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::map&lt;int,bool&gt; m&#123;&#123;3,true&#125;, &#123;4,false&#125;, &#123;8,true&#125;&#125;;</span><br><span class="line">   for(auto [k,v] : m)   //等价于auto ptr ：m；因为m是一个pair</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;k&lt;&lt; ‘ ’&lt;&lt;v&lt;&lt;std::endl;</span><br><span class="line">	//std::cout&lt;&lt;ptr.first&lt;&lt;‘ ’&lt;&lt;ptr.second&lt;&lt;std::endl;</span><br><span class="line">   &#125;</span><br><span class="line">/***************插入元素**************/</span><br><span class="line">   m.insert(std::pair&lt;int,bool&gt; (9,true));   //因为map内部的value_type为 std::pair&lt;const key , T&gt;</span><br><span class="line"></span><br><span class="line">/***************删除元素**************/</span><br><span class="line">   m.erase(3);	//删除元素</span><br><span class="line">	</span><br><span class="line">/***************访问元素**************/</span><br><span class="line">   auto ptr = m.find(3);		//类似set，找到返回迭代器的地址，没找到返回m.end()</span><br><span class="line">   std::cout&lt;&lt;ptr -&gt; first&lt;&lt;‘ ’&lt;&lt;ptr -&gt; second;</span><br><span class="line">   /*使用键值访问元素，如果找不到键值为3的那么就会构造一个键值为3的节点，value如果是类会使用缺省构造函数，否则使用0来初始化 T()来初始化*/</span><br><span class="line">   std::cout&lt;&lt; m[3]&lt;&lt;std::endl;	</span><br><span class="line">   std::cout&lt;&lt;m.at(3)&lt;&lt;std::endl;   //at与[]的不同之处在于找不到元素是否会抛出异常，at会抛出异常</span><br><span class="line">/***************注意*******************/</span><br><span class="line">//map迭代器所指向的对象是std::pair,其键是const类型</span><br><span class="line">//[]操作不能用于常量对象（const）因为[]在找不到键，会构造一个新的节点</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="multiset-multimap"><a href="#multiset-multimap" class="headerlink" title="multiset/multimap"></a>multiset/multimap</h2></li>
+<li>与set/map类似，但允许重复键</li>
+<li>元素访问<br>· find返回首个查找到的元素<br>· count返回元素个数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::multiset&lt;int&gt; s&#123;1,3,1&#125;;</span><br><span class="line">   std::cout&lt;&lt;s.count(1)&lt;&lt;std::endl;//数量可以是多个，这里输出2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/****************使用lower_bound和upper_bound来查找区间***********/</span><br><span class="line">auto b = s.lower_bound(1);//键值为1的低边界，低地址</span><br><span class="line">auto e = s.upper_bound(1);//键值为1的高边界，高地址</span><br><span class="line">for(auto ptr = b; ptr != e; ++ptr)</span><br><span class="line">&#123;</span><br><span class="line">   std::cout&lt;&lt;*ptr&lt;&lt;std::endl;	//将打印出两个1</span><br><span class="line">&#125;</span><br><span class="line">//////或者使用equal_range-&gt;std::pair&lt;iterator,iterator&gt; equal_range(const key&amp;key);</span><br><span class="line">auto p = s.equal_range(1);//存储两个地址</span><br><span class="line">for(auto ptr = p.first; ptr != p.second; ++ptr)</span><br><span class="line">&#123;</span><br><span class="line">   std::cout&lt;&lt;*ptr&lt;&lt;std::endl;	//将打印出两个1</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>##unordered_set/unordered_map/unordered_multiset/unordered_multimap</p>
+<ul>
+<li>哈希函数，输入同样的键值输出同样的整数值</li>
+<li>unordered_set 的底层实现，buckets里面是一个存放指针的vector，每一个指针指向一个list，list里面存放的就是我们要放的键值<br>由输入键值得到哈希值，哈希值对buckets的vector长度进行取余，存放在对应的bucket中的list内</li>
+<li>与set/map相比查找的性能更好，只需要通过哈希函数进行查找对应的list，一般复杂度为O(1)</li>
+<li>但插入操作一般情况下会慢：当一个list中有多个键值时，那么可能需要重新hash，即对原来的buckets vector进行扩容，涉及到重新分配内存空间，拷贝原来的数据，使用新的hash函数重新hash</li>
+<li>其键需要支持两个操作<br>·转化为hash值<br>·判等操作</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;unordered_set&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;set&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::unordered_set&lt;int&gt; s&#123;3,1,4,5,1&#125;;//c++为int提供了转换为hash值的操作，同时int支持判等操作</span><br><span class="line">   std::set&lt;int&gt; s1&#123;3,1,4,5&#125;;	//内部红黑树的排序1345</span><br><span class="line">   std::set&lt;int&gt; s2&#123;1,3,5&#125;;		//内部红黑树的排序135</span><br><span class="line">   /********************set支持容器级的关系运算*******************/</span><br><span class="line">   if(s1 &lt; s2)</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;“s1&lt;s2”&lt;&lt;endl;   //s1&lt;s2,两者比较是字典序的逐个比较</span><br><span class="line">   &#125;</span><br><span class="line">   /****************unorder_set不支持容器级的关系运算*********/</span><br><span class="line">   //但== 和!=除外，因为unordered_set的键值支持两个操作,但== 和!=速度较慢，因为在判等时需要对list重新排序</span><br><span class="line">   for(auto p : s)</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;p&lt;&lt;std::endl;	//只会输出一个1</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>自定义hash函数和判等函数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct Str </span><br><span class="line">&#123;</span><br><span class="line">   int x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">size_t Myhash(const Str&amp; val)</span><br><span class="line">&#123;</span><br><span class="line">   return val.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool Myequal(const Str&amp; val1, const Str&amp; val2)</span><br><span class="line">&#123;</span><br><span class="line">   return val1.x == val2.x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::unordered_set&lt;Str,decltype(&amp;Myhash),decltype(&amp;Myequal)&gt; s1(3,Myhash, Myequal); //3为buckets vector的长度</span><br><span class="line">   //decltype(&amp;Myhash) -&gt; size_t (*) (const Str&amp; val)</span><br><span class="line">   s1.insert(Str&#123;3&#125;);</span><br><span class="line">&#125;</span><br><span class="line">//也可以将其声明为类，后期补充</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>内联函数</title>
@@ -279,6 +324,23 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       </tags>
   </entry>
   <entry>
+    <title>动态内存的相关问题</title>
+    <url>/2022/02/22/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%9A%84%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+<p>##动态内存的相关问题<br>· sizeof不会返回动态分配的内存大小</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int* ptr = new int[3];//返回的是分配内存的首地址</span><br><span class="line">std::cout&lt;&lt;sizeof(ptr)&lt;&lt;std::endl;</span><br><span class="line">//输出的是int*的大小，不是int*指向的内存的大小</span><br><span class="line"></span><br><span class="line">std::vector&lt;int&gt; x;//对于vector可以动态改变内存这件事情，首先是在运行期完成的，其次影响的是x中某个指针的指向位置，对x的大小无影响</span><br><span class="line">x.push_back(10);//不会影响sizeof(x)的大小</span><br><span class="line">std::cout&lt;&lt;sizeof(x)&lt;&lt;std::endl;//sizeof()在编译期完成</span><br></pre></td></tr></table></figure>
+
+<p>· 使用分配器(allocator)来分配内存</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::allocate&lt;int&gt; al;</span><br><span class="line">int* ptr = al.allocate(3); //分配了内存且这个内存可以包含3个int 将地址返回给ptr </span><br><span class="line">//不包含对int的初始化，只分配了内存 可以使用placement_new构造对象</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//使用deallocate来回收内存，需要注意回收的内存要相同,将内存归还给系统</span><br><span class="line">al.deallocate(ptr,3);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>·使用malloc/free来管理内存<br>继承自c语言的内存分配和回收<br>不同于new和delete的分配内存和构造对象<br>malloc和free只管理内存不构造对象<br>void* malloc(std::size_t size);//表示是分配几个字节的内存<br>例如：int* x=malloc(4*sizeof(int));//分配4个int类型的字节空间<br>          free(x);</p>
+<p>·使用aligned    _alloc来分配对齐内存<br>void* aligned_alloc(size_t alignment, size_t size);//参数一对齐的内存，参数二分配的内存大小</p>
+<p>·动态内存与异常安全<br>需要程序保证即使出现了异常也要保证内存管理的可靠性，不会造成内存泄露<br>操作系统会保证在执行完一个线程之后，该线程相关的内存将全部被释放掉。例如main函数<br>对于单独的函数，建议使用智能指针，让其自动调用析构函数释放内存。</p>
+<p>·c++对于垃圾回收的支持<br>耗费较多的系统资源，需要另开一个线程<br>对对象生命周期无法控制，何时回收内存</p>
+]]></content>
+  </entry>
+  <entry>
     <title>动态内存管理</title>
     <url>/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<hr>
@@ -308,6 +370,97 @@ hexo clean<br>hexo g<br>hexo s -p 端口号 #本地部署<br>hexo d #部署到gi
       <tags>
         <tag>c++</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>容器的概述</title>
+    <url>/2022/02/22/%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+<h1 id="容器的概述"><a href="#容器的概述" class="headerlink" title="容器的概述"></a>容器的概述</h1><h2 id="容器：一种特殊的类型，其对象可以放置其他类型的对象（元素）"><a href="#容器：一种特殊的类型，其对象可以放置其他类型的对象（元素）" class="headerlink" title="容器：一种特殊的类型，其对象可以放置其他类型的对象（元素）"></a>容器：一种特殊的类型，其对象可以放置其他类型的对象（元素）</h2><ul>
+<li>需要支持多种操作：对象的添加、删除、索引、遍历</li>
+<li>多种容器实现的方法，每种方法各有优缺</li>
+</ul>
+<h2 id="容器的分类"><a href="#容器的分类" class="headerlink" title="容器的分类"></a>容器的分类</h2><ul>
+<li>序列容器：其中的对象是有序排列的，使用整数值进行索引，如vector</li>
+<li>关联容器：其中的对象顺序并不重要，使用键进行索引，如map</li>
+<li>适配器：调整原有容器的行为，使得对外展现出新的类型、接口或者返回新的元素</li>
+<li>生成器：构造元素序列</li>
+</ul>
+<h2 id="迭代器：用于指定容器中的一段区间，以执行遍历，删除等操作"><a href="#迭代器：用于指定容器中的一段区间，以执行遍历，删除等操作" class="headerlink" title="迭代器：用于指定容器中的一段区间，以执行遍历，删除等操作"></a>迭代器：用于指定容器中的一段区间，以执行遍历，删除等操作</h2><ul>
+<li>获取迭代器：(c)begin/(c)end; c代表const (c)rbegin/(c)rend r代表reverse反转，头尾反转</li>
+<li>迭代器分类：分成5类（category）不同的类别支持的操作集合不同</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>c++容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>序列容器</title>
+    <url>/2022/02/22/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+<h1 id="序列容器"><a href="#序列容器" class="headerlink" title="序列容器"></a>序列容器</h1><p>· c++标准库中提供了多种序列容器的模版</p>
+<ul>
+<li>array：元素个数固定的序列容器，不支持删减，增加</li>
+<li>vector：元素连续存储的序列容器</li>
+<li>forward_list/list：基于链表/双向链表的容器</li>
+<li>deque：vector和list的折衷，一段一段之间是list通过指针连接，段内连续</li>
+<li>basic_string：提供了对字符串专门的支持</li>
+</ul>
+<p>· 需要使用元素类型来实例化容器模版，从而构造可以保存具体类型的容器，如vector<int> x;<br>· 不同的容器所提供的接口大致相同，但根据容器性质的差异，其内部的实现与复杂度不同。<br>· 对于复杂度过高的操作，提供相对较难使用的接口或者不提供相应的接口。</int></p>
+<h2 id="array容器模版"><a href="#array容器模版" class="headerlink" title="array容器模版"></a>array容器模版</h2><p>·特点：具有固定长度的容器，其内部维护了一个内建的数组，与内建数组相比提供了复制操作<br>· 提供的接口</p>
+<ul>
+<li>构造：需要两个参数，容器的大小和容器内元素的类型 std::array&lt;int,3&gt; a;</li>
+<li>成员类型：value_type等</li>
+<li>元素访问：[] ,at(与[]类似但当超出界限是会崩溃，而[]不一定会崩溃) ，front（返回第一个元素），back（返回最后一个）<br>  data返回T*返回指针指向容器的首地址，一般只有元素连续存储才会包含data，可以访问到整个元素</li>
+<li>容量相关（对于array是平凡实现）：empty，size，max_size(是一个统一的接口，适用于其他容器)</li>
+<li>填充和交换：fill，swap</li>
+<li>比较操作：&lt;=&gt;</li>
+<li>迭代器</li>
+</ul>
+<h2 id="vector容器模版"><a href="#vector容器模版" class="headerlink" title="vector容器模版"></a>vector容器模版</h2><p>·特点：元素可变，长度可变<br>·vector的size_t size和size_t cap 一个是当前元素的个数，一个是容器的容量<br>·提供的接口</p>
+<ul>
+<li>与array很相似，但有其特殊性，参照array</li>
+<li>容量相关接口：capacity（容量）reserve（开辟一块多大的内存空间）<br>shrink_to_fit（开辟一个和size大小相同的空间，将原来的元素拷贝存储后，释放原来的buffer达到减小内存的目的）</li>
+<li>附加元素接口：push_back（先构造，再使用构造好的对象传入参数）<br>emplace_back（直接使用参数在开辟的内存空间上构造对象），少了一次对象的拷贝或者移动</li>
+<li>元素插入接口：insert / emplace</li>
+<li>元素删除接口：pop_back() 直接删除最后一个元素<br>erase() 删除指定位置的元素，前面的需要往后移动，拷贝<br>clear删除全部元素</li>
+</ul>
+<p>·注意：vector不提供push_front/pop_front，可以使用insert/erase但效率不高</p>
+<ul>
+<li>swap效率较高，因为是指针的变化</li>
+<li>写操作可能会导致迭代器失效（指针指向的内存地址可能发生了变化，当vector空间不够时会重新开辟一个更大的内存，那么内存地址发生了变化）</li>
+</ul>
+<h2 id="list-deque-basic-string容器模版"><a href="#list-deque-basic-string容器模版" class="headerlink" title="list/deque/basic_string容器模版"></a>list/deque/basic_string容器模版</h2><p>·list容器模版：双向链表<br><img src="/images/list%E5%AE%B9%E5%99%A8.jpg" alt="list"><br>·与vector相比，list</p>
+<ul>
+<li>插入、删除成本比较低（因为是指针的指向变化，与元素的个数无关），但随机访问的成本比较高（需要按顺序遍历）</li>
+<li>提供了push/pop_front（插入/删除链表头的一个元素）/splice（将某个链表整体插入到另一个链表中）</li>
+<li>写操作通常不会改变迭代器的有效性（元素本身的位置不变，地址不变）</li>
+</ul>
+<p>·forward_list容器模版：单向链表</p>
+<ul>
+<li>相对list成本比较低的线性表实现(因为单个节点保存的信息较少)</li>
+<li>其迭代器只支持递增操作，因此无rbegin/rend(倒序)</li>
+<li>不支持size（为了降低成本，节省内存省去了包含size的空间）</li>
+<li>不支持pop_back/push_back操作（因为需要还知道前面的指针信息）</li>
+<li>支持xxx_after（insert/emplace/erase）等</li>
+</ul>
+<p>·deque容器模版：vector和list的折衷<br><img src="/images/deque.jpg"><br><img src="/images/deque1.jpg"></p>
+<ul>
+<li>push_back/push_front速度较快</li>
+<li>在序列中间插入、删除速度较慢</li>
+</ul>
+<p>·basic_string容器模版：实现了字符串相关的接口</p>
+<ul>
+<li>使用char实例化出std::string</li>
+<li>提供了如find，substr等字符串特有的接口</li>
+<li>提供了数值与字符转换的接口 stoi():string到int to_string:转为string</li>
+<li>针对短字符的优化：如果字符串比较短（通常在15个字节以内），直接<br>存放在string的buffer内，如果字符串较长则存放在堆上分配的空间。</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>文件与内存操作</title>
@@ -473,10 +626,5 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
       <tags>
         <tag>c++</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>mac_test</title>
-    <url>/2022/02/22/mac-test/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>

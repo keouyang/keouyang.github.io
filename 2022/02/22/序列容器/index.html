@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://example.com/tags/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="序列容器">
+<meta property="og:url" content="http://example.com/2022/02/22/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="KOY-blog">
-<meta property="og:description" content="个人技术博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-13T14:32:13.000Z">
-<meta property="article:modified_time" content="2022-01-13T14:33:08.000Z">
+<meta property="og:image" content="http://example.com/images/list%E5%AE%B9%E5%99%A8.jpg">
+<meta property="og:image" content="http://example.com/images/deque.jpg">
+<meta property="og:image" content="http://example.com/images/deque1.jpg">
+<meta property="article:published_time" content="2022-02-22T12:32:58.000Z">
+<meta property="article:modified_time" content="2022-02-22T13:39:10.502Z">
 <meta property="article:author" content="OUYANG">
 <meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/list%E5%AE%B9%E5%99%A8.jpg">
 
-<link rel="canonical" href="http://example.com/tags/">
+<link rel="canonical" href="http://example.com/2022/02/22/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8/">
 
 
 <script id="page-configurations">
@@ -41,13 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签 | KOY-blog
-</title>
+  <title>序列容器 | KOY-blog</title>
   
 
 
@@ -203,51 +204,164 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/22/%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bury.jpg">
+      <meta itemprop="name" content="OUYANG">
+      <meta itemprop="description" content="个人技术博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOY-blog">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          序列容器
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2022-02-22 20:32:58 / 修改时间：21:39:10" itemprop="dateCreated datePublished" datetime="2022-02-22T20:32:58+08:00">2022-02-22</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<span id="more"></span>
+
+<h1 id="序列容器"><a href="#序列容器" class="headerlink" title="序列容器"></a>序列容器</h1><p>· c++标准库中提供了多种序列容器的模版</p>
+<ul>
+<li>array：元素个数固定的序列容器，不支持删减，增加</li>
+<li>vector：元素连续存储的序列容器</li>
+<li>forward_list/list：基于链表/双向链表的容器</li>
+<li>deque：vector和list的折衷，一段一段之间是list通过指针连接，段内连续</li>
+<li>basic_string：提供了对字符串专门的支持</li>
+</ul>
+<p>· 需要使用元素类型来实例化容器模版，从而构造可以保存具体类型的容器，如vector<int> x;<br>· 不同的容器所提供的接口大致相同，但根据容器性质的差异，其内部的实现与复杂度不同。<br>· 对于复杂度过高的操作，提供相对较难使用的接口或者不提供相应的接口。</int></p>
+<h2 id="array容器模版"><a href="#array容器模版" class="headerlink" title="array容器模版"></a>array容器模版</h2><p>·特点：具有固定长度的容器，其内部维护了一个内建的数组，与内建数组相比提供了复制操作<br>· 提供的接口</p>
+<ul>
+<li>构造：需要两个参数，容器的大小和容器内元素的类型 std::array&lt;int,3&gt; a;</li>
+<li>成员类型：value_type等</li>
+<li>元素访问：[] ,at(与[]类似但当超出界限是会崩溃，而[]不一定会崩溃) ，front（返回第一个元素），back（返回最后一个）<br>  data返回T*返回指针指向容器的首地址，一般只有元素连续存储才会包含data，可以访问到整个元素</li>
+<li>容量相关（对于array是平凡实现）：empty，size，max_size(是一个统一的接口，适用于其他容器)</li>
+<li>填充和交换：fill，swap</li>
+<li>比较操作：&lt;=&gt;</li>
+<li>迭代器</li>
+</ul>
+<h2 id="vector容器模版"><a href="#vector容器模版" class="headerlink" title="vector容器模版"></a>vector容器模版</h2><p>·特点：元素可变，长度可变<br>·vector的size_t size和size_t cap 一个是当前元素的个数，一个是容器的容量<br>·提供的接口</p>
+<ul>
+<li>与array很相似，但有其特殊性，参照array</li>
+<li>容量相关接口：capacity（容量）reserve（开辟一块多大的内存空间）<br>shrink_to_fit（开辟一个和size大小相同的空间，将原来的元素拷贝存储后，释放原来的buffer达到减小内存的目的）</li>
+<li>附加元素接口：push_back（先构造，再使用构造好的对象传入参数）<br>emplace_back（直接使用参数在开辟的内存空间上构造对象），少了一次对象的拷贝或者移动</li>
+<li>元素插入接口：insert / emplace</li>
+<li>元素删除接口：pop_back() 直接删除最后一个元素<br>erase() 删除指定位置的元素，前面的需要往后移动，拷贝<br>clear删除全部元素</li>
+</ul>
+<p>·注意：vector不提供push_front/pop_front，可以使用insert/erase但效率不高</p>
+<ul>
+<li>swap效率较高，因为是指针的变化</li>
+<li>写操作可能会导致迭代器失效（指针指向的内存地址可能发生了变化，当vector空间不够时会重新开辟一个更大的内存，那么内存地址发生了变化）</li>
+</ul>
+<h2 id="list-deque-basic-string容器模版"><a href="#list-deque-basic-string容器模版" class="headerlink" title="list/deque/basic_string容器模版"></a>list/deque/basic_string容器模版</h2><p>·list容器模版：双向链表<br><img src="/images/list%E5%AE%B9%E5%99%A8.jpg" alt="list"><br>·与vector相比，list</p>
+<ul>
+<li>插入、删除成本比较低（因为是指针的指向变化，与元素的个数无关），但随机访问的成本比较高（需要按顺序遍历）</li>
+<li>提供了push/pop_front（插入/删除链表头的一个元素）/splice（将某个链表整体插入到另一个链表中）</li>
+<li>写操作通常不会改变迭代器的有效性（元素本身的位置不变，地址不变）</li>
+</ul>
+<p>·forward_list容器模版：单向链表</p>
+<ul>
+<li>相对list成本比较低的线性表实现(因为单个节点保存的信息较少)</li>
+<li>其迭代器只支持递增操作，因此无rbegin/rend(倒序)</li>
+<li>不支持size（为了降低成本，节省内存省去了包含size的空间）</li>
+<li>不支持pop_back/push_back操作（因为需要还知道前面的指针信息）</li>
+<li>支持xxx_after（insert/emplace/erase）等</li>
+</ul>
+<p>·deque容器模版：vector和list的折衷<br><img src="/images/deque.jpg"><br><img src="/images/deque1.jpg"></p>
+<ul>
+<li>push_back/push_front速度较快</li>
+<li>在序列中间插入、删除速度较慢</li>
+</ul>
+<p>·basic_string容器模版：实现了字符串相关的接口</p>
+<ul>
+<li>使用char实例化出std::string</li>
+<li>提供了如find，substr等字符串特有的接口</li>
+<li>提供了数值与字符转换的接口 stoi():string到int to_string:转为string</li>
+<li>针对短字符的优化：如果字符串比较短（通常在15个字节以内），直接<br>存放在string的buffer内，如果字符串较长则存放在堆上分配的空间。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/22/%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E8%BF%B0/" rel="prev" title="容器的概述">
+      <i class="fa fa-chevron-left"></i> 容器的概述
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/22/%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/" rel="next" title="关联容器">
+      关联容器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 14 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/C-%E5%87%BD%E6%95%B0-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" style="font-size: 12px; color: #ccc">C++ ; 函数 ; 函数重载</a> <a href="/tags/C-%EF%BC%8C%E5%86%85%E5%AD%98/" style="font-size: 12px; color: #ccc">C++ ，内存</a> <a href="/tags/LVI-SAM-slam/" style="font-size: 12px; color: #ccc">LVI-SAM ; slam</a> <a href="/tags/c/" style="font-size: 30px; color: #111">c++</a> <a href="/tags/c-constexpr-consteval/" style="font-size: 12px; color: #ccc">c++ ; constexpr ; consteval</a> <a href="/tags/c-%E5%87%BD%E6%95%B0/" style="font-size: 12px; color: #ccc">c++ ; 函数</a> <a href="/tags/c-%E5%87%BD%E6%95%B0/" style="font-size: 12px; color: #ccc">c++ 函数</a> <a href="/tags/c-%E6%8C%87%E9%92%88/" style="font-size: 12px; color: #ccc">c++; 指针</a> <a href="/tags/c-%E5%AE%B9%E5%99%A8/" style="font-size: 12px; color: #ccc">c++容器</a> <a href="/tags/leetcode-min%E6%A0%88-leetcode/" style="font-size: 12px; color: #ccc">leetcode ; min栈 ; leetcode</a> <a href="/tags/yilia/" style="font-size: 30px; color: #111">yilia</a> <a href="/tags/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0-c/" style="font-size: 12px; color: #ccc">内联函数 ; c++</a> <a href="/tags/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88-c/" style="font-size: 12px; color: #ccc">函数指针 c++</a> <a href="/tags/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 12px; color: #ccc">剑指offer ; 二叉树</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -298,6 +412,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E5%AE%B9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">序列容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#array%E5%AE%B9%E5%99%A8%E6%A8%A1%E7%89%88"><span class="nav-number">1.1.</span> <span class="nav-text">array容器模版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector%E5%AE%B9%E5%99%A8%E6%A8%A1%E7%89%88"><span class="nav-number">1.2.</span> <span class="nav-text">vector容器模版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list-deque-basic-string%E5%AE%B9%E5%99%A8%E6%A8%A1%E7%89%88"><span class="nav-number">1.3.</span> <span class="nav-text">list&#x2F;deque&#x2F;basic_string容器模版</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
