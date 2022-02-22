@@ -453,4 +453,20 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
         <tag>c++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>智能指针2</title>
+    <url>/2022/02/07/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%882/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+<h2 id="unique-ptr-gt-独占内存的解决方案"><a href="#unique-ptr-gt-独占内存的解决方案" class="headerlink" title="unique_ptr -&gt; 独占内存的解决方案"></a>unique_ptr -&gt; 独占内存的解决方案</h2><ul>
+<li><p>基本用法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::unqiue_ptr&lt;int&gt;x=new int(3);//x将独占返回的资源地址</span><br><span class="line">std::unqiue_ptr&lt;int&gt;y=x;//编译器将直接报错，不能共享</span><br><span class="line">std::unique_ptr&lt;int&gt;=std::move(x);//使用move构造一个将亡值，将x的地址转移给y，x将丧失对这个地址的拥有权</span><br><span class="line"></span><br><span class="line">//以下代码合法，c++使用移动的方式，创建临时对象，将地址传递给临时对象，再传给x</span><br><span class="line">std::unique_ptr&lt;int&gt; fun()</span><br><span class="line">&#123;</span><br><span class="line">   std::unique_ptr&lt;int&gt; res(new int(3));</span><br><span class="line">   //auto res = std::make_unique&lt;int&gt;(3); //在内部分配内存并将3写入到内存中</span><br><span class="line">   return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::unqiue_ptr&lt;int&gt; x=fun();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>unique_ptr不支持复制，但可以移动</p>
+</li>
+<li><p>为unique_ptr指定内存回收逻辑</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;memory&gt;</span><br><span class="line"></span><br><span class="line">void fun(int* ptr)</span><br><span class="line">&#123;</span><br><span class="line">   std::cout&lt;&lt;&quot;fun is called \n&quot;;</span><br><span class="line">   delete ptr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::share_ptr&lt;int&gt; x(new int(3),fun);//指定内存回收逻辑 std::share_ptr&lt;class T&gt; 只有一个模板参数</span><br><span class="line">   std::unique_ptr&lt;int&gt; x(new int(3));//std::unique_ptr&lt;class T,class deleter&gt;有两个模板参数，默认使用class Deleter = std::default delete&lt;T&gt;</span><br><span class="line">   std::unique_ptr&lt;int,decltype(&amp;fun)&gt; x(new int(3),fun);//对fun函数取地址，在使用decltype推导出fun的类型 指定内存回收逻辑</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+  </entry>
 </search>
