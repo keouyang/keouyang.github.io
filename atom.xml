@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-24T12:48:37.388Z</updated>
+  <updated>2022-02-25T12:14:56.181Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数值适配器和生成器</title>
+    <link href="http://example.com/2022/02/25/%E6%95%B0%E5%80%BC%E9%80%82%E9%85%8D%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/"/>
+    <id>http://example.com/2022/02/25/%E6%95%B0%E5%80%BC%E9%80%82%E9%85%8D%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/</id>
+    <published>2022-02-25T11:33:41.000Z</published>
+    <updated>2022-02-25T12:14:56.181Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>类型适配器和接口适配器</title>
@@ -328,25 +343,6 @@
     
     
     <category term="yilia" scheme="http://example.com/tags/yilia/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LVI-SAM代码注释</title>
-    <link href="http://example.com/2022/01/18/lvi-sam-code1/"/>
-    <id>http://example.com/2022/01/18/lvi-sam-code1/</id>
-    <published>2022-01-18T03:40:02.000Z</published>
-    <updated>2022-02-22T12:19:20.812Z</updated>
-    
-    
-    <summary type="html">&lt;hr&gt;</summary>
-    
-    
-    
-    <category term="slam" scheme="http://example.com/categories/slam/"/>
-    
-    
-    <category term="LVI-SAM ; slam" scheme="http://example.com/tags/LVI-SAM-slam/"/>
     
   </entry>
   

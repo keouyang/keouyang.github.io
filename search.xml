@@ -648,4 +648,21 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
         <tag>c++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>数值适配器和生成器</title>
+    <url>/2022/02/25/%E6%95%B0%E5%80%BC%E9%80%82%E9%85%8D%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+<h2 id="数值适配器"><a href="#数值适配器" class="headerlink" title="数值适配器"></a>数值适配器</h2><ul>
+<li>std::ranges::XXX_view;std::ranges::view::XXX;std::views::XXX</li>
+<li>可以将一个连续存放的输入区间中的值变换后输出</li>
+<li>数组适配器可以组合，引入复杂的数值适配器逻辑 如 |<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;ranges&gt;</span><br><span class="line"></span><br><span class="line">int Square(int i)</span><br><span class="line">&#123;</span><br><span class="line">   return i*i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool isEven(int i)</span><br><span class="line">&#123;</span><br><span class="line">   return i%2==0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::vector&lt;int&gt; v&#123;1,2,3,4,5,6&#125;;</span><br><span class="line">   auto x = std::views::filter(isEven) | std::views::transform(Square);</span><br><span class="line">   //或者auto y = std::views::transform(Square); for(auto p : v | x | y)</span><br><span class="line">   //类似于linux系统，| 前一个的输出结果作为后一个的输入</span><br><span class="line">   //过程中不涉及构造新的容器，拿一个求解一个，这里不是先求filter再求transform，而是一个元素一个元素的求值</span><br><span class="line">   for(auto p : v | x)//对连续存放的vector内的数据进行变换输出，当结果为true才输出</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;p&lt;&lt;&#x27; &#x27;;</span><br><span class="line">   &#125;</span><br><span class="line">   std::cout&lt;&lt;std::endl;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="生成器（c-20）"><a href="#生成器（c-20）" class="headerlink" title="生成器（c++20）"></a>生成器（c++20）</h2><ul>
+<li>std::ranges::itoa_view;std::ranges::views::itoa;std::views::itoa</li>
+<li>可以在运行期生成无限长或者有限长的序列<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;ranges&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    for (int i : std::ranges::iota_view&#123;1, 10&#125;)</span><br><span class="line">        std::cout &lt;&lt; i &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    std::cout &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line"></span><br><span class="line">    for (int i : std::views::iota(1, 10))//前一个参数是序列的开始，后一个指向序列结尾的下一个元素</span><br><span class="line">        std::cout &lt;&lt; i &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    std::cout &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line"></span><br><span class="line">    for (int i : std::views::iota(1) | std::views::take(9))//生成无限长的序列，只取9个</span><br><span class="line">        std::cout &lt;&lt; i &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    std::cout &lt;&lt; &#x27;\n&#x27;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+  </entry>
 </search>
