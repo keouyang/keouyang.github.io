@@ -21,17 +21,17 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="函数指针">
-<meta property="og:url" content="http://example.com/2022/01/21/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/index.html">
+<meta property="og:title" content="bind和lambda表达式">
+<meta property="og:url" content="http://example.com/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
 <meta property="og:site_name" content="KOY-blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-21T03:26:13.000Z">
-<meta property="article:modified_time" content="2022-01-21T09:01:50.000Z">
+<meta property="article:published_time" content="2022-03-02T02:27:15.000Z">
+<meta property="article:modified_time" content="2022-03-02T03:20:56.919Z">
 <meta property="article:author" content="OUYANG">
-<meta property="article:tag" content="函数指针 c++">
+<meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/01/21/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/">
+<link rel="canonical" href="http://example.com/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -44,7 +44,7 @@
   };
 </script>
 
-  <title>函数指针 | KOY-blog</title>
+  <title>bind和lambda表达式 | KOY-blog</title>
   
 
 
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/21/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/bury.jpg">
@@ -221,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          函数指针
+          bind和lambda表达式
         </h1>
 
         <div class="post-meta">
@@ -232,7 +232,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-21 11:26:13 / 修改时间：17:01:50" itemprop="dateCreated datePublished" datetime="2022-01-21T11:26:13+08:00">2022-01-21</time>
+              <time title="创建时间：2022-03-02 10:27:15 / 修改时间：11:20:56" itemprop="dateCreated datePublished" datetime="2022-03-02T10:27:15+08:00">2022-03-02</time>
             </span>
 
           
@@ -248,14 +248,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -269,21 +269,17 @@
       
         <hr>
 <span id="more"></span>
-<h2 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h2><p>   返回类型(参数类型) 如 int(int)<br>   与数组类型的类似对比<br>   相同之处<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">using H = int(int);//定义一个函数类型</span><br><span class="line">H fun;//用这个函数类型定义一个函数</span><br><span class="line">using K = int[3];//定义一个数组类型</span><br><span class="line">K a;//用这个类型定义一个数组a</span><br><span class="line">int(int) fun;//这样不行</span><br><span class="line">int[3] a;//这样不行 </span><br></pre></td></tr></table></figure></p>
-<p>   不同之处，函数类型只能声明一个函数，不能在后面跟上定义。</p>
-   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">using K = int(int);</span><br><span class="line">K fun;</span><br><span class="line">//等同于</span><br><span class="line">int fun(int);//函数的声明</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="函数指针类型"><a href="#函数指针类型" class="headerlink" title="函数指针类型"></a>函数指针类型</h2><p>   类比数组的指针，指向数组的指针，和指针数组<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int (*a)[3]//首先a是一个指针，指向int[3]数组，这是指向数组的指针*</span><br><span class="line"></span><br><span class="line">int* a[3];//这里a是一个数组，数组里面的对象都是int* 指针 ,即指针数组</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   函数指针，本质上是一个指针变量，可以接受对应类型函数的地址，并对其解引用，从而调用这个函数<br>   通常配合高阶函数使用，高阶函数接受函数指针作为它的形参<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">  int inc(int x)</span><br><span class="line">&#123;</span><br><span class="line">return x+1;</span><br><span class="line">&#125;</span><br><span class="line">  int dec(int x)&#123;</span><br><span class="line">return x-1;</span><br><span class="line">&#125;</span><br><span class="line">  using H = int(int);</span><br><span class="line">  K* fun = nullptr;//给函数指针赋初值*</span><br><span class="line">  fun = &amp;inc;//获取inc函数的地址</span><br><span class="line">  std::cout&lt;&lt;(*fun)(100)&lt;&lt;std::endl;//输出202*</span><br><span class="line">  int Twice(K* fun ,int x)&#123;  //高阶函数*</span><br><span class="line">int tmp = (*fun)(x);</span><br><span class="line">return tmp * 2;</span><br><span class="line">&#125;</span><br><span class="line">  std::cout&lt;&lt;Twice(&amp;dec,100)&lt;&lt;std::endl;//输出198</span><br><span class="line">  </span><br><span class="line">  //高阶函数，泛型</span><br><span class="line">  std::vector&lt;int&gt; a&#123;1,2,3,4,5&#125;;</span><br><span class="line">  std::transform(a.begin(),a.end(),a.begin(),&amp;dec);</span><br><span class="line">  //上述transform将vector中的数据经过dec函数计算并存放到a.begin()开始的空间</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>   函数与数组都不能复制，赋值或传参时会产生类型退化</p>
-   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int a[3];//数组</span><br><span class="line">auto b = a;//b退化成一个指针，指向a的首地址</span><br><span class="line"></span><br><span class="line">auto fun = inc;//fun不再是一个函数类型，变成了函数指针类型 int (*) int</span><br><span class="line">//再次对比数组</span><br><span class="line">using K = int[3];</span><br><span class="line">K*   -&gt; int (*)[3];// 数组的指针类型 区别与int* [3]这个还是数组，数组内的元素是指针</span><br><span class="line"></span><br><span class="line">int(int) -&gt;函数类型</span><br><span class="line">int (*)int -&gt;对应的函数指针类型</span><br><span class="line"></span><br><span class="line">using K = int(int);</span><br><span class="line">K* fun;  //等价于int(* int)(int)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="函数指针与重载"><a href="#函数指针与重载" class="headerlink" title="函数指针与重载"></a>函数指针与重载</h2><p>   <strong>对于有函数重载的情况，不能使用auto对函数指针赋值，因为函数指针不能判断是哪个函数，此时需要指定函数指针的类型</strong><br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">using K = void(int);</span><br><span class="line">K* x = fun;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="函数指针作为函数参数或者函数的返回值"><a href="#函数指针作为函数参数或者函数的返回值" class="headerlink" title="函数指针作为函数参数或者函数的返回值"></a>函数指针作为函数参数或者函数的返回值</h2><p><strong>注意传递的还是函数的指针，因为函数不能复制</strong></p>
-<hr>
-<h2 id="Most-vexing-parse"><a href="#Most-vexing-parse" class="headerlink" title="Most vexing parse"></a>Most vexing parse</h2>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TimeKeeper time_keeper(Timer());</span><br></pre></td></tr></table></figure>
-<p>   对于上面的代码有两种不同的解释<br>   第一种：使用Timer类的实例初始化定义TimeKeeper类的time_keeper变量<br>   第二种：time_keeper函数的声明，返回Timekeeper类型的对象，有一个函数(指针)类型的参数,这个函数不接收参数，返回类型是Timer<br>   <strong>原因是小括号的两种含义：对变量而言小括号内部放置数值进行变量初始化，对于函数声明小括号内部可以放置一个类型</strong><br>   <strong>解决方法：C++11引入了大括号，大括号内部只能放置对象</strong><br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//以下三种c++都会选择第一种解释，定义time_keeper变量</span><br><span class="line">TimeKeeper time_keeper(Timer&#123;&#125;);//Timer&#123;&#125;临时对象</span><br><span class="line">TimeKeeper time_keeper&#123;Timer()&#125;;//大括号内是对象，可能是函数的调用，类的调用</span><br><span class="line">TimeKeeper time_keeper&#123;Timer&#123;&#125;&#125;;//更加明确，使用缺省的方式初始化Timer对象，再使用这个对象初始化这个变量</span><br></pre></td></tr></table></figure></p>
-<hr>
+<ul>
+<li>许多算法允许通过可调用对象自定义计算逻辑的细节 如transform/copy_if/sort..</li>
+<li>可调用对象<br>– 函数指针：概念直观，但定义位置受限，只能定义在main()的外面<br>– 类：功能强大，但书写麻烦<br>– bind ：基于已有的逻辑灵活适配，但描述复杂逻辑时语法可能会比较复杂难懂<br>– lambda 表达式：小巧灵活，功能强大</li>
+</ul>
+<p>早期的 bind 雏形： std::bind1st / std::bind2nd<br>– 具有了 bind 的基本思想，但功能有限，只有部分可调用对象支持</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;functional&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::vector&lt;int&gt; x&#123;1,2,3,4,5,6&#125;;</span><br><span class="line">   std::vector&lt;int&gt; y;</span><br><span class="line">   //使用std::bind1st绑定std::greater的第一个参数，第一个参数为3</span><br><span class="line">   //如果使用std::bind2ed会绑定std::greater的第二个参数，为3</span><br><span class="line">   std::copy_if(x.begin(),x.end(),std::back_inserter(y),std::bind1st(std::greater&lt;int&gt;(),3));</span><br><span class="line">   for(auto p : y)</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;p&lt;&lt;&#x27; &#x27;;</span><br><span class="line">   &#125;</span><br><span class="line">   std::cout&lt;&lt;std::endl;//输出 1 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>std::bind （ C++11 引入）：用于修改可调用对象的调用方式<br>– 调用 std::bind 时，传入的参数会被复制，这可能会产生一些调用风险<br>– 可以使用 std::ref 或 std::cref 避免复制的行为，传入对象的引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;functional&gt;</span><br><span class="line"></span><br><span class="line">bool MyPredict2(int val1 ,int val2)</span><br><span class="line">&#123;</span><br><span class="line">   return val1&gt;val2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool MyAnd(bool val1,bool val2)</span><br><span class="line">&#123;</span><br><span class="line">   return val1 &amp;&amp; val2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   using namespace std::placeholders;</span><br><span class="line">   auto x = std::bind(MyPredict2,_1,3);//MyPredict2后面的参数按顺序和其形参对应 _1-&gt;val1,3-&gt;val2</span><br><span class="line">   std::cout&lt;&lt;x(50);//会将50传给_1</span><br><span class="line">   auto y = std::bind(MyPredict2,_2,3);//MyPredict2后面的参数按顺序和其形参对应</span><br><span class="line">   std::cout&lt;&lt;y(&quot;hello&quot;,50);//&quot;hello&quot;对应_1,50对应_2</span><br><span class="line">   auto z = std::bind(MyPredict2,_2,_1);//MyPredict2后面的参数按顺序和其形参对应</span><br><span class="line">   std::cout&lt;&lt;z(3,4);   //3对应_1,4对应_2</span><br><span class="line">	</span><br><span class="line">   //bind的组合</span><br><span class="line">   auto x1 = std::bind(MyPredict2,_1,3);//_1-&gt;val1,3-&gt;val2</span><br><span class="line">   auto x2 = std::bind(MyPredict2,10,_1);//10-&gt;val1,_1-&gt;val2</span><br><span class="line">   auto w = std::bind(MyAnd,x1,x2);</span><br><span class="line">   std::cout&lt;&lt;w(5);//会将5传入x1，x2</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>std::bind_front （ C++20 引入）： std::bind 的简化形式 类似bind1st</li>
+</ul>
 
     </div>
 
@@ -292,9 +288,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88-c/" rel="tag"># 函数指针 c++</a>
-          </div>
 
         
 
@@ -302,13 +295,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/01/20/constexpr%E5%92%8Cconsteval/" rel="prev" title="constexpr和consteval">
-      <i class="fa fa-chevron-left"></i> constexpr和consteval
+    <a href="/2022/02/28/%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/" rel="prev" title="泛型算法">
+      <i class="fa fa-chevron-left"></i> 泛型算法
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/01/28/IOStream%E6%A6%82%E8%BF%B0/" rel="next" title="IOStream概述">
-      IOStream概述 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -367,7 +357,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">函数类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">函数指针类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E4%B8%8E%E9%87%8D%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">函数指针与重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E6%88%96%E8%80%85%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">函数指针作为函数参数或者函数的返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Most-vexing-parse"><span class="nav-number">5.</span> <span class="nav-text">Most vexing parse</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

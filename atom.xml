@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-25T12:14:56.181Z</updated>
+  <updated>2022-03-02T03:20:56.919Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bind和lambda表达式</title>
+    <link href="http://example.com/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://example.com/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2022-03-02T02:27:15.000Z</published>
+    <updated>2022-03-02T03:20:56.919Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>泛型算法</title>
+    <link href="http://example.com/2022/02/28/%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/"/>
+    <id>http://example.com/2022/02/28/%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/</id>
+    <published>2022-02-28T10:59:36.000Z</published>
+    <updated>2022-03-02T02:20:33.476Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数值适配器和生成器</title>
@@ -305,44 +335,6 @@
     
     <category term="hexo" scheme="http://example.com/categories/hexo/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>基于yilia主题优化bolg的页面和功能</title>
-    <link href="http://example.com/2022/01/18/hexo_optimization/"/>
-    <id>http://example.com/2022/01/18/hexo_optimization/</id>
-    <published>2022-01-18T03:40:26.000Z</published>
-    <updated>2022-01-18T03:40:26.000Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;基于yilia主题优化bolg的页面和功能&quot;&gt;&lt;a href=&quot;#基于yilia主题优化bolg的页面和功能&quot; class=&quot;headerlink&quot; title=&quot;基于yilia主题优化bolg的页面和功能&quot;&gt;&lt;/a&gt;基于yilia主题优化bolg的页面和功能&lt;/h1&gt;&lt;hr&gt;</summary>
-    
-    
-    
-    <category term="hexo,yilia" scheme="http://example.com/categories/hexo-yilia/"/>
-    
-    
-    <category term="yilia" scheme="http://example.com/tags/yilia/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决hexo插入图片无法正常显示</title>
-    <link href="http://example.com/2022/01/18/hexo_picture_pro/"/>
-    <id>http://example.com/2022/01/18/hexo_picture_pro/</id>
-    <published>2022-01-18T03:40:12.000Z</published>
-    <updated>2022-01-18T03:40:12.000Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;解决hexo插入图片无法正常显示&quot;&gt;&lt;a href=&quot;#解决hexo插入图片无法正常显示&quot; class=&quot;headerlink&quot; title=&quot;解决hexo插入图片无法正常显示&quot;&gt;&lt;/a&gt;解决hexo插入图片无法正常显示&lt;/h1&gt;&lt;hr&gt;</summary>
-    
-    
-    
-    <category term="hexo,yilia" scheme="http://example.com/categories/hexo-yilia/"/>
-    
-    
-    <category term="yilia" scheme="http://example.com/tags/yilia/"/>
     
   </entry>
   

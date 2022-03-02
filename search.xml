@@ -665,4 +665,64 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>bind和lambda表达式</title>
+    <url>/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+<ul>
+<li>许多算法允许通过可调用对象自定义计算逻辑的细节 如transform/copy_if/sort..</li>
+<li>可调用对象<br>– 函数指针：概念直观，但定义位置受限，只能定义在main()的外面<br>– 类：功能强大，但书写麻烦<br>– bind ：基于已有的逻辑灵活适配，但描述复杂逻辑时语法可能会比较复杂难懂<br>– lambda 表达式：小巧灵活，功能强大</li>
+</ul>
+<p>早期的 bind 雏形： std::bind1st / std::bind2nd<br>– 具有了 bind 的基本思想，但功能有限，只有部分可调用对象支持</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;functional&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::vector&lt;int&gt; x&#123;1,2,3,4,5,6&#125;;</span><br><span class="line">   std::vector&lt;int&gt; y;</span><br><span class="line">   //使用std::bind1st绑定std::greater的第一个参数，第一个参数为3</span><br><span class="line">   //如果使用std::bind2ed会绑定std::greater的第二个参数，为3</span><br><span class="line">   std::copy_if(x.begin(),x.end(),std::back_inserter(y),std::bind1st(std::greater&lt;int&gt;(),3));</span><br><span class="line">   for(auto p : y)</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;p&lt;&lt;&#x27; &#x27;;</span><br><span class="line">   &#125;</span><br><span class="line">   std::cout&lt;&lt;std::endl;//输出 1 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>std::bind （ C++11 引入）：用于修改可调用对象的调用方式<br>– 调用 std::bind 时，传入的参数会被复制，这可能会产生一些调用风险<br>– 可以使用 std::ref 或 std::cref 避免复制的行为，传入对象的引用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;functional&gt;</span><br><span class="line"></span><br><span class="line">bool MyPredict2(int val1 ,int val2)</span><br><span class="line">&#123;</span><br><span class="line">   return val1&gt;val2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool MyAnd(bool val1,bool val2)</span><br><span class="line">&#123;</span><br><span class="line">   return val1 &amp;&amp; val2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   using namespace std::placeholders;</span><br><span class="line">   auto x = std::bind(MyPredict2,_1,3);//MyPredict2后面的参数按顺序和其形参对应 _1-&gt;val1,3-&gt;val2</span><br><span class="line">   std::cout&lt;&lt;x(50);//会将50传给_1</span><br><span class="line">   auto y = std::bind(MyPredict2,_2,3);//MyPredict2后面的参数按顺序和其形参对应</span><br><span class="line">   std::cout&lt;&lt;y(&quot;hello&quot;,50);//&quot;hello&quot;对应_1,50对应_2</span><br><span class="line">   auto z = std::bind(MyPredict2,_2,_1);//MyPredict2后面的参数按顺序和其形参对应</span><br><span class="line">   std::cout&lt;&lt;z(3,4);   //3对应_1,4对应_2</span><br><span class="line">	</span><br><span class="line">   //bind的组合</span><br><span class="line">   auto x1 = std::bind(MyPredict2,_1,3);//_1-&gt;val1,3-&gt;val2</span><br><span class="line">   auto x2 = std::bind(MyPredict2,10,_1);//10-&gt;val1,_1-&gt;val2</span><br><span class="line">   auto w = std::bind(MyAnd,x1,x2);</span><br><span class="line">   std::cout&lt;&lt;w(5);//会将5传入x1，x2</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>std::bind_front （ C++20 引入）： std::bind 的简化形式 类似bind1st</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>泛型算法</title>
+    <url>/2022/02/28/%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+<h2 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h2><ul>
+<li>可以支持多种类型的算法</li>
+<li>重点讨论c++标准库中定义的算法<algorithm> <numeric> <ranges></ranges></numeric></algorithm></li>
+<li>方法和算法的区别：方法是定义在类中的函数，算法是定义在命名空间下的函数</li>
+<li>为什么要引入泛型算法<br>· 内建的数据类型如int char等类型不支持方法，因为方法一般定义在类中<br>· 计算逻辑存在相似性，避免了重复定义，一般使用模版</li>
+<li>如何来实现多种类型的实现：通过迭代器（s.begin()等）将数据和算法连接</li>
+<li>泛型算法不复杂但是优化足够好（速度较快，bug较少）</li>
+<li>当泛型算法和方法实现的功能类似时，建议调用方法而不是算法（因为泛型算法要支持多种类型，不可避免的减小了优化）</li>
+</ul>
+<hr>
+<h2 id="泛型算法的分类"><a href="#泛型算法的分类" class="headerlink" title="泛型算法的分类"></a>泛型算法的分类</h2><ul>
+<li>读算法：给定迭代区间，读取其中的元素并进行计算<br>· accumulate(累计)，返回累计后的value<br>· find（返回一个迭代器，返回寻找值的地址，找不到返回迭代器的end()）<br>· count返回区间内查找元素的个数</li>
+<li>写算法 ：向一个迭代区间中写入元素<br>· 单纯的写操作：fill(输入一个区间的首尾迭代器，全写入某个数据)/fill_n(输入迭代器的开头和要写入的个数)<br>· 读+写操作：transform/copy传入要读区间的首尾迭代器，和写区间的首迭代器<br>· 写算法一定要保证目标写入空间足够大</li>
+<li>排序算法：改变输入序列中元素的位置<br>· sort：元素支持大小比较 快排<br>· unique：对给定的顺序区间进行筛选操作，写一位判断一位，覆盖前面的数据，但后面的不做修改 ，返回一个迭代器指向修改后的下一位<br>· 1 2 2 3 4 -&gt; 1 2 3 4 4，因为前四位被重新写入，迭代器返回指向最后一个4</li>
+</ul>
+<p>· 泛型算法使用迭代器实现元素访问</p>
+<hr>
+<h2 id="迭代器的分类："><a href="#迭代器的分类：" class="headerlink" title="迭代器的分类："></a>迭代器的分类：</h2><p>– 输入迭代器：可读，可递增 典型应用为 —— find 算法<br>– 输出迭代器：可写，可递增 典型应用为 —— copy 算法<br>– 前向迭代器：可读写，可递增 典型应用为 —— replace 算法<br>– 双向迭代器：可读写，可递增递减 典型应用为 —— reverse 算法<br>– 随机访问迭代器：可读写，可增减一个整数 典型应用为 —— sort 算法</p>
+<ul>
+<li>一些算法会根据迭代器类型的不同引入相应的优化：如 distance 算法</li>
+</ul>
+<p>** 一些特殊的迭代器</p>
+<ul>
+<li>插入迭代器：back_insert_iterator(底层调用push_back,在使用此迭代器时需要保证底层的容器支持push_back()操作)<pre><code>  front_insert_iterator(底层调用push_front)
+  insert_iterator(容器，容器的迭代器)调用容器的insert
+  可以使用xxx_inserter(容器)构建对应的迭代器对象
+</code></pre>
+</li>
+<li>流迭代器：istream_iterator/ostream_iterator<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;sstream&gt;</span><br><span class="line">#include &lt;numeric&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::stringstream str(&quot;1 2 3 4 5&quot;);</span><br><span class="line">   std::istream_iterator&lt;int&gt; x(str); //构造输入流迭代器对象</span><br><span class="line">   std::istream_iterator&lt;int&gt; y;//缺省初始化,可以代表流迭代器的结尾相当于其他迭代器的end()</span><br><span class="line">   for(;x!=y;++x)//输出 12345</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;*x&lt;&lt;std::endl;</span><br><span class="line">   &#125;</span><br><span class="line">   int res = std::accumulate(x,y,0);//输出和15</span><br><span class="line">   std::cout&lt;&lt;res&lt;&lt;std::endl;</span><br><span class="line">   std::vector&lt;int&gt; x&#123;1,2,3,4,5&#125;;</span><br><span class="line">   std::copy(x.rbegin(),x.rend(),std::ostream::iterator&lt;int&gt;(std::cout,&quot; &quot;));//输出 1 2 3 4 5 hit any </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>反向迭代器（rbegin() ,rend()）</li>
+<li>移动迭代器 move_iterator(使用该迭代器会将读取的元素从原来的容器移到目标容器，类似std::move())</li>
+</ul>
+<hr>
+<h2 id="迭代器和哨兵"><a href="#迭代器和哨兵" class="headerlink" title="迭代器和哨兵"></a>迭代器和哨兵</h2><hr>
+<h2 id="并发算法"><a href="#并发算法" class="headerlink" title="并发算法"></a>并发算法</h2><p>– std::execution::seq //顺序执行<br>– std::execution::par //并发执行<br>– std::execution::par_unseq //并发非顺序，使用SIMD（需要硬件支持，一条语句可以同时处理多个数据）<br>– std::execution::unseq //单线程 SIMD</p>
+]]></content>
+  </entry>
 </search>

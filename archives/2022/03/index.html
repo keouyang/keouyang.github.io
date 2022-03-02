@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="流的状态">
-<meta property="og:url" content="http://example.com/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/index.html">
+  <meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KOY-blog">
+<meta property="og:url" content="http://example.com/archives/2022/03/index.html">
 <meta property="og:site_name" content="KOY-blog">
+<meta property="og:description" content="个人技术博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-06T14:25:09.000Z">
-<meta property="article:modified_time" content="2022-02-06T14:58:28.000Z">
 <meta property="article:author" content="OUYANG">
-<meta property="article:tag" content="c++">
+<meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/">
+<link rel="canonical" href="http://example.com/archives/2022/03/">
 
 
 <script id="page-configurations">
@@ -39,12 +39,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>流的状态 | KOY-blog</title>
+  <title>归档 | KOY-blog</title>
   
 
 
@@ -201,145 +201,50 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content archive">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/06/%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/bury.jpg">
-      <meta itemprop="name" content="OUYANG">
-      <meta itemprop="description" content="个人技术博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOY-blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          流的状态
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-02-06 22:25:09 / 修改时间：22:58:28" itemprop="dateCreated datePublished" datetime="2022-02-06T22:25:09+08:00">2022-02-06</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <span class="collection-header">嗯..! 目前共计 26 篇日志。 继续努力。</span>
+      </div>
 
       
-        <hr>
-<span id="more"></span>
-
-<h2 id="iostate-流的状态"><a href="#iostate-流的状态" class="headerlink" title="iostate 流的状态"></a>iostate 流的状态</h2><p>  goodbit= 0; //无错误<br>  以下均为/<em>implementation defined</em>/ 设备定义，不同设备可能不同<br>  例如<br>  badbit = 0000 0001 不可恢复的流错误<br>  Failbit = 0000 0010 输入/输出操作失败（格式化或提取错误）类型转换失败，可以恢复的错误<br>  eofbit = 0000 0100 关联的输入序列已抵达文件尾<br>  指定的流状态标志，它是位掩码类型</p>
-<p>· 检测流的状态</p>
-<ul>
-<li>good() / fail() / eof() 方法</li>
-<li>转换为bool值</li>
-</ul>
-<p>· 注意区分fail和eof</p>
-<ul>
-<li>可能会被同时设置，但两者的含义不同</li>
-<li>转换为bool值时不会考虑eof</li>
-</ul>
-<p>· 通常来说，只要处于某种错误状态时，插入/提取操作就不会生效。</p>
-<p>· 复位流状态</p>
-<ul>
-<li>clear : 设置流的状态为具体的值，缺省为goodbit</li>
-<li>setstate : 将某个状态附加到现有的流状态上</li>
-</ul>
-<p>· 捕捉流异常：exceptions方法</p>
-<hr>
-<h2 id="流的定位"><a href="#流的定位" class="headerlink" title="流的定位"></a>流的定位</h2><p>· 获取流的位置</p>
-<ul>
-<li>tellg() / tellp() 可以获取输入/输出流的位置（pos_type类型）</li>
-<li>两个方法可能都会失败，此时返回pos_type(-1)</li>
-<li>当流的状态处于错误（fail或者bad状态）会返回失败-1</li>
-</ul>
-<p>· 设置流的位置</p>
-<ul>
-<li>seekg() / seekp() 用于设置输入/输出流的位置  注意会从这个地方开始覆盖，而不是插入，插入需要编写自己的逻辑</li>
-<li>这两个方法分别有两个重载版本：<br>· 设置绝对位置：传入pos_type（流的位置）进行设置<br>  · 设置相对位置: 通过偏移量（字符串ios_base::beg）+ 流位置符号的方式设置<ul>
-<li>ios_base::beg</li>
-<li>ios_base::cur</li>
-<li>ios_base::end</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="流的同步"><a href="#流的同步" class="headerlink" title="流的同步"></a>流的同步</h2><p>将数据由缓冲区写入到相应的设备中<br>· 基于flush()/sync()/unitbuf的同步<br>    - flush() 用于输出流同步，刷新缓冲区 std::cout.flush();或者&lt;&lt;std::flush;   &lt;&lt;std::end -&gt;包含\n和刷新缓冲区<br>    - sync() 用于输入流的同步，其实现逻辑是编译器所定义的。<br>    - 输出流可以通过设置unitbuf（在这里的缓冲区大小为1）来保证每次输出后自动同步（刷新）例如std::cerr</p>
-<p>· 基于绑定（tie）的同步<br>    - 流可以绑定到一个输出流上，这样在每次输入/输出前都可以刷新输出流的缓冲区 例如:a-&gt;b,不管a是什么流，a绑定b 在操作a时会先刷新b的缓冲区<br>    - 比如 ：cin 绑定到 cout</p>
-<p>· 与c语言标准io的同步<br>    - 缺省情况下，c++的输入输出操作会与c的输入输出函数同步<br>    - 可以通过sync_with_stdio关闭该同步，关闭之后无法保证c和c++的输出顺序  </p>
-
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/c/" rel="tag"># c++</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2022-03-02T10:27:15+08:00"
+              content="2022-03-02">
+          03-02
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url">
+            <span itemprop="name">bind和lambda表达式</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/02/06/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="prev" title="动态内存管理">
-      <i class="fa fa-chevron-left"></i> 动态内存管理
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/02/06/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%881/" rel="next" title="智能指针1">
-      智能指针1 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
@@ -392,7 +297,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iostate-%E6%B5%81%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">1.</span> <span class="nav-text">iostate 流的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">流的定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%9A%84%E5%90%8C%E6%AD%A5"><span class="nav-number">3.</span> <span class="nav-text">流的同步</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

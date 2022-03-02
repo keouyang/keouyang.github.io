@@ -21,17 +21,17 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="函数指针">
-<meta property="og:url" content="http://example.com/2022/01/21/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/index.html">
+<meta property="og:title" content="泛型算法">
+<meta property="og:url" content="http://example.com/2022/02/28/%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="KOY-blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-21T03:26:13.000Z">
-<meta property="article:modified_time" content="2022-01-21T09:01:50.000Z">
+<meta property="article:published_time" content="2022-02-28T10:59:36.000Z">
+<meta property="article:modified_time" content="2022-03-02T02:20:33.476Z">
 <meta property="article:author" content="OUYANG">
-<meta property="article:tag" content="函数指针 c++">
+<meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/01/21/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/">
+<link rel="canonical" href="http://example.com/2022/02/28/%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -44,7 +44,7 @@
   };
 </script>
 
-  <title>函数指针 | KOY-blog</title>
+  <title>泛型算法 | KOY-blog</title>
   
 
 
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/21/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/28/%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/bury.jpg">
@@ -221,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          函数指针
+          泛型算法
         </h1>
 
         <div class="post-meta">
@@ -230,10 +230,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-21 11:26:13 / 修改时间：17:01:50" itemprop="dateCreated datePublished" datetime="2022-01-21T11:26:13+08:00">2022-01-21</time>
+              <time title="创建时间：2022-02-28 18:59:36" itemprop="dateCreated datePublished" datetime="2022-02-28T18:59:36+08:00">2022-02-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-02 10:20:33" itemprop="dateModified" datetime="2022-03-02T10:20:33+08:00">2022-03-02</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -269,21 +275,41 @@
       
         <hr>
 <span id="more"></span>
-<h2 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h2><p>   返回类型(参数类型) 如 int(int)<br>   与数组类型的类似对比<br>   相同之处<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">using H = int(int);//定义一个函数类型</span><br><span class="line">H fun;//用这个函数类型定义一个函数</span><br><span class="line">using K = int[3];//定义一个数组类型</span><br><span class="line">K a;//用这个类型定义一个数组a</span><br><span class="line">int(int) fun;//这样不行</span><br><span class="line">int[3] a;//这样不行 </span><br></pre></td></tr></table></figure></p>
-<p>   不同之处，函数类型只能声明一个函数，不能在后面跟上定义。</p>
-   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">using K = int(int);</span><br><span class="line">K fun;</span><br><span class="line">//等同于</span><br><span class="line">int fun(int);//函数的声明</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h2><ul>
+<li>可以支持多种类型的算法</li>
+<li>重点讨论c++标准库中定义的算法<algorithm> <numeric> <ranges></ranges></numeric></algorithm></li>
+<li>方法和算法的区别：方法是定义在类中的函数，算法是定义在命名空间下的函数</li>
+<li>为什么要引入泛型算法<br>· 内建的数据类型如int char等类型不支持方法，因为方法一般定义在类中<br>· 计算逻辑存在相似性，避免了重复定义，一般使用模版</li>
+<li>如何来实现多种类型的实现：通过迭代器（s.begin()等）将数据和算法连接</li>
+<li>泛型算法不复杂但是优化足够好（速度较快，bug较少）</li>
+<li>当泛型算法和方法实现的功能类似时，建议调用方法而不是算法（因为泛型算法要支持多种类型，不可避免的减小了优化）</li>
+</ul>
 <hr>
-<h2 id="函数指针类型"><a href="#函数指针类型" class="headerlink" title="函数指针类型"></a>函数指针类型</h2><p>   类比数组的指针，指向数组的指针，和指针数组<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int (*a)[3]//首先a是一个指针，指向int[3]数组，这是指向数组的指针*</span><br><span class="line"></span><br><span class="line">int* a[3];//这里a是一个数组，数组里面的对象都是int* 指针 ,即指针数组</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   函数指针，本质上是一个指针变量，可以接受对应类型函数的地址，并对其解引用，从而调用这个函数<br>   通常配合高阶函数使用，高阶函数接受函数指针作为它的形参<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">  int inc(int x)</span><br><span class="line">&#123;</span><br><span class="line">return x+1;</span><br><span class="line">&#125;</span><br><span class="line">  int dec(int x)&#123;</span><br><span class="line">return x-1;</span><br><span class="line">&#125;</span><br><span class="line">  using H = int(int);</span><br><span class="line">  K* fun = nullptr;//给函数指针赋初值*</span><br><span class="line">  fun = &amp;inc;//获取inc函数的地址</span><br><span class="line">  std::cout&lt;&lt;(*fun)(100)&lt;&lt;std::endl;//输出202*</span><br><span class="line">  int Twice(K* fun ,int x)&#123;  //高阶函数*</span><br><span class="line">int tmp = (*fun)(x);</span><br><span class="line">return tmp * 2;</span><br><span class="line">&#125;</span><br><span class="line">  std::cout&lt;&lt;Twice(&amp;dec,100)&lt;&lt;std::endl;//输出198</span><br><span class="line">  </span><br><span class="line">  //高阶函数，泛型</span><br><span class="line">  std::vector&lt;int&gt; a&#123;1,2,3,4,5&#125;;</span><br><span class="line">  std::transform(a.begin(),a.end(),a.begin(),&amp;dec);</span><br><span class="line">  //上述transform将vector中的数据经过dec函数计算并存放到a.begin()开始的空间</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>   函数与数组都不能复制，赋值或传参时会产生类型退化</p>
-   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int a[3];//数组</span><br><span class="line">auto b = a;//b退化成一个指针，指向a的首地址</span><br><span class="line"></span><br><span class="line">auto fun = inc;//fun不再是一个函数类型，变成了函数指针类型 int (*) int</span><br><span class="line">//再次对比数组</span><br><span class="line">using K = int[3];</span><br><span class="line">K*   -&gt; int (*)[3];// 数组的指针类型 区别与int* [3]这个还是数组，数组内的元素是指针</span><br><span class="line"></span><br><span class="line">int(int) -&gt;函数类型</span><br><span class="line">int (*)int -&gt;对应的函数指针类型</span><br><span class="line"></span><br><span class="line">using K = int(int);</span><br><span class="line">K* fun;  //等价于int(* int)(int)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="泛型算法的分类"><a href="#泛型算法的分类" class="headerlink" title="泛型算法的分类"></a>泛型算法的分类</h2><ul>
+<li>读算法：给定迭代区间，读取其中的元素并进行计算<br>· accumulate(累计)，返回累计后的value<br>· find（返回一个迭代器，返回寻找值的地址，找不到返回迭代器的end()）<br>· count返回区间内查找元素的个数</li>
+<li>写算法 ：向一个迭代区间中写入元素<br>· 单纯的写操作：fill(输入一个区间的首尾迭代器，全写入某个数据)/fill_n(输入迭代器的开头和要写入的个数)<br>· 读+写操作：transform/copy传入要读区间的首尾迭代器，和写区间的首迭代器<br>· 写算法一定要保证目标写入空间足够大</li>
+<li>排序算法：改变输入序列中元素的位置<br>· sort：元素支持大小比较 快排<br>· unique：对给定的顺序区间进行筛选操作，写一位判断一位，覆盖前面的数据，但后面的不做修改 ，返回一个迭代器指向修改后的下一位<br>· 1 2 2 3 4 -&gt; 1 2 3 4 4，因为前四位被重新写入，迭代器返回指向最后一个4</li>
+</ul>
+<p>· 泛型算法使用迭代器实现元素访问</p>
 <hr>
-<h2 id="函数指针与重载"><a href="#函数指针与重载" class="headerlink" title="函数指针与重载"></a>函数指针与重载</h2><p>   <strong>对于有函数重载的情况，不能使用auto对函数指针赋值，因为函数指针不能判断是哪个函数，此时需要指定函数指针的类型</strong><br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">using K = void(int);</span><br><span class="line">K* x = fun;</span><br></pre></td></tr></table></figure></p>
+<h2 id="迭代器的分类："><a href="#迭代器的分类：" class="headerlink" title="迭代器的分类："></a>迭代器的分类：</h2><p>– 输入迭代器：可读，可递增 典型应用为 —— find 算法<br>– 输出迭代器：可写，可递增 典型应用为 —— copy 算法<br>– 前向迭代器：可读写，可递增 典型应用为 —— replace 算法<br>– 双向迭代器：可读写，可递增递减 典型应用为 —— reverse 算法<br>– 随机访问迭代器：可读写，可增减一个整数 典型应用为 —— sort 算法</p>
+<ul>
+<li>一些算法会根据迭代器类型的不同引入相应的优化：如 distance 算法</li>
+</ul>
+<p>** 一些特殊的迭代器</p>
+<ul>
+<li>插入迭代器：back_insert_iterator(底层调用push_back,在使用此迭代器时需要保证底层的容器支持push_back()操作)<pre><code>  front_insert_iterator(底层调用push_front)
+  insert_iterator(容器，容器的迭代器)调用容器的insert
+  可以使用xxx_inserter(容器)构建对应的迭代器对象
+</code></pre>
+</li>
+<li>流迭代器：istream_iterator/ostream_iterator<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;sstream&gt;</span><br><span class="line">#include &lt;numeric&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   std::stringstream str(&quot;1 2 3 4 5&quot;);</span><br><span class="line">   std::istream_iterator&lt;int&gt; x(str); //构造输入流迭代器对象</span><br><span class="line">   std::istream_iterator&lt;int&gt; y;//缺省初始化,可以代表流迭代器的结尾相当于其他迭代器的end()</span><br><span class="line">   for(;x!=y;++x)//输出 12345</span><br><span class="line">   &#123;</span><br><span class="line">	std::cout&lt;&lt;*x&lt;&lt;std::endl;</span><br><span class="line">   &#125;</span><br><span class="line">   int res = std::accumulate(x,y,0);//输出和15</span><br><span class="line">   std::cout&lt;&lt;res&lt;&lt;std::endl;</span><br><span class="line">   std::vector&lt;int&gt; x&#123;1,2,3,4,5&#125;;</span><br><span class="line">   std::copy(x.rbegin(),x.rend(),std::ostream::iterator&lt;int&gt;(std::cout,&quot; &quot;));//输出 1 2 3 4 5 hit any </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>反向迭代器（rbegin() ,rend()）</li>
+<li>移动迭代器 move_iterator(使用该迭代器会将读取的元素从原来的容器移到目标容器，类似std::move())</li>
+</ul>
 <hr>
-<h2 id="函数指针作为函数参数或者函数的返回值"><a href="#函数指针作为函数参数或者函数的返回值" class="headerlink" title="函数指针作为函数参数或者函数的返回值"></a>函数指针作为函数参数或者函数的返回值</h2><p><strong>注意传递的还是函数的指针，因为函数不能复制</strong></p>
-<hr>
-<h2 id="Most-vexing-parse"><a href="#Most-vexing-parse" class="headerlink" title="Most vexing parse"></a>Most vexing parse</h2>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TimeKeeper time_keeper(Timer());</span><br></pre></td></tr></table></figure>
-<p>   对于上面的代码有两种不同的解释<br>   第一种：使用Timer类的实例初始化定义TimeKeeper类的time_keeper变量<br>   第二种：time_keeper函数的声明，返回Timekeeper类型的对象，有一个函数(指针)类型的参数,这个函数不接收参数，返回类型是Timer<br>   <strong>原因是小括号的两种含义：对变量而言小括号内部放置数值进行变量初始化，对于函数声明小括号内部可以放置一个类型</strong><br>   <strong>解决方法：C++11引入了大括号，大括号内部只能放置对象</strong><br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//以下三种c++都会选择第一种解释，定义time_keeper变量</span><br><span class="line">TimeKeeper time_keeper(Timer&#123;&#125;);//Timer&#123;&#125;临时对象</span><br><span class="line">TimeKeeper time_keeper&#123;Timer()&#125;;//大括号内是对象，可能是函数的调用，类的调用</span><br><span class="line">TimeKeeper time_keeper&#123;Timer&#123;&#125;&#125;;//更加明确，使用缺省的方式初始化Timer对象，再使用这个对象初始化这个变量</span><br></pre></td></tr></table></figure></p>
-<hr>
+<h2 id="迭代器和哨兵"><a href="#迭代器和哨兵" class="headerlink" title="迭代器和哨兵"></a>迭代器和哨兵</h2><hr>
+<h2 id="并发算法"><a href="#并发算法" class="headerlink" title="并发算法"></a>并发算法</h2><p>– std::execution::seq //顺序执行<br>– std::execution::par //并发执行<br>– std::execution::par_unseq //并发非顺序，使用SIMD（需要硬件支持，一条语句可以同时处理多个数据）<br>– std::execution::unseq //单线程 SIMD</p>
 
     </div>
 
@@ -292,9 +318,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88-c/" rel="tag"># 函数指针 c++</a>
-          </div>
 
         
 
@@ -302,12 +325,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/01/20/constexpr%E5%92%8Cconsteval/" rel="prev" title="constexpr和consteval">
-      <i class="fa fa-chevron-left"></i> constexpr和consteval
+    <a href="/2022/02/25/%E6%95%B0%E5%80%BC%E9%80%82%E9%85%8D%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" rel="prev" title="数值适配器和生成器">
+      <i class="fa fa-chevron-left"></i> 数值适配器和生成器
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/01/28/IOStream%E6%A6%82%E8%BF%B0/" rel="next" title="IOStream概述">
-      IOStream概述 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/03/02/bind%E5%92%8Clambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="next" title="bind和lambda表达式">
+      bind和lambda表达式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -367,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">函数类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">函数指针类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E4%B8%8E%E9%87%8D%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">函数指针与重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E6%88%96%E8%80%85%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">函数指针作为函数参数或者函数的返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Most-vexing-parse"><span class="nav-number">5.</span> <span class="nav-text">Most vexing parse</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">泛型算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">泛型算法的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">迭代器的分类：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%93%A8%E5%85%B5"><span class="nav-number">4.</span> <span class="nav-text">迭代器和哨兵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E7%AE%97%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">并发算法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
