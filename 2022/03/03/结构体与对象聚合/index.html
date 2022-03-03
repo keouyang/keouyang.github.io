@@ -20,20 +20,18 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="解决hexo插入图片无法正常显示">
-<meta property="og:type" content="article">
-<meta property="og:title" content="解决hexo插入图片无法正常显示">
-<meta property="og:url" content="http://example.com/2022/01/18/hexo_picture_pro/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="结构体与对象聚合">
+<meta property="og:url" content="http://example.com/2022/03/03/%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E5%AF%B9%E8%B1%A1%E8%81%9A%E5%90%88/index.html">
 <meta property="og:site_name" content="KOY-blog">
-<meta property="og:description" content="解决hexo插入图片无法正常显示">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-18T03:40:12.000Z">
-<meta property="article:modified_time" content="2022-01-18T03:40:12.000Z">
+<meta property="article:published_time" content="2022-03-03T12:35:02.000Z">
+<meta property="article:modified_time" content="2022-03-03T13:45:57.255Z">
 <meta property="article:author" content="OUYANG">
-<meta property="article:tag" content="yilia">
+<meta property="article:tag" content="Hexo,c++,slam">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/01/18/hexo_picture_pro/">
+<link rel="canonical" href="http://example.com/2022/03/03/%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E5%AF%B9%E8%B1%A1%E8%81%9A%E5%90%88/">
 
 
 <script id="page-configurations">
@@ -46,7 +44,7 @@
   };
 </script>
 
-  <title>解决hexo插入图片无法正常显示 | KOY-blog</title>
+  <title>结构体与对象聚合 | KOY-blog</title>
   
 
 
@@ -210,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/hexo_picture_pro/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/03/%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E5%AF%B9%E8%B1%A1%E8%81%9A%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/bury.jpg">
@@ -223,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          解决hexo插入图片无法正常显示
+          结构体与对象聚合
         </h1>
 
         <div class="post-meta">
@@ -232,17 +230,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-01-18 11:40:12" itemprop="dateCreated datePublished" datetime="2022-01-18T11:40:12+08:00">2022-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-yilia/" itemprop="url" rel="index"><span itemprop="name">hexo,yilia</span></a>
-                </span>
+              <time title="创建时间：2022-03-03 20:35:02 / 修改时间：21:45:57" itemprop="dateCreated datePublished" datetime="2022-03-03T20:35:02+08:00">2022-03-03</time>
             </span>
 
           
@@ -258,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>408</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -277,18 +267,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="解决hexo插入图片无法正常显示"><a href="#解决hexo插入图片无法正常显示" class="headerlink" title="解决hexo插入图片无法正常显示"></a>解决hexo插入图片无法正常显示</h1><hr>
+        <hr>
 <span id="more"></span>
-<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p><strong>图片只能放在source文件夹下可以建立一个名为image的文件夹，自己尝试放在其他地方发现不可行</strong><br><em>调用图片的方法</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片的描述](/image/xxx.png)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p><strong>首先需要修改_config.yml文件中的配置post_asset_folder设为true后，执行命令hexo new 文章名，在source/_posts中会生成与文章名相同的文件夹和一个文章名.md文件，将对应的图片放入对应的source/_posts文件夹下。即可使用相对路径引用图片资源。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](image.jpg)</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="hexo中发布文章后图片无法显示"><a href="#hexo中发布文章后图片无法显示" class="headerlink" title="hexo中发布文章后图片无法显示"></a>hexo中发布文章后图片无法显示</h1><p><strong>尝试过网上的教程，10个教程9个一模一样</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在多次google之后总算找到了解决方法</span><br><span class="line">1.需要在source文件夹下建立一个名为images（名称可以随意）的文件夹</span><br><span class="line">2.直接在md文件中调用图片即可，使用![图片描述](/images/xxx.jpg)</span><br></pre></td></tr></table></figure>
 
-
+<p>结构体：对基本数据结构进行扩展，将多个对象放置在一起视为一个整体</p>
+<p>– 结构体的声明与定义（注意定义后面要跟分号来表示结束）<br>– 仅有声明的结构体是不完全类型（ incomplete type ）不知道结构体内部的数据<br>  但可以定义指向结构体指针类型，因为指针的大小与指向对象的大小无关<br>– 结构体（以及类）的一处定义原则：翻译单元级别，即一个cpp文件只能由一个定义，但不同的cpp可以有相同的定义</p>
+<p>● 数据成员（数据域）的声明与初始化</p>
+<ul>
+<li><p>结构体定义内包含的数据成员是数据成员的声明，因为没有给它们开辟空间，在结构体对象定义的时候隐式定义数据成员<br>– （ C++11 ）数据成员可以使用 decltype()[使用表达式里面的数据类型] 来声明其类型，但不能使用 auto<br>– 数据成员声明时可以引入 const 、引用等限定<br>– 数据成员会在构造类对象时定义<br>– （ C++11 ）类内成员初始化 int x = 3;但还是一个声明<br>– 聚合初始化(Str m_str{3,4};类似与数组)</p>
+</li>
+<li><p>问题：初始化的时候要按顺序，当改变结构体内部结构时需要重新初始化</p>
+</li>
+<li><p>解决：指派初始化器 Str m_str{.x=3,.y=4};</p>
+</li>
+<li><p>mutable 限定符<br>使用mutable修饰结构体的数据成员时，当定义了const str时还是可以修改mutable修饰的数据成员</p>
+</li>
+</ul>
+<p>● 静态（static）数据成员 多个对象之间共享的数据成员(共享static数据成员的地址，不同cpp文件之间使用链接器进行链接)<br>– 定义方式的衍化<br>● C++98 ：类外定义(类型 类名::数据名称 int Str::x;)<br>  const 静态成员的类内初始化但没有开辟内存放置这个静态成员(编译器的常量，可以用于定义数组的大小)<br>● C++17 ：内联静态成员的初始化 加上关键词inline static(在不同的翻译单元内都可以保存其定义，链接的时候只保存一份)<br>– 可以使用 auto 推导类型:根据初始值来推导<br>● 静态数据成员的访问<br>– “.” 与“ -&gt;” 操作符<br>– “::” 操作符 类名::静态数据成员名 如Str::x;<br>● 在类的内部声明相同类型的静态数据成员</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Struct Str</span><br><span class="line">&#123;</span><br><span class="line">   //因为是静态成员所以不属于任何一个对象，各个对象共享一个静态数据地址</span><br><span class="line">   //使用时需要单独在外面定义 inline Str Str::x;来开辟内存空间</span><br><span class="line">   static Str x;</span><br><span class="line">   //inline static Str x;//不行，因为这个时候编译器还没有对Str有全面的了解，编译器认为Str还是一个不完全的类型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -296,9 +292,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/yilia/" rel="tag"># yilia</a>
-          </div>
 
         
 
@@ -306,13 +299,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/01/18/lvi-sam-code1/" rel="prev" title="LVI-SAM代码注释">
-      <i class="fa fa-chevron-left"></i> LVI-SAM代码注释
+    <a href="/2022/03/03/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="lambda表达式">
+      <i class="fa fa-chevron-left"></i> lambda表达式
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/01/18/hexo_optimization/" rel="next" title="基于yilia主题优化bolg的页面和功能">
-      基于yilia主题优化bolg的页面和功能 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -371,7 +361,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA"><span class="nav-number">1.</span> <span class="nav-text">解决hexo插入图片无法正常显示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="nav-number">1.1.</span> <span class="nav-text">绝对路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="nav-number">1.2.</span> <span class="nav-text">相对路径</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo%E4%B8%AD%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E5%90%8E%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA"><span class="nav-number">2.</span> <span class="nav-text">hexo中发布文章后图片无法显示</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

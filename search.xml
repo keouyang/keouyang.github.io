@@ -725,4 +725,34 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
 <h2 id="并发算法"><a href="#并发算法" class="headerlink" title="并发算法"></a>并发算法</h2><p>– std::execution::seq //顺序执行<br>– std::execution::par //并发执行<br>– std::execution::par_unseq //并发非顺序，使用SIMD（需要硬件支持，一条语句可以同时处理多个数据）<br>– std::execution::unseq //单线程 SIMD</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>lambda表达式</title>
+    <url>/2022/03/03/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>结构体与对象聚合</title>
+    <url>/2022/03/03/%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E5%AF%B9%E8%B1%A1%E8%81%9A%E5%90%88/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+<p>结构体：对基本数据结构进行扩展，将多个对象放置在一起视为一个整体</p>
+<p>– 结构体的声明与定义（注意定义后面要跟分号来表示结束）<br>– 仅有声明的结构体是不完全类型（ incomplete type ）不知道结构体内部的数据<br>  但可以定义指向结构体指针类型，因为指针的大小与指向对象的大小无关<br>– 结构体（以及类）的一处定义原则：翻译单元级别，即一个cpp文件只能由一个定义，但不同的cpp可以有相同的定义</p>
+<p>● 数据成员（数据域）的声明与初始化</p>
+<ul>
+<li><p>结构体定义内包含的数据成员是数据成员的声明，因为没有给它们开辟空间，在结构体对象定义的时候隐式定义数据成员<br>– （ C++11 ）数据成员可以使用 decltype()[使用表达式里面的数据类型] 来声明其类型，但不能使用 auto<br>– 数据成员声明时可以引入 const 、引用等限定<br>– 数据成员会在构造类对象时定义<br>– （ C++11 ）类内成员初始化 int x = 3;但还是一个声明<br>– 聚合初始化(Str m_str{3,4};类似与数组)</p>
+</li>
+<li><p>问题：初始化的时候要按顺序，当改变结构体内部结构时需要重新初始化</p>
+</li>
+<li><p>解决：指派初始化器 Str m_str{.x=3,.y=4};</p>
+</li>
+<li><p>mutable 限定符<br>使用mutable修饰结构体的数据成员时，当定义了const str时还是可以修改mutable修饰的数据成员</p>
+</li>
+</ul>
+<p>● 静态（static）数据成员 多个对象之间共享的数据成员(共享static数据成员的地址，不同cpp文件之间使用链接器进行链接)<br>– 定义方式的衍化<br>● C++98 ：类外定义(类型 类名::数据名称 int Str::x;)<br>  const 静态成员的类内初始化但没有开辟内存放置这个静态成员(编译器的常量，可以用于定义数组的大小)<br>● C++17 ：内联静态成员的初始化 加上关键词inline static(在不同的翻译单元内都可以保存其定义，链接的时候只保存一份)<br>– 可以使用 auto 推导类型:根据初始值来推导<br>● 静态数据成员的访问<br>– “.” 与“ -&gt;” 操作符<br>– “::” 操作符 类名::静态数据成员名 如Str::x;<br>● 在类的内部声明相同类型的静态数据成员</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Struct Str</span><br><span class="line">&#123;</span><br><span class="line">   //因为是静态成员所以不属于任何一个对象，各个对象共享一个静态数据地址</span><br><span class="line">   //使用时需要单独在外面定义 inline Str Str::x;来开辟内存空间</span><br><span class="line">   static Str x;</span><br><span class="line">   //inline static Str x;//不行，因为这个时候编译器还没有对Str有全面的了解，编译器认为Str还是一个不完全的类型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
 </search>
