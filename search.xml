@@ -755,4 +755,20 @@ ate在打开后可以修改写和读的位置，通过修改文件中的指针�
 <p>● 静态（static）数据成员 多个对象之间共享的数据成员(共享static数据成员的地址，不同cpp文件之间使用链接器进行链接)<br>– 定义方式的衍化<br>● C++98 ：类外定义(类型 类名::数据名称 int Str::x;)<br>  const 静态成员的类内初始化但没有开辟内存放置这个静态成员(编译器的常量，可以用于定义数组的大小)<br>● C++17 ：内联静态成员的初始化 加上关键词inline static(在不同的翻译单元内都可以保存其定义，链接的时候只保存一份)<br>– 可以使用 auto 推导类型:根据初始值来推导<br>● 静态数据成员的访问<br>– “.” 与“ -&gt;” 操作符<br>– “::” 操作符 类名::静态数据成员名 如Str::x;<br>● 在类的内部声明相同类型的静态数据成员</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Struct Str</span><br><span class="line">&#123;</span><br><span class="line">   //因为是静态成员所以不属于任何一个对象，各个对象共享一个静态数据地址</span><br><span class="line">   //使用时需要单独在外面定义 inline Str Str::x;来开辟内存空间</span><br><span class="line">   static Str x;</span><br><span class="line">   //inline static Str x;//不行，因为这个时候编译器还没有对Str有全面的了解，编译器认为Str还是一个不完全的类型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
+  <entry>
+    <title>类-成员函数</title>
+    <url>/2022/03/07/%E7%B1%BB-%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<hr>
+<span id="more"></span>
+
+<p>● 可以在结构体中定义函数，作为其成员的一部分：对内操作数据成员，对外提供调用接口<br>– 在结构体中将数据与相关的成员函数组合在一起将形成类，是 C++ 在 C 基础上引入的概念<br>– 关键字 class<br>– 类可视为一种抽象数据类型，通过相应的接口（成员函数）进行交互<br>– 类本身形成域，称为类域<br>● 成员函数的声明与定义<br>– 类内定义（隐式内联）<br>– 类内声明 + 类外定义<br>– 类与编译期的两遍处理:<br>  编译期从上到下执行的过程中，遇到函数的定义先不进行里面的读取，先读取函数的声明（所以函数的类型需要已知）<br>  先往下继续读取类中的数据，之后再来读取函数内部的定义<br>– 成员函数与尾随返回类型（ trail returning type ）</p>
+<p>● 成员函数与 this 指针<br>– 使用 this 指针引用当前对象，作为成员函数的隐藏变量，地址为当前对象的地址<br>  this -&gt; Str * const(this指向的地址不能修改,即指针的内容不能修改)<br>  this -&gt; const Str * const (this指向的地址不能修改且地址上的内容也不能修改)<br>– 基于 const 的成员函数重载 在成员函数后面添加const关键字，那么隐藏的变量变为 const Str * const，所以可以重载，且函数内部不能修改成员参数</p>
+<p>● 成员函数的名称查找与隐藏关系<br>– 函数内部（包括形参名称）隐藏函数外部，参数的作用域关系<br>– 类内部名称隐藏类外部<br>– 使用 this 或域操作符Str::引入依赖型名称查找 针对于类中的数据成员<br>● 静态成员函数 在函数前面加入static关键字 此函数会被该类的所有对象共享</p>
+<ul>
+<li>不能调用对象的非静态数据成员，因为静态函数不包含隐藏的形参this<br>– 在静态成员函数中返回静态数据成员</li>
+<li>调用时使用Str::函数名调用</li>
+<li>单例模式：使用静态函数，在函数内部生成一个静态的Str（需要其他函数的辅助）<br>● 成员函数基于引用限定符的重载（ C++11 ）</li>
+</ul>
+]]></content>
+  </entry>
 </search>
